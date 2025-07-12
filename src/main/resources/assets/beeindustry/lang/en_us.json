@@ -1,0 +1,13 @@
+{
+  "itemGroup.beeindustry": "Example Mod Tab",
+  "block.beeindustry.example_block": "Example Block",
+  "item.beeindustry.example_item": "Example Item",
+
+  "beeindustry.configuration.title": "BeeIndustry Configs",
+  "beeindustry.configuration.section.beeindustry.common.toml": "BeeIndustry Configs",
+  "beeindustry.configuration.section.beeindustry.common.toml.title": "BeeIndustry Configs",
+  "beeindustry.configuration.items": "Item List",
+  "beeindustry.configuration.logDirtBlock": "Log Dirt Block",
+  "beeindustry.configuration.magicNumberIntroduction": "Magic Number Text",
+  "beeindustry.configuration.magicNumber": "Magic Number"
+}
