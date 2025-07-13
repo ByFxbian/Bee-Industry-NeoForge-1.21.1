@@ -1,7 +1,9 @@
 {
-  "itemGroup.beeindustry": "Example Mod Tab",
-  "block.beeindustry.example_block": "Example Block",
   "item.beeindustry.example_item": "Example Item",
+
+  "block.beeindustry.example_block": "Example Block",
+
+  "creativetab.beeindustry.example": "Example",
 
   "beeindustry.configuration.title": "BeeIndustry Configs",
   "beeindustry.configuration.section.beeindustry.common.toml": "BeeIndustry Configs",
