@@ -1,0 +1,22 @@
+{
+  "attributes": {
+    "attackDamage": 1.5,
+    "maxHealth": 25.0,
+    "productivity": 1,
+    "speed": 3,
+    "temper": 1
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/stone_bee.png",
+  "createNectar": false,
+  "description": "A rocky bee.",
+  "fireproof": false,
+  "flowerBlockTag": "minecraft:stone",
+  "invulnerable": false,
+  "name": "stone_bee",
+  "pollenColor": "#FFFFFF",
+  "primaryColor": "#808080",
+  "productionItem": "minecraft:cobblestone",
+  "secondaryColor": "#A9A9A9",
+  "size": 1.0,
+  "translucent": false
+}

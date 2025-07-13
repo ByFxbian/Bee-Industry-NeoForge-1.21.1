@@ -1,0 +1,22 @@
+{
+  "attributes": {
+    "attackDamage": 1.0,
+    "maxHealth": 20.0,
+    "productivity": 1,
+    "speed": 8,
+    "temper": 8
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/farming_bee.png",
+  "createNectar": false,
+  "description": "A hard-working farming bee.",
+  "fireproof": false,
+  "flowerBlockTag": "minecraft:farmland",
+  "invulnerable": false,
+  "name": "farming_bee",
+  "pollenColor": "#8f6700",
+  "primaryColor": "#8f6700",
+  "productionItem": "minecraft:wheat_seeds",
+  "secondaryColor": "#513900",
+  "size": 1.0,
+  "translucent": false
+}

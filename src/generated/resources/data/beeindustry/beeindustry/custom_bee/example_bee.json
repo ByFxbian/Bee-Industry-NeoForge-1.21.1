@@ -1,0 +1,22 @@
+{
+  "attributes": {
+    "attackDamage": 1.0,
+    "maxHealth": 20.0,
+    "productivity": 1,
+    "speed": 1,
+    "temper": 1
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/example_bee.png",
+  "createNectar": true,
+  "description": "Empty Description lol",
+  "fireproof": true,
+  "flowerBlockTag": "beeindustry:flowers/example_bee",
+  "invulnerable": false,
+  "name": "example_bee",
+  "pollenColor": "#f2f24f",
+  "primaryColor": "#f2f24f",
+  "productionItem": "minecraft:honeycomb",
+  "secondaryColor": "#d0581f",
+  "size": 1.0,
+  "translucent": false
+}

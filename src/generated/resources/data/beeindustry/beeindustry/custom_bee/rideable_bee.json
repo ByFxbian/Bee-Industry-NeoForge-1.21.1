@@ -1,0 +1,22 @@
+{
+  "attributes": {
+    "attackDamage": 2.0,
+    "maxHealth": 50.0,
+    "productivity": 2,
+    "speed": 8,
+    "temper": 2
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/example_bee.png",
+  "createNectar": false,
+  "description": "A large, friendly bee you can ride.",
+  "fireproof": false,
+  "flowerBlockTag": "",
+  "invulnerable": false,
+  "name": "rideable_bee",
+  "pollenColor": "#4B8BBE",
+  "primaryColor": "#4B8BBE",
+  "productionItem": "minecraft:string",
+  "secondaryColor": "#FFFFFF",
+  "size": 2.5,
+  "translucent": false
+}

@@ -1,0 +1,22 @@
+{
+  "attributes": {
+    "attackDamage": 1.0,
+    "maxHealth": 20.0,
+    "productivity": 5,
+    "speed": 5,
+    "temper": 2
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/gold_bee.png",
+  "createNectar": true,
+  "description": "A shiny golden bee!",
+  "fireproof": false,
+  "flowerBlockTag": "beeindustry:flowers/gold_bee",
+  "invulnerable": false,
+  "name": "gold_bee",
+  "pollenColor": "#FFD700",
+  "primaryColor": "#FFD700",
+  "productionItem": "minecraft:gold_nugget",
+  "secondaryColor": "#FF1500",
+  "size": 1.2,
+  "translucent": false
+}

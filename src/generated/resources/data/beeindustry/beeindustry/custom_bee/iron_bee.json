@@ -1,0 +1,22 @@
+{
+  "attributes": {
+    "attackDamage": 1.0,
+    "maxHealth": 20.0,
+    "productivity": 3,
+    "speed": 5,
+    "temper": 5
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/iron_bee.png",
+  "createNectar": true,
+  "description": "Iron Bee!",
+  "fireproof": false,
+  "flowerBlockTag": "beeindustry:flowers/iron_bee",
+  "invulnerable": false,
+  "name": "iron_bee",
+  "pollenColor": "#f2f24f",
+  "primaryColor": "#f2f24f",
+  "productionItem": "minecraft:iron_nugget",
+  "secondaryColor": "#d0581f",
+  "size": 1.5,
+  "translucent": false
+}

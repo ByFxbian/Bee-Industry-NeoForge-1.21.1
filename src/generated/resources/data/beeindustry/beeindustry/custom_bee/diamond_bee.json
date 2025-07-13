@@ -1,0 +1,22 @@
+{
+  "attributes": {
+    "attackDamage": 2.5,
+    "maxHealth": 35.0,
+    "productivity": 10,
+    "speed": 9,
+    "temper": 5
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/diamond_bee.png",
+  "createNectar": false,
+  "description": "The pinnacle of bee evolution.",
+  "fireproof": true,
+  "flowerBlockTag": "minecraft:diamond_ore",
+  "invulnerable": false,
+  "name": "diamond_bee",
+  "pollenColor": "#FFFFFF",
+  "primaryColor": "#6DECF5",
+  "productionItem": "minecraft:diamond",
+  "secondaryColor": "#ABF6FB",
+  "size": 1.4,
+  "translucent": true
+}

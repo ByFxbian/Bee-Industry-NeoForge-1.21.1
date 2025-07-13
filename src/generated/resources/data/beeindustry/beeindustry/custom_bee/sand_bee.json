@@ -1,0 +1,22 @@
+{
+  "attributes": {
+    "attackDamage": 1.0,
+    "maxHealth": 15.0,
+    "productivity": 1,
+    "speed": 4,
+    "temper": 1
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/sand_bee.png",
+  "createNectar": false,
+  "description": "A grainy bee.",
+  "fireproof": false,
+  "flowerBlockTag": "minecraft:sand",
+  "invulnerable": false,
+  "name": "sand_bee",
+  "pollenColor": "#F4A460",
+  "primaryColor": "#F4A460",
+  "productionItem": "minecraft:sand",
+  "secondaryColor": "#F0E68C",
+  "size": 1.0,
+  "translucent": false
+}

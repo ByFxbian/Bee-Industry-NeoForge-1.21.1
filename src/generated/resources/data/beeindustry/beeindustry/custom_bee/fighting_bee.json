@@ -1,0 +1,22 @@
+{
+  "attributes": {
+    "attackDamage": 6.0,
+    "maxHealth": 40.0,
+    "productivity": 10,
+    "speed": 7,
+    "temper": 10
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/iron_bee.png",
+  "createNectar": false,
+  "description": "A bee ready for battle.",
+  "fireproof": false,
+  "flowerBlockTag": "",
+  "invulnerable": true,
+  "name": "fighting_bee",
+  "pollenColor": "#FFFFFF",
+  "primaryColor": "#B40404",
+  "productionItem": "minecraft:string",
+  "secondaryColor": "#FF0000",
+  "size": 1.1,
+  "translucent": false
+}

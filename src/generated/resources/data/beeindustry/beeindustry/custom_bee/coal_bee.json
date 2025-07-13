@@ -1,0 +1,22 @@
+{
+  "attributes": {
+    "attackDamage": 1.0,
+    "maxHealth": 20.0,
+    "productivity": 2,
+    "speed": 4,
+    "temper": 2
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/coal_bee.png",
+  "createNectar": false,
+  "description": "A dusty bee, feels warm.",
+  "fireproof": false,
+  "flowerBlockTag": "minecraft:coal_ore",
+  "invulnerable": false,
+  "name": "coal_bee",
+  "pollenColor": "#4A4A4A",
+  "primaryColor": "#343434",
+  "productionItem": "minecraft:coal",
+  "secondaryColor": "#1E1E1E",
+  "size": 1.0,
+  "translucent": false
+}

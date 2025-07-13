@@ -1,0 +1,22 @@
+{
+  "attributes": {
+    "attackDamage": 2.0,
+    "maxHealth": 30.0,
+    "productivity": 5,
+    "speed": 5,
+    "temper": 5
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/mining_bee.png",
+  "createNectar": false,
+  "description": "A bee that loves to dig.",
+  "fireproof": false,
+  "flowerBlockTag": "beeindustry:mineable_by_bee",
+  "invulnerable": false,
+  "name": "mining_bee",
+  "pollenColor": "#FFFFFF",
+  "primaryColor": "#6E6E6E",
+  "productionItem": "minecraft:cobblestone",
+  "secondaryColor": "#848484",
+  "size": 1.0,
+  "translucent": false
+}

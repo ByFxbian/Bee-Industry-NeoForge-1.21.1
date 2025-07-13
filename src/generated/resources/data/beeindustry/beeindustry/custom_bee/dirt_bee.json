@@ -1,0 +1,22 @@
+{
+  "attributes": {
+    "attackDamage": 1.0,
+    "maxHealth": 20.0,
+    "productivity": 1,
+    "speed": 5,
+    "temper": 1
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/dirt_bee.png",
+  "createNectar": false,
+  "description": "A very common bee.",
+  "fireproof": false,
+  "flowerBlockTag": "minecraft:dirt",
+  "invulnerable": false,
+  "name": "dirt_bee",
+  "pollenColor": "#966A4A",
+  "primaryColor": "#966A4A",
+  "productionItem": "minecraft:dirt",
+  "secondaryColor": "#5A3A22",
+  "size": 1.0,
+  "translucent": false
+}
