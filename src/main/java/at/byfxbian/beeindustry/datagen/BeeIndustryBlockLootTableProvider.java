@@ -19,6 +19,12 @@ public class BeeIndustryBlockLootTableProvider extends BlockLootSubProvider {
     @Override
     protected void generate() {
         dropSelf(BeeIndustryBlocks.EXAMPLE_BLOCK.get());
+        dropSelf(BeeIndustryBlocks.ADVANCED_BEEHIVE.get());
+        dropSelf(BeeIndustryBlocks.BEEPOST.get());
+        dropSelf(BeeIndustryBlocks.DIRT_NEST.get());
+        dropSelf(BeeIndustryBlocks.STONE_NEST.get());
+        dropSelf(BeeIndustryBlocks.SAND_NEST.get());
+        dropSelf(BeeIndustryBlocks.GRAVEL_NEST.get());
     }
 
     @Override

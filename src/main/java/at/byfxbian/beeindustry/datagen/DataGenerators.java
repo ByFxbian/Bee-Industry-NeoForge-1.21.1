@@ -30,7 +30,7 @@ public class DataGenerators {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
-        //generator.addProvider(event.includeServer(), new BeeIndustryRegistryProvider(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new BeeIndustryRegistryProvider(packOutput, lookupProvider));
 
         generator.addProvider(event.includeServer(), new LootTableProvider(packOutput, Collections.emptySet(),
                 List.of(new LootTableProvider.SubProviderEntry(BeeIndustryBlockLootTableProvider::new, LootContextParamSets.BLOCK)), lookupProvider));
@@ -42,8 +42,9 @@ public class DataGenerators {
 
         generator.addProvider(event.includeServer(), new BeeIndustryDataMapProvider(packOutput, lookupProvider));
 
-        generator.addProvider(event.includeClient(), new BeeIndustryItemModelProvider(packOutput, existingFileHelper));
         generator.addProvider(event.includeClient(), new BeeIndustryBlockStateProvider(packOutput, existingFileHelper));
+
+        generator.addProvider(event.includeClient(), new BeeIndustryItemModelProvider(packOutput, existingFileHelper));
 
         generator.addProvider(event.includeClient(), new BeeIndustryLanguageProvider(packOutput, "en_us"));
     }

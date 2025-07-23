@@ -38,7 +38,7 @@ neoForge {
     }
 
     // This line is optional. Access Transformers are automatically detected
-    // accessTransformers = project.files('src/main/resources/META-INF/accesstransformer.cfg')
+    accessTransformers = project.files('src/main/templates/META-INF/accesstransformer.cfg')
 
     // Default run configurations.
     // These can be tweaked, removed, or duplicated as needed.
@@ -151,8 +151,23 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
             mod_description        : mod_description
     ]
     inputs.properties replaceProperties
-    expand replaceProperties
+
+    /*expand replaceProperties
     from "src/main/templates"
+    into "build/generated/sources/modMetadata"*/
+    from("src/main/templates") {
+        // HIER IST DIE MAGIE:
+        // Wir wenden die "expand"-Funktion nur auf die toml-Datei an.
+        include 'META-INF/neoforge.mods.toml'
+        expand replaceProperties
+    }
+
+    from("src/main/templates") {
+        // Wir schließen die toml-Datei aus, um sie nicht doppelt zu kopieren.
+        // Alle anderen Dateien (wie accesstransformer.cfg) werden ohne "expand" kopiert.
+        exclude 'META-INF/neoforge.mods.toml'
+    }
+
     into "build/generated/sources/modMetadata"
 }
 // Include the output of "generateModMetadata" as an input directory for the build

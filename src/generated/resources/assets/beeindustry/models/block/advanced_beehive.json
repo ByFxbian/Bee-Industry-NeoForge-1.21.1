@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "bottom": "beeindustry:block/advanced_beehive_bottom",
+    "front": "beeindustry:block/advanced_beehive_front",
+    "side": "beeindustry:block/advanced_beehive_side",
+    "top": "beeindustry:block/advanced_beehive_top"
+  }
+}

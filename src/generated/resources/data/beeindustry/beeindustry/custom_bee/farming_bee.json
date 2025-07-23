@@ -16,6 +16,7 @@
   "pollenColor": "#8f6700",
   "primaryColor": "#8f6700",
   "productionItem": "minecraft:wheat_seeds",
+  "renderer": "farming_bee",
   "secondaryColor": "#513900",
   "size": 1.0,
   "translucent": false

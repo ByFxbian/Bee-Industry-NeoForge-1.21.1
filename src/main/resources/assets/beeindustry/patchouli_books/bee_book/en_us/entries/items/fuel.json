@@ -1,0 +1,15 @@
+{
+  "name": "Sweet Honey (Fuel)",
+  "category": "beeindustry:items",
+  "icon": "beeindustry:sweet_honey",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Beepost requires a constant supply of fuel to send its worker bees out into the world. The only accepted fuel is $(l)Sweet Honey$().$(br2)Each time a bee is sent to work, one unit of fuel is consumed. Make sure to keep the Beepost stocked!"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "beeindustry:sweet_honey"
+    }
+  ]
+}

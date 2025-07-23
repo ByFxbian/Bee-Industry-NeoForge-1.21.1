@@ -1,0 +1,34 @@
+{
+  "name": "Machine Upgrades",
+  "category": "beeindustry:items",
+  "icon": "beeindustry:efficiency_upgrade",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "anchor": "efficiency",
+      "text": "$(l)Efficiency Upgrades$() increase the speed of production cycles in the Advanced Beehive and speed up the work of bees assigned to a Beepost.$(br2)They can be placed in both the machine's global upgrade slots and the bee-specific slots."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "beeindustry:efficiency_upgrade"
+    },
+    {
+      "type": "patchouli:text",
+      "anchor": "quantity",
+      "text": "$(l)Quantity Upgrades$() give a chance for your bees to produce bonus items with each cycle. The more upgrades you install, the higher the chance for extra resources."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "beeindustry:quantity_upgrade"
+    },
+    {
+      "type": "patchouli:text",
+      "anchor": "range",
+      "text": "$(l)Range Upgrades$() increase the range of the production area around the machine. The more upgrades you install, the higher the farther away bees can work (especially useful for big farming areas)."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "beeindustry:range_upgrade"
+    }
+  ]
+}

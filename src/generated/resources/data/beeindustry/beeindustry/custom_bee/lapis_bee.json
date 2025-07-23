@@ -1,0 +1,22 @@
+{
+  "attributes": {
+    "attackDamage": 1.5,
+    "maxHealth": 24.0,
+    "productivity": 4,
+    "speed": 7,
+    "temper": 2
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/lapis_bee.png",
+  "createNectar": false,
+  "description": "An enchanting, blue bee.",
+  "fireproof": false,
+  "flowerBlockTag": "minecraft:lapis_ore",
+  "invulnerable": false,
+  "name": "lapis_bee",
+  "pollenColor": "#1E90FF",
+  "primaryColor": "#00008B",
+  "productionItem": "minecraft:lapis_lazuli",
+  "secondaryColor": "#4169E1",
+  "size": 1.1,
+  "translucent": false
+}

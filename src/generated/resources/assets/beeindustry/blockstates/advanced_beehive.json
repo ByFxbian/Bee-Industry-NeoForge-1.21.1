@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "beeindustry:block/advanced_beehive",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "beeindustry:block/advanced_beehive"
+    },
+    "facing=south": {
+      "model": "beeindustry:block/advanced_beehive",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "beeindustry:block/advanced_beehive",
+      "y": 270
+    }
+  }
+}

@@ -4,8 +4,12 @@ import at.byfxbian.beeindustry.BeeIndustry;
 import at.byfxbian.beeindustry.api.CustomBee;
 import at.byfxbian.beeindustry.datagen.custom.CustomBees;
 import at.byfxbian.beeindustry.entity.BeeIndustryEntities;
+import at.byfxbian.beeindustry.item.custom.ApiaristsCompassItem;
+import at.byfxbian.beeindustry.item.custom.BeeContainerItem;
+import at.byfxbian.beeindustry.item.custom.BeekeeperArmorItem;
 import at.byfxbian.beeindustry.item.custom.CustomBeeSpawnEggItem;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SpawnEggItem;
 import net.neoforged.bus.api.IEventBus;
@@ -23,25 +27,35 @@ public class BeeIndustryItems {
             () -> new Item(new Item.Properties())
     );
 
-   // public static final Map<ResourceKey<CustomBee>, DeferredHolder<Item, Item>> SPAWN_EGGS = new HashMap<>();
+    public static final DeferredItem<Item> BEE_CONTAINER = ITEMS.register("bee_container",
+            () -> new BeeContainerItem(new Item.Properties().stacksTo(1)));
 
-    /*static {
-        for (ResourceKey<CustomBee> beeKey : CustomBees.getAllBeeKeys()) {
-            CustomBee beeData = CustomBees.getBuiltInBee(beeKey);
-            if(beeData != null) {
-                int primaryColor = Integer.parseInt(beeData.primaryColor().substring(1), 16);
-                int secondaryColor = Integer.parseInt(beeData.secondaryColor().substring(1), 16);
+    public static final DeferredItem<Item> EFFICIENCY_UPGRADE = ITEMS.register("efficiency_upgrade",
+            () -> new Item(new Item.Properties().stacksTo(16)));
 
-                ITEMS.register(beeKey.location().getPath() + "_spawn_egg",
-                        () -> new SpawnEggItem(
-                                BeeIndustryEntities.BEE_ENTITY_TYPES.get(beeKey).get(),
-                                primaryColor,
-                                secondaryColor,
-                                new Item.Properties()
-                        ));
-            }
-        }
-    }*/
+    public static final DeferredItem<Item> QUANTITY_UPGRADE = ITEMS.register("quantity_upgrade",
+            () -> new Item(new Item.Properties().stacksTo(16)));
+
+    public static final DeferredItem<Item> SWEET_HONEY = ITEMS.register("sweet_honey",
+            () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> BEE_SMOKER = ITEMS.register("bee_smoker",
+            () -> new Item(new Item.Properties().stacksTo(1)));
+
+    public static final DeferredItem<Item> APIARISTS_COMPASS = ITEMS.register("apiarists_compass",
+            () -> new ApiaristsCompassItem(new Item.Properties().stacksTo(1)));
+
+    public static final DeferredItem<Item> RANGE_UPGRADE = ITEMS.register("range_upgrade",
+            () -> new Item(new Item.Properties().stacksTo(16)));
+
+    public static final DeferredItem<Item> BEEKEEPER_HELMET = ITEMS.register("beekeeper_helmet",
+            () -> new BeekeeperArmorItem(BeeIndustryArmorMaterials.BEEKEEPER, ArmorItem.Type.HELMET, new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<Item> BEEKEEPER_CHESTPLATE = ITEMS.register("beekeeper_chestplate",
+            () -> new BeekeeperArmorItem(BeeIndustryArmorMaterials.BEEKEEPER, ArmorItem.Type.CHESTPLATE, new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<Item> BEEKEEPER_LEGGINGS = ITEMS.register("beekeeper_leggings",
+            () -> new BeekeeperArmorItem(BeeIndustryArmorMaterials.BEEKEEPER, ArmorItem.Type.LEGGINGS, new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<Item> BEEKEEPER_BOOTS = ITEMS.register("beekeeper_boots",
+            () -> new BeekeeperArmorItem(BeeIndustryArmorMaterials.BEEKEEPER, ArmorItem.Type.BOOTS, new Item.Properties().stacksTo(1)));
 
     public static final DeferredItem<Item> BEE_SPAWN_EGG = ITEMS.register("custom_bee_spawn_egg",
             () -> new CustomBeeSpawnEggItem(

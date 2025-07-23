@@ -1,0 +1,21 @@
+{
+  "name": "The Advanced Beehive",
+  "category": "beeindustry:machines",
+  "icon": "beeindustry:advanced_beehive",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Advanced Beehive is the heart of your resource production. By placing a specific Resource Bee inside, it will start a work cycle to generate materials.$(br2)Unlike worker bees, these bees do not leave the hive. They require their specific 'flower' block to be placed somewhere nearby to be able to work."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Operation",
+      "text": "1. Place a Bee Container with a Resource Bee in the input slot.$(br)2. The bee will be released and start its work cycle, flying to its required production block.$(br)3. Upon returning, the hive will start producing. The production speed can be increased with $(l:beeindustry:items/upgrades#efficiency)Efficiency Upgrades$() and the output can be boosted with $(l:beeindustry:items/upgrades#quantity)Quantity Upgrades$()."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "beeindustry:advanced_beehive",
+      "text": "An essential machine for any aspiring beekeeper."
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": [
+    "minecraft:beach",
+    "minecraft:desert"
+  ],
+  "features": "beeindustry:sand_nest_placed",
+  "step": "top_layer_modification"
+}

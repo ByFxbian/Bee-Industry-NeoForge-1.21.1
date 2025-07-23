@@ -1,0 +1,21 @@
+{
+  "type": "beeindustry:nest_placement",
+  "config": {
+    "targets": [
+      {
+        "state": {
+          "Name": "beeindustry:sand_nest",
+          "Properties": {
+            "facing": "north"
+          }
+        },
+        "target": {
+          "block_state": {
+            "Name": "minecraft:sand"
+          },
+          "predicate_type": "minecraft:blockstate_match"
+        }
+      }
+    ]
+  }
+}

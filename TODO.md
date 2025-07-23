@@ -3,7 +3,7 @@ Hier ist eine strukturierte Übersicht der geplanten Features und Konzepte für 
 
 ## Bienen-Konzepte
 ### Ressourcen-Bienen
-- [ ] **Basis-Ressourcen:**
+- [x] **Basis-Ressourcen:**
     - [x] Dirt-Biene
     - [x] Sand-Biene
     - [x] Gravel-Biene
@@ -16,8 +16,8 @@ Hier ist eine strukturierte Übersicht der geplanten Features und Konzepte für 
     - [x] Iron-Biene (Eisen)
     - [x] Copper-Biene
     - [x] Gold-Biene
-    - [ ] Redstone-Biene
-    - [ ] Lapis-Biene
+    - [x] Redstone-Biene
+    - [x] Lapis-Biene
     - [x] Diamond-Biene
     - [x] Emerald-Biene
     - [ ] Amethyst-Biene
@@ -27,8 +27,10 @@ Hier ist eine strukturierte Übersicht der geplanten Features und Konzepte für 
     - [ ] Bone-Biene (Knochen)
     - [ ] Slime-Biene
     - [ ] Netherite-Biene (Netherite-Schrott)
+    - [ ] Blaze-Biene
 - [ ] **End-Bienen:**
     - [ ] Endstone-Biene
+    - [ ] Ender-Biene
 - [ ] **Wasser/Ozean-Bienen:**
     - [ ] Coral-Biene
     - [ ] Aquamarin-Biene (Prismarin)
@@ -37,6 +39,9 @@ Hier ist eine strukturierte Übersicht der geplanten Features und Konzepte für 
     - [ ] Lava-Biene
     - [ ] Honey-Biene
     - [ ] Obsidian-Biene
+    - [ ] Resin-Biene
+    - [ ] Ice/Snow-Biene
+    - [ ] Breeze-Biene
 
 ### Arbeiterbienen
 - [x] **Mining-Biene:** Baut in einem bestimmten Bereich Blöcke ab (eventuell in Verbindung mit dem "Beepost").
@@ -75,7 +80,7 @@ Hier ist eine strukturierte Übersicht der geplanten Features und Konzepte für 
     - [x] Anzeige für den "SweetHoney"-Treibstoff.
 
 ### Welt-generierte Nester
-- [ ] Nester für Basis-Bienen (Dirt, Stone, Sand, Gravel) in der Welt spawnen lassen.
+- [x] Nester für Basis-Bienen (Dirt, Stone, Sand, Gravel) in der Welt spawnen lassen.
 - [ ] Unterschiedliche Holz-Nester für die Holz-Biene in den entsprechenden Biomen (Eiche, Birke etc.).
 
 ### Sonstige Blöcke
@@ -120,7 +125,7 @@ Hier ist eine strukturierte Übersicht der geplanten Features und Konzepte für 
 ## Offene Design-Fragen & Konzepte
 - [ ] **Holz-Bienen:** Wie genau wird unterschieden, welches Holz produziert wird? Abhängig vom nächstgelegenen Setzling/Holzblock?
 - [x] **Beepost-Design:** Wie soll der Block genau aussehen?
-- [ ] **Reitbare Biene:** Wie wird sie gesteuert? Hat sie besondere Fähigkeiten?
+- [x] **Reitbare Biene:** Wie wird sie gesteuert? Hat sie besondere Fähigkeiten?
 - [ ] **Balancing:** Wie werden die Produktionsraten, Upgrade-Kosten und Zucht-Chancen ausbalanciert, um fair und motivierend zu sein?
 - [ ] **Crafting-Rezepte:** Detaillierte Rezepte für alle Items und Blöcke festlegen.
 
@@ -137,6 +142,9 @@ Hier ist eine strukturierte Übersicht der geplanten Features und Konzepte für 
 - [ ] **Nest-Locator**: Ein einzigartiges Werkzeug wie die "Bienen-Flöte", die beim Benutzen ein leises Summen von nahen, unentdeckten Nestern als Antwort erhält.
 
 - [ ] **Mehr Inhalte**: Der vollständige Zuchtbaum muss noch entworfen und als JSON-Dateien implementiert werden. Es fehlen noch viele Charms, Upgrades und Bienenarten, um die Welt zu füllen.
+
+- [ ] **Locksystem**: Nicht alle Bienen sollen Nester haben, nur die Standardbienen. Andere Bienen z.B. GlowStone Biene soll durch einen "Anlock"/"Lure" Block angelockt werden können. Dieser Block wird in einem Biom/Gebiet/auf einem bestimmten Block platziert und mit Sweet Honey als Fuel befüllt und in ca 30sek oder mehr wird eine Biene vom passendem Typ "angelockt" bzw weiter weg gespawnt und fliegt zum Block und muss dann per Hand mit einem BeeContainer gefangen werden.
+
 
 # Projektziel & Kernkonzept:
 "Bee Industry" ist eine Mod, die die Bienenhaltung zu einem tiefgründigen, industriellen System ausbaut. Das Kern-Gameplay dreht sich um das Entdecken, Züchten und Nutzen von dutzenden einzigartigen Bienenarten. Spieler bauen fortschrittliche Maschinen, um die Fähigkeiten dieser Bienen zu nutzen und alles zu automatisieren – von der Ressourcengewinnung und Landwirtschaft bis hin zur Verteidigung der eigenen Basis. Die grundlegende Design-Philosophie ist, ein tiefes Fortschrittssystem zu schaffen und die Mod durch datengesteuerte Systeme extrem konfigurierbar für Modpack-Ersteller zu machen.

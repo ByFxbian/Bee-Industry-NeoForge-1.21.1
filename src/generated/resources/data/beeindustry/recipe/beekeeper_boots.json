@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "H": {
+      "item": "minecraft:honeycomb"
+    },
+    "I": {
+      "item": "minecraft:leather_boots"
+    }
+  },
+  "pattern": [
+    " H ",
+    "HIH",
+    " H "
+  ],
+  "result": {
+    "count": 1,
+    "id": "beeindustry:beekeeper_boots"
+  }
+}

@@ -16,7 +16,7 @@ import java.util.Map;
 
 public class BeeDefinitionManager extends SimpleJsonResourceReloadListener {
     private static final Gson GSON = new Gson();
-    private static final String FOLDER_NAME = "custom_bees";
+    private static final String FOLDER_NAME = "beeindustry/custom_bee";
 
     private static final Map<ResourceLocation, CustomBee> BEE_DEFINITIONS = new HashMap<>();
 

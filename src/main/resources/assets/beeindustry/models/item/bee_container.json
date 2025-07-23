@@ -1,0 +1,14 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "beeindustry:item/bee_container_empty"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "beeindustry:filled": 1
+      },
+      "model": "beeindustry:item/bee_container_filled"
+    }
+  ]
+}

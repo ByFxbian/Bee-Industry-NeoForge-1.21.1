@@ -16,6 +16,7 @@
   "pollenColor": "#8CFFB9",
   "primaryColor": "#41F384",
   "productionItem": "minecraft:emerald",
+  "renderer": "emerald_bee",
   "secondaryColor": "#17AC54",
   "size": 1.3,
   "translucent": true

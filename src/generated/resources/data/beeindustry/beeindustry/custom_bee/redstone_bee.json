@@ -1,0 +1,22 @@
+{
+  "attributes": {
+    "attackDamage": 1.0,
+    "maxHealth": 20.0,
+    "productivity": 4,
+    "speed": 6,
+    "temper": 3
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/redstone_bee.png",
+  "createNectar": false,
+  "description": "A bee buzzing with energy.",
+  "fireproof": false,
+  "flowerBlockTag": "minecraft:redstone_ore",
+  "invulnerable": false,
+  "name": "redstone_bee",
+  "pollenColor": "#FF4500",
+  "primaryColor": "#FF0000",
+  "productionItem": "minecraft:redstone",
+  "secondaryColor": "#8B0000",
+  "size": 1.0,
+  "translucent": false
+}

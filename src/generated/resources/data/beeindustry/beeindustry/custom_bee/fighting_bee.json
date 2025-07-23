@@ -6,7 +6,7 @@
     "speed": 7,
     "temper": 10
   },
-  "beeTexture": "beeindustry:textures/entity/bee/iron_bee.png",
+  "beeTexture": "beeindustry:textures/entity/bee/fighting_bee.png",
   "createNectar": false,
   "description": "A bee ready for battle.",
   "fireproof": false,
@@ -16,6 +16,7 @@
   "pollenColor": "#FFFFFF",
   "primaryColor": "#B40404",
   "productionItem": "minecraft:string",
+  "renderer": "fighting_bee",
   "secondaryColor": "#FF0000",
   "size": 1.1,
   "translucent": false

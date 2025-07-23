@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "beeindustry:beekeeper_poi",
+      "required": false
+    }
+  ]
+}

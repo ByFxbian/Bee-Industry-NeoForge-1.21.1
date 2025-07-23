@@ -16,6 +16,7 @@
   "pollenColor": "#FFFFFF",
   "primaryColor": "#6E6E6E",
   "productionItem": "minecraft:cobblestone",
+  "renderer": "mining_bee",
   "secondaryColor": "#848484",
   "size": 1.0,
   "translucent": false

@@ -1,0 +1,23 @@
+{
+  "name": "The Beepost",
+  "category": "beeindustry:machines",
+  "icon": "beeindustry:beepost",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Beepost is a command center for your Worker Bees. It does not produce items itself, but instead sends your bees out into the world to perform tasks like farming, mining, or fighting.$(br2)This process requires $(l:beeindustry:items/fuel)Sweet Honey$() as fuel and can be enhanced with various upgrades."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "beeindustry:textures/gui/beepost_gui_layout.png"
+      ],
+      "border": true,
+      "text": "The Beepost GUI allows you to manage up to three bees, each with their own dedicated upgrades. Use the toggle buttons to activate or deactivate each bee slot."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "beeindustry:beepost"
+    }
+  ]
+}

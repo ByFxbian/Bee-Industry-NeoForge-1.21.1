@@ -3,6 +3,8 @@ package at.byfxbian.beeindustry.api;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
+import java.util.Optional;
+
 public record CustomBee(
         String name,
         String primaryColor,
@@ -17,7 +19,8 @@ public record CustomBee(
         boolean translucent,
         boolean fireproof,
         Attributes attributes,
-        boolean invulnerable
+        boolean invulnerable,
+        Optional<String> renderer
 ) {
     public static final Codec<CustomBee> CODEC = RecordCodecBuilder.create(instance -> instance.group(
             Codec.STRING.fieldOf("name").forGetter(CustomBee::name),
@@ -33,7 +36,8 @@ public record CustomBee(
             Codec.BOOL.fieldOf("translucent").forGetter(CustomBee::translucent),
             Codec.BOOL.fieldOf("fireproof").forGetter(CustomBee::fireproof),
             Attributes.CODEC.fieldOf("attributes").forGetter(CustomBee::attributes),
-            Codec.BOOL.fieldOf("invulnerable").forGetter(CustomBee::invulnerable)
+            Codec.BOOL.fieldOf("invulnerable").forGetter(CustomBee::invulnerable),
+            Codec.STRING.optionalFieldOf("renderer").forGetter(CustomBee::renderer)
     ).apply(instance, CustomBee::new));
 
     public static record Attributes(

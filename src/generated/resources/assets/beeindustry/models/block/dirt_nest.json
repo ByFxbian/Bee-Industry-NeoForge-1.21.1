@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "beeindustry:block/dirt_nest_front",
+    "side": "beeindustry:block/dirt_nest_side",
+    "top": "beeindustry:block/dirt_nest_top"
+  }
+}

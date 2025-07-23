@@ -14,23 +14,39 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+import javax.xml.crypto.Data;
 import java.util.function.UnaryOperator;
 
 public class BeeIndustryDataComponents {
     public static final DeferredRegister<DataComponentType<?>> DATA_COMPONENT_TYPES =
             DeferredRegister.createDataComponents(Registries.DATA_COMPONENT_TYPE, BeeIndustry.MOD_ID);
 
-    /*public static final DeferredHolder<DataComponentType<?>, DataComponentType<Holder<CustomBee>>> BEE_TYPE = register("bee_type",
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<BeeColorComponent>> BEE_COLORS = register(
+            "bee_colors",
             builder -> builder
-                    .persistent(RegistryFileCodec.create(BeeRegistries.BEE_REGISTRY_KEY, CustomBee.CODEC))
-                    .networkSynchronized(ByteBufCodecs.holder(BeeRegistries.BEE_REGISTRY_KEY, ByteBufCodecs.fromCodec(CustomBee.CODEC)))
-    );*/
+                    .persistent(BeeColorComponent.CODEC)
+                    .networkSynchronized(BeeColorComponent.STREAM_CODEC)
+    );
 
-    public static final DeferredHolder<DataComponentType<?>, DataComponentType<ResourceLocation>> BEE_TYPE = register(
-            "bee_type",
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<ResourceLocation>> STORED_BEE_ID = register(
+            "stored_bee_id",
             builder -> builder
                     .persistent(ResourceLocation.CODEC)
                     .networkSynchronized(ResourceLocation.STREAM_CODEC)
+    );
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Boolean>> IS_BEE_WORKING = register(
+            "is_bee_working",
+            builder -> builder
+                    .persistent(Codec.BOOL)
+                    .networkSynchronized(ByteBufCodecs.BOOL)
+    );
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Boolean>> IS_BEE_BABY = register(
+            "is_bee_baby",
+            builder -> builder
+                    .persistent(Codec.BOOL)
+                    .networkSynchronized(ByteBufCodecs.BOOL)
     );
 
     private static <T>DeferredHolder<DataComponentType<?>, DataComponentType<T>> register(String name,

@@ -1,0 +1,21 @@
+{
+  "name": "First Steps",
+  "category": "beeindustry:getting_started",
+  "icon": "beeindustry:dirt_nest",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Welcome to Bee Industry! To begin your journey, you must find naturally spawning Nests in the world. The most common one is the Dirt Nest. Use a smoker on it to get your very first bee and start your collection!"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "beeindustry:bee_smoker",
+      "text": "You will need a Bee Smoker to lure bees out of their hives."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "beeindustry:bee_container",
+      "text": "You will need a Bee Container to transport your bees safely."
+    }
+  ]
+}

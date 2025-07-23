@@ -2,13 +2,20 @@ package at.byfxbian.beeindustry;
 
 import at.byfxbian.beeindustry.api.CustomBee;
 import at.byfxbian.beeindustry.block.BeeIndustryBlocks;
+import at.byfxbian.beeindustry.block.entity.BeeIndustryBlockEntities;
 import at.byfxbian.beeindustry.component.BeeIndustryDataComponents;
 import at.byfxbian.beeindustry.entity.BeeIndustryEntities;
+import at.byfxbian.beeindustry.item.BeeIndustryArmorMaterials;
 import at.byfxbian.beeindustry.item.BeeIndustryCreativeModeTabs;
 import at.byfxbian.beeindustry.item.BeeIndustryItems;
+import at.byfxbian.beeindustry.networking.BeeIndustryNetworking;
 import at.byfxbian.beeindustry.recipe.BreedingRecipeManager;
+import at.byfxbian.beeindustry.screen.BeeIndustryMenuTypes;
 import at.byfxbian.beeindustry.util.BeeDefinitionManager;
+import at.byfxbian.beeindustry.util.BeeIndustryPoiTypes;
+import at.byfxbian.beeindustry.util.BeeIndustryVillagers;
 import at.byfxbian.beeindustry.util.BeeRegistries;
+import at.byfxbian.beeindustry.worldgen.BeeIndustryFeatures;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.neoforge.event.AddReloadListenerEvent;
@@ -36,6 +43,7 @@ public class BeeIndustry {
 
     public BeeIndustry(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(BeeIndustryNetworking::register);
 
         modEventBus.addListener(this::registerDatapackRegistries);
 
@@ -48,9 +56,19 @@ public class BeeIndustry {
         BeeIndustryItems.register(modEventBus);
         BeeIndustryBlocks.register(modEventBus);
 
+        BeeIndustryArmorMaterials.register(modEventBus);
+
         BeeIndustryDataComponents.register(modEventBus);
+        BeeIndustryBlockEntities.register(modEventBus);
+
+        BeeIndustryMenuTypes.register(modEventBus);
 
         modEventBus.addListener(this::addCreative);
+
+        BeeIndustryFeatures.register(modEventBus);
+
+        BeeIndustryPoiTypes.register(modEventBus);
+        BeeIndustryVillagers.register(modEventBus);
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }

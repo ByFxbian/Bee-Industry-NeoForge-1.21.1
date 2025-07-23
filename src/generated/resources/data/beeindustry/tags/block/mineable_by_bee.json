@@ -1,0 +1,13 @@
+{
+  "values": [
+    "minecraft:stone",
+    "minecraft:dirt",
+    "minecraft:gravel",
+    "minecraft:diorite",
+    "minecraft:andesite",
+    "minecraft:granite",
+    "minecraft:calcite",
+    "minecraft:iron_ore",
+    "minecraft:coal_ore"
+  ]
+}
