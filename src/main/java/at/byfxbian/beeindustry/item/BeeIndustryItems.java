@@ -4,10 +4,7 @@ import at.byfxbian.beeindustry.BeeIndustry;
 import at.byfxbian.beeindustry.api.CustomBee;
 import at.byfxbian.beeindustry.datagen.custom.CustomBees;
 import at.byfxbian.beeindustry.entity.BeeIndustryEntities;
-import at.byfxbian.beeindustry.item.custom.ApiaristsCompassItem;
-import at.byfxbian.beeindustry.item.custom.BeeContainerItem;
-import at.byfxbian.beeindustry.item.custom.BeekeeperArmorItem;
-import at.byfxbian.beeindustry.item.custom.CustomBeeSpawnEggItem;
+import at.byfxbian.beeindustry.item.custom.*;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
@@ -47,6 +44,9 @@ public class BeeIndustryItems {
 
     public static final DeferredItem<Item> RANGE_UPGRADE = ITEMS.register("range_upgrade",
             () -> new Item(new Item.Properties().stacksTo(16)));
+
+    public static final DeferredItem<Item> TREE_SAP = ITEMS.register("tree_sap",
+            () -> new TreeSapItem(new Item.Properties()));
 
     public static final DeferredItem<Item> BEEKEEPER_HELMET = ITEMS.register("beekeeper_helmet",
             () -> new BeekeeperArmorItem(BeeIndustryArmorMaterials.BEEKEEPER, ArmorItem.Type.HELMET, new Item.Properties().stacksTo(1)));

@@ -36,21 +36,16 @@ public class AdvancedBeehiveMenu extends AbstractContainerMenu {
         this.level = inv.player.level();
         this.data = blockEntity.getData();
 
-        IItemHandler itemHandler = level.getCapability(Capabilities.ItemHandler.BLOCK, blockEntity.getBlockPos(), null);
-        if (itemHandler != null) {
-            this.addSlot(new BeeContainerSlot(itemHandler, 0, 26, 36));
-            this.addSlot(new UpgradeSlot(itemHandler, 1, 44, 36));
-            this.addSlot(new UpgradeSlot(itemHandler, 2, 62, 36));
-            this.addSlot(new UpgradeSlot(itemHandler, 3, 80, 36));
-            this.addSlot(new UpgradeSlot(itemHandler, 4, 178, 19));
-            this.addSlot(new UpgradeSlot(itemHandler, 5, 178, 37));
-            this.addSlot(new UpgradeSlot(itemHandler, 6, 178, 55));
-            this.addSlot(new OutputSlot(itemHandler, 7, 121, 26));
-            this.addSlot(new OutputSlot(itemHandler, 8, 138, 36));
-            this.addSlot(new OutputSlot(itemHandler, 9, 121, 46));
-        } else {
-            System.out.println("ItemHandler is null");
-        }
+        this.addSlot(new BeeContainerSlot(blockEntity.getItemHandler(), 0, 26, 36));
+        this.addSlot(new UpgradeSlot(blockEntity.getItemHandler(), 1, 44, 36));
+        this.addSlot(new UpgradeSlot(blockEntity.getItemHandler(), 2, 62, 36));
+        this.addSlot(new UpgradeSlot(blockEntity.getItemHandler(), 3, 80, 36));
+        this.addSlot(new UpgradeSlot(blockEntity.getItemHandler(), 4, 178, 19));
+        this.addSlot(new UpgradeSlot(blockEntity.getItemHandler(), 5, 178, 37));
+        this.addSlot(new UpgradeSlot(blockEntity.getItemHandler(), 6, 178, 55));
+        this.addSlot(new OutputSlot(blockEntity.getItemHandler(), 7, 121, 26));
+        this.addSlot(new OutputSlot(blockEntity.getItemHandler(), 8, 138, 36));
+        this.addSlot(new OutputSlot(blockEntity.getItemHandler(), 9, 121, 46));
 
         addPlayerInventory(inv);
         addPlayerHotbar(inv);

@@ -1,0 +1,23 @@
+{
+  "attributes": {
+    "attackDamage": 1.0,
+    "maxHealth": 25.0,
+    "productivity": 4,
+    "speed": 6,
+    "temper": 4
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/lumber_bee.png",
+  "createNectar": false,
+  "description": "A bee with a knack for woodwork.",
+  "fireproof": false,
+  "flowerBlockTag": "",
+  "invulnerable": false,
+  "name": "lumber_bee",
+  "pollenColor": "#A07855",
+  "primaryColor": "#6B4F35",
+  "productionItem": "beeindustry:tree_sap",
+  "renderer": "lumber_bee",
+  "secondaryColor": "#3E2A19",
+  "size": 1.2,
+  "translucent": false
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "beeindustry:block/sap_press_bottom",
+    "side": "beeindustry:block/sap_press_side",
+    "top": "beeindustry:block/sap_press_top"
+  }
+}

@@ -9,6 +9,7 @@ import at.byfxbian.beeindustry.entity.custom.CustomBeeEntity;
 import at.byfxbian.beeindustry.item.BeeIndustryItems;
 import at.byfxbian.beeindustry.screen.AdvancedBeehiveMenu;
 import at.byfxbian.beeindustry.util.BeeDefinitionManager;
+import at.byfxbian.beeindustry.util.SidedItemHandler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -34,22 +35,6 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class AdvancedBeehiveBlockEntity extends BlockEntity implements MenuProvider {
-
-    public enum BeeState { IDLE, WORKING, PRODUCING }
-    private BeeState currentState = BeeState.IDLE;
-    @Nullable
-    private UUID assignedBeeUuid = null;
-    private int beeMissingTicks = 0;
-    private int progress = 0;
-    private int maxProgress = 200;
-    private int currentMaxProgress = 200;
-
-    private static final int BEE_SLOT = 0;
-    private static final int[] UPGRADE_SLOTS_BEE = {1, 2, 3};
-    private static final int[] BLOCK_UPGRADE_SLOTS = {4, 5, 6};
-    private static final int[] OUTPUT_SLOTS = {7, 8, 9};
-
-    protected final ContainerData data;
 
     private final ItemStackHandler itemHandler = new ItemStackHandler(10) {
         @Override
@@ -86,6 +71,24 @@ public class AdvancedBeehiveBlockEntity extends BlockEntity implements MenuProvi
             }
         }
     };
+    protected final ContainerData data;
+
+    private final IItemHandler sidedInputHandler;
+    private final IItemHandler sidedOutputHandler;
+
+    public enum BeeState { IDLE, WORKING, PRODUCING }
+    private BeeState currentState = BeeState.IDLE;
+    @Nullable
+    private UUID assignedBeeUuid = null;
+    private int beeMissingTicks = 0;
+    private int progress = 0;
+    private int maxProgress = 200;
+    private int currentMaxProgress = 200;
+
+    private static final int BEE_SLOT = 0;
+    private static final int[] UPGRADE_SLOTS_BEE = {1, 2, 3};
+    private static final int[] BLOCK_UPGRADE_SLOTS = {4, 5, 6};
+    private static final int[] OUTPUT_SLOTS = {7, 8, 9};
 
     private boolean isUpgradeSlot(int slotIndex) {
         return (slotIndex >= 1 && slotIndex <= 6);
@@ -129,7 +132,19 @@ public class AdvancedBeehiveBlockEntity extends BlockEntity implements MenuProvi
                 return 2;
             }
         };
+
+        this.sidedInputHandler = new SidedItemHandler(this.itemHandler,
+                (slot) -> false,
+                (slot, stack) -> false
+        );
+        this.sidedOutputHandler = new SidedItemHandler(this.itemHandler,
+                (slot) -> slot >= 7 && slot < 10,
+                (slot, stack) -> false
+        );
     }
+
+    public IItemHandler getSidedInputHandler() { return this.sidedInputHandler; }
+    public IItemHandler getSidedOutputHandler() { return this.sidedOutputHandler; }
 
     public ContainerData getData() {
         return this.data;
@@ -232,7 +247,7 @@ public class AdvancedBeehiveBlockEntity extends BlockEntity implements MenuProvi
         this.assignedBeeUuid = null;
         this.currentState = BeeState.PRODUCING;
 
-        this.itemHandler.getStackInSlot(BEE_SLOT).set(BeeIndustryDataComponents.IS_BEE_WORKING.get(), false);
+        this.itemHandler.getStackInSlot(BEE_SLOT).remove(BeeIndustryDataComponents.IS_BEE_WORKING.get());
         bee.discard();
         setChanged();
     }
@@ -260,7 +275,7 @@ public class AdvancedBeehiveBlockEntity extends BlockEntity implements MenuProvi
     }
 
     private void resetToIdle() {
-        this.itemHandler.getStackInSlot(BEE_SLOT).set(BeeIndustryDataComponents.IS_BEE_WORKING.get(), false);
+        this.itemHandler.getStackInSlot(BEE_SLOT).remove(BeeIndustryDataComponents.IS_BEE_WORKING.get());
         this.assignedBeeUuid = null;
         this.currentState = BeeState.IDLE;
         this.beeMissingTicks = 0;
@@ -272,7 +287,7 @@ public class AdvancedBeehiveBlockEntity extends BlockEntity implements MenuProvi
         ItemStack stack = this.itemHandler.getStackInSlot(BEE_SLOT);
         return !stack.isEmpty() && stack.is(BeeIndustryItems.BEE_CONTAINER.get())
                 && stack.get(BeeIndustryDataComponents.STORED_BEE_ID.get()) != null
-                && !stack.getOrDefault(BeeIndustryDataComponents.IS_BEE_WORKING.get(), false);
+                && !stack.has(BeeIndustryDataComponents.IS_BEE_WORKING.get());
     }
 
     private boolean canProduce() {

@@ -9,6 +9,7 @@ import at.byfxbian.beeindustry.item.BeeIndustryItems;
 import at.byfxbian.beeindustry.util.BeeIndustryVillagers;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.BlockTags;
@@ -49,7 +50,60 @@ public class ModEvents {
         event.registerBlockEntity(
                 Capabilities.ItemHandler.BLOCK,
                 BeeIndustryBlockEntities.ADVANCED_BEEHIVE_BE.get(),
-                (blockEntity, side) -> blockEntity.getItemHandler()
+                (blockEntity, side) -> {
+                    if(side == Direction.DOWN) {
+                        return blockEntity.getSidedOutputHandler();
+                    }
+                    return blockEntity.getSidedInputHandler();
+                }
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                BeeIndustryBlockEntities.BEEPOST_BE.get(),
+                (blockEntity, side) -> {
+                    if(side == Direction.DOWN) {
+                        return blockEntity.getSidedOutputHandler();
+                    }
+                    return blockEntity.getSidedInputHandler();
+                }
+        );
+
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                BeeIndustryBlockEntities.BEENERGY_GENERATOR_BE.get(),
+                (blockEntity, side) -> {
+                    if(side == Direction.DOWN) {
+                        return blockEntity.getSidedOutputHandler();
+                    }
+                    return blockEntity.getSidedInputHandler();
+                }
+        );
+        event.registerBlockEntity(
+                Capabilities.EnergyStorage.BLOCK,
+                BeeIndustryBlockEntities.BEENERGY_GENERATOR_BE.get(),
+                (blockEntity, pos) -> blockEntity.getEnergyStorage()
+        );
+
+        event.registerBlockEntity(
+                Capabilities.EnergyStorage.BLOCK,
+                BeeIndustryBlockEntities.SAP_PRESS_BE.get(),
+                (blockEntity, side) -> blockEntity.getEnergyStorage()
+        );
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                BeeIndustryBlockEntities.SAP_PRESS_BE.get(),
+                (blockEntity, side) -> {
+                    if(side == Direction.DOWN) {
+                        return blockEntity.getSidedOutputHandler();
+                    }
+                    return blockEntity.getSidedInputHandler();
+                }
+        );
+
+        event.registerBlockEntity(
+                Capabilities.EnergyStorage.BLOCK,
+                BeeIndustryBlockEntities.CABLE_BE.get(),
+                (blockEntity, side) -> blockEntity.getEnergyStorage()
         );
     }
 

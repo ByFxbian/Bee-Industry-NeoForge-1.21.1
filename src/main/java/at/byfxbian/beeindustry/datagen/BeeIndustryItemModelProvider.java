@@ -40,9 +40,12 @@ public class BeeIndustryItemModelProvider extends ItemModelProvider {
         basicItem(BeeIndustryItems.BEE_SMOKER.get());
         basicItem(BeeIndustryItems.APIARISTS_COMPASS.get());
         basicItem(BeeIndustryItems.RANGE_UPGRADE.get());
+        basicItem(BeeIndustryItems.TREE_SAP.get());
 
         withExistingParent(BeeIndustryItems.BEE_SPAWN_EGG.getId().getPath(), "item/template_spawn_egg");
         withExistingParent(BeeIndustryBlocks.ADVANCED_BEEHIVE.getId().getPath(), modLoc("block/advanced_beehive"));
+        withExistingParent(BeeIndustryBlocks.BEENERGY_GENERATOR.getId().getPath(), modLoc("block/beenergy_generator"));
+        withExistingParent(BeeIndustryBlocks.SAP_PRESS.getId().getPath(), modLoc("block/sap_press"));
         withExistingParent(BeeIndustryBlocks.DIRT_NEST.getId().getPath(), modLoc("block/dirt_nest"));
         withExistingParent(BeeIndustryBlocks.STONE_NEST.getId().getPath(), modLoc("block/stone_nest"));
         withExistingParent(BeeIndustryBlocks.SAND_NEST.getId().getPath(), modLoc("block/sand_nest"));

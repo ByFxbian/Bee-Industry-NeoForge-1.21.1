@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "beeindustry:block/beenergy_generator",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "beeindustry:block/beenergy_generator"
+    },
+    "facing=south": {
+      "model": "beeindustry:block/beenergy_generator",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "beeindustry:block/beenergy_generator",
+      "y": 270
+    }
+  }
+}

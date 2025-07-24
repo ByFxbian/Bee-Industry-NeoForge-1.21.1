@@ -1,15 +1,15 @@
 package at.byfxbian.beeindustry.event;
 
 import at.byfxbian.beeindustry.BeeIndustry;
+import at.byfxbian.beeindustry.block.entity.BeeIndustryBlockEntities;
+import at.byfxbian.beeindustry.block.entity.client.TappedLogRenderer;
 import at.byfxbian.beeindustry.component.BeeColorComponent;
 import at.byfxbian.beeindustry.component.BeeIndustryDataComponents;
 import at.byfxbian.beeindustry.entity.BeeIndustryEntities;
 import at.byfxbian.beeindustry.entity.client.*;
 import at.byfxbian.beeindustry.item.BeeIndustryItems;
 import at.byfxbian.beeindustry.item.custom.CustomBeeSpawnEggItem;
-import at.byfxbian.beeindustry.screen.AdvancedBeehiveScreen;
-import at.byfxbian.beeindustry.screen.BeeIndustryMenuTypes;
-import at.byfxbian.beeindustry.screen.BeepostScreen;
+import at.byfxbian.beeindustry.screen.*;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.item.ItemProperties;
@@ -43,9 +43,16 @@ public class ClientEvents {
     }
 
     @SubscribeEvent
+    public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerBlockEntityRenderer(BeeIndustryBlockEntities.TAPPED_LOG_BE.get(), TappedLogRenderer::new);
+    }
+
+    @SubscribeEvent
     public static void registerMenuScreens(final RegisterMenuScreensEvent event) {
         event.register(BeeIndustryMenuTypes.ADVANCED_BEEHIVE_MENU.get(), AdvancedBeehiveScreen::new);
         event.register(BeeIndustryMenuTypes.BEEPOST_MENU.get(), BeepostScreen::new);
+        event.register(BeeIndustryMenuTypes.BEENERGY_GENERATOR_MENU.get(), BeenergyGeneratorScreen::new);
+        event.register(BeeIndustryMenuTypes.SAP_PRESS_MENU.get(), SapPressScreen::new);
     }
 
     @SubscribeEvent
@@ -65,6 +72,7 @@ public class ClientEvents {
         event.registerLayerDefinition(BeeIndustryModelLayers.MINING_BEE_LAYER, MiningBeeModel::createBodyLayer);
         event.registerLayerDefinition(BeeIndustryModelLayers.EMERALD_BEE_LAYER, EmeraldBeeModel::createBodyLayer);
         event.registerLayerDefinition(BeeIndustryModelLayers.FIGHTING_BEE_LAYER, FightingBeeModel::createBodyLayer);
+        event.registerLayerDefinition(BeeIndustryModelLayers.LUMBER_BEE_LAYER, LumberBeeModel::createBodyLayer);
     }
 
     @SubscribeEvent

@@ -7,6 +7,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.ShapedRecipePattern;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 
 import java.util.concurrent.CompletableFuture;
@@ -22,6 +23,8 @@ public class BeeIndustryRecipeProvider extends RecipeProvider implements ICondit
         offerBeekeeperArmorRecipe(recipeOutput, BeeIndustryItems.BEEKEEPER_CHESTPLATE.get(), Items.LEATHER_CHESTPLATE);
         offerBeekeeperArmorRecipe(recipeOutput, BeeIndustryItems.BEEKEEPER_LEGGINGS.get(), Items.LEATHER_LEGGINGS);
         offerBeekeeperArmorRecipe(recipeOutput, BeeIndustryItems.BEEKEEPER_BOOTS.get(), Items.LEATHER_BOOTS);
+
+
     }
 
     private void offerBeekeeperArmorRecipe(RecipeOutput exporter, Item output, Item input) {

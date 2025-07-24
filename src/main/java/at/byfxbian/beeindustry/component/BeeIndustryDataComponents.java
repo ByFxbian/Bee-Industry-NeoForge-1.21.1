@@ -49,6 +49,13 @@ public class BeeIndustryDataComponents {
                     .networkSynchronized(ByteBufCodecs.BOOL)
     );
 
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<ResourceLocation>> WOOD_TYPE = register(
+            "wood_type",
+            builder -> builder
+                    .persistent(ResourceLocation.CODEC)
+                    .networkSynchronized(ResourceLocation.STREAM_CODEC)
+    );
+
     private static <T>DeferredHolder<DataComponentType<?>, DataComponentType<T>> register(String name,
                                                                                           UnaryOperator<DataComponentType.Builder<T>> builderOperator) {
         return DATA_COMPONENT_TYPES.register(name, () -> builderOperator.apply(DataComponentType.builder()).build());

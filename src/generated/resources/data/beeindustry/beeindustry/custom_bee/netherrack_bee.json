@@ -1,0 +1,22 @@
+{
+  "attributes": {
+    "attackDamage": 1.0,
+    "maxHealth": 20.0,
+    "productivity": 2,
+    "speed": 6,
+    "temper": 2
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/netherrack_bee.png",
+  "createNectar": false,
+  "description": "This bee feels warm to the touch.",
+  "fireproof": true,
+  "flowerBlockTag": "minecraft:netherrack",
+  "invulnerable": false,
+  "name": "netherrack_bee",
+  "pollenColor": "#8B3A3A",
+  "primaryColor": "#702F2F",
+  "productionItem": "minecraft:netherrack",
+  "secondaryColor": "#5A2525",
+  "size": 1.0,
+  "translucent": false
+}

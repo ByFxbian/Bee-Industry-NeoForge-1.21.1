@@ -1,0 +1,22 @@
+{
+  "attributes": {
+    "attackDamage": 2.0,
+    "maxHealth": 30.0,
+    "productivity": 5,
+    "speed": 7,
+    "temper": 3
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/endstone_bee.png",
+  "createNectar": false,
+  "description": "A mysterious bee from the void.",
+  "fireproof": false,
+  "flowerBlockTag": "minecraft:end_stone",
+  "invulnerable": false,
+  "name": "endstone_bee",
+  "pollenColor": "#FDFDBC",
+  "primaryColor": "#E0E2A9",
+  "productionItem": "minecraft:end_stone",
+  "secondaryColor": "#B8B98A",
+  "size": 1.0,
+  "translucent": false
+}

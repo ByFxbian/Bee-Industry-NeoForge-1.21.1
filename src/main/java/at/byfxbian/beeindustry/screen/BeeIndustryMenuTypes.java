@@ -22,6 +22,12 @@ public class BeeIndustryMenuTypes {
             MENUS.register("beepost_menu",
                     () -> IMenuTypeExtension.create(BeepostMenu::new));
 
+    public static final DeferredHolder<MenuType<?>, MenuType<BeenergyGeneratorMenu>> BEENERGY_GENERATOR_MENU =
+            MENUS.register("beenergy_generator_menu", () -> IMenuTypeExtension.create(BeenergyGeneratorMenu::new));
+
+    public static final DeferredHolder<MenuType<?>, MenuType<SapPressMenu>> SAP_PRESS_MENU =
+            MENUS.register("sap_press_menu", () -> IMenuTypeExtension.create(SapPressMenu::new));
+
     public static void register(IEventBus eventBus) {
         MENUS.register(eventBus);
     }

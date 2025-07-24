@@ -1,0 +1,22 @@
+{
+  "attributes": {
+    "attackDamage": 1.0,
+    "maxHealth": 28.0,
+    "productivity": 7,
+    "speed": 7,
+    "temper": 1
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/amethyst_bee.png",
+  "createNectar": false,
+  "description": "It makes a gentle chiming sound as it flies.",
+  "fireproof": false,
+  "flowerBlockTag": "minecraft:amethyst_block",
+  "invulnerable": false,
+  "name": "amethyst_bee",
+  "pollenColor": "#C3A6E4",
+  "primaryColor": "#9A73C4",
+  "productionItem": "minecraft:amethyst_shard",
+  "secondaryColor": "#775A9E",
+  "size": 1.2,
+  "translucent": true
+}

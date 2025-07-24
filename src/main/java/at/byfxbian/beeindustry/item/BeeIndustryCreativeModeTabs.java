@@ -47,6 +47,8 @@ public class BeeIndustryCreativeModeTabs {
                         output.accept(BeeIndustryItems.BEEKEEPER_BOOTS);
 
                         output.accept(BeeIndustryBlocks.ADVANCED_BEEHIVE);
+                        output.accept(BeeIndustryBlocks.BEENERGY_GENERATOR);
+                        output.accept(BeeIndustryBlocks.SAP_PRESS);
                         output.accept(BeeIndustryBlocks.BEEPOST);
                         output.accept(BeeIndustryBlocks.DIRT_NEST);
                         output.accept(BeeIndustryBlocks.GRAVEL_NEST);

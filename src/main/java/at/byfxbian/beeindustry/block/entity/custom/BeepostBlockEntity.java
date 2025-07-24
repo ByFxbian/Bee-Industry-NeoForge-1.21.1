@@ -9,6 +9,7 @@ import at.byfxbian.beeindustry.entity.custom.CustomBeeEntity;
 import at.byfxbian.beeindustry.item.BeeIndustryItems;
 import at.byfxbian.beeindustry.screen.BeepostMenu;
 import at.byfxbian.beeindustry.util.BeeDefinitionManager;
+import at.byfxbian.beeindustry.util.SidedItemHandler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -19,6 +20,7 @@ import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.Entity;
@@ -36,6 +38,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
+import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import org.jetbrains.annotations.Nullable;
 
@@ -81,6 +84,9 @@ public class BeepostBlockEntity extends BlockEntity implements MenuProvider {
         }
     };
     protected final ContainerData data;
+
+    private final IItemHandler sidedInputHandler;
+    private final IItemHandler sidedOutputHandler;
 
     private static final int[] BEE_SLOTS = {0, 4, 8};
     private static final int[] UPGRADE_SLOTS_BEE_1 = {1, 2, 3};
@@ -131,7 +137,18 @@ public class BeepostBlockEntity extends BlockEntity implements MenuProvider {
                 return 3;
             }
         };
+        this.sidedInputHandler = new SidedItemHandler(this.itemHandler,
+                (slot) -> false,
+                (slot, stack) -> slot == FUEL_SLOT
+        );
+        this.sidedOutputHandler = new SidedItemHandler(this.itemHandler,
+                (slot) -> slot >= 16 && slot < 23,
+                (slot, stack) -> false
+        );
     }
+
+    public IItemHandler getSidedInputHandler() { return this.sidedInputHandler; }
+    public IItemHandler getSidedOutputHandler() { return this.sidedOutputHandler; }
 
     public void tick(Level level, BlockPos pos, BlockState state) {
         if (level.isClientSide ) return;
@@ -172,7 +189,7 @@ public class BeepostBlockEntity extends BlockEntity implements MenuProvider {
             if(isBeeSlotActive(i) && !workingBees.containsKey(currentSlotIndex)) {
                 ItemStack container = itemHandler.getStackInSlot(currentSlotIndex);
                 if (!container.isEmpty() && container.get(BeeIndustryDataComponents.STORED_BEE_ID.get()) != null &&
-                        !container.getOrDefault(BeeIndustryDataComponents.IS_BEE_WORKING.get(), false)) {
+                        !container.has(BeeIndustryDataComponents.IS_BEE_WORKING.get())) {
                     ResourceLocation beeId = container.get(BeeIndustryDataComponents.STORED_BEE_ID.get());
                     CustomBee beeData = BeeDefinitionManager.getBee(beeId);
 
@@ -220,6 +237,9 @@ public class BeepostBlockEntity extends BlockEntity implements MenuProvider {
         } else if(beeTypeId.equals("beeindustry:fighting_bee")) {
             AABB searchBox = new AABB(this.worldPosition).inflate(10);
             return !level.getEntitiesOfClass(Monster.class, searchBox, (entity) -> true).isEmpty();
+        } else if (beeTypeId.equals("beeindustry:lumber_bee")) {
+            TagKey<Block> lumberBlocks = BlockTags.LOGS;
+            return BlockPos.findClosestMatch(this.worldPosition, 10, 10, p -> level.getBlockState(p).is(lumberBlocks)).isPresent();
         }
         return false;
     }
@@ -241,14 +261,15 @@ public class BeepostBlockEntity extends BlockEntity implements MenuProvider {
                     insertDrop(drop);
                 }
             }
+
             bee.clearInventory();
 
             for (int slotIndex : BEE_SLOTS) {
                 ItemStack stack = itemHandler.getStackInSlot(slotIndex);
-                if (stack.getOrDefault(BeeIndustryDataComponents.IS_BEE_WORKING.get(), false)) {
+                if (stack.has(BeeIndustryDataComponents.IS_BEE_WORKING.get())) {
                     ResourceLocation containerBeeId = stack.get(BeeIndustryDataComponents.STORED_BEE_ID.get());
                     if(containerBeeId != null && containerBeeId.equals(bee.getBeeType())) {
-                        stack.set(BeeIndustryDataComponents.IS_BEE_WORKING.get(), false);
+                        stack.remove(BeeIndustryDataComponents.IS_BEE_WORKING.get());
                         break;
                     }
                 }
@@ -263,19 +284,6 @@ public class BeepostBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     public void insertDrop(ItemStack drop) {
-        /*for (int i = 16; i < 24; i++) {
-            ItemStack current = this.itemHandler.getStackInSlot(i);
-            if (current.isEmpty()) {
-                this.itemHandler.setStackInSlot(i, drop.copy());
-                return;
-            }
-            if (ItemStack.isSameItemSameComponents(current, drop) && current.getCount() < current.getMaxStackSize()) {
-                int toInsert = Math.min(drop.getCount(), current.getMaxStackSize() - current.getCount());
-                current.grow(toInsert);
-                drop.shrink(toInsert);
-                if (drop.isEmpty()) return;
-            }
-        }*/
         for (int slotIndex : OUTPUT_SLOTS) {
             ItemStack outputStack = this.getItemHandler().getStackInSlot(slotIndex);
             if(outputStack.isEmpty()) {
@@ -321,14 +329,14 @@ public class BeepostBlockEntity extends BlockEntity implements MenuProvider {
 
     @Override
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        System.out.println("--- SAVING BEEPOST ---");
+        //System.out.println("--- SAVING BEEPOST ---");
         for (int i = 0; i < itemHandler.getSlots(); i++) {
             if (!itemHandler.getStackInSlot(i).isEmpty()) {
-                System.out.println("Slot " + i + " before save: " + itemHandler.getStackInSlot(i));
+                //System.out.println("Slot " + i + " before save: " + itemHandler.getStackInSlot(i));
             }
         }
         tag.put("inventory", itemHandler.serializeNBT(registries));
-        System.out.println("Saved NBT: " + tag.get("inventory"));
+        //System.out.println("Saved NBT: " + tag.get("inventory"));
         int[] activeStates = new int[3];
         for (int i = 0; i < 3; i++) {
             activeStates[i] = this.data.get(i);
@@ -352,14 +360,14 @@ public class BeepostBlockEntity extends BlockEntity implements MenuProvider {
     @Override
     public void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
-        System.out.println("--- LOADING BEEPOST ---");
+       // System.out.println("--- LOADING BEEPOST ---");
         if (tag.contains("inventory")) {
-            System.out.println("Loading NBT: " + tag.get("inventory"));
+            //System.out.println("Loading NBT: " + tag.get("inventory"));
         }
         itemHandler.deserializeNBT(registries, tag.getCompound("inventory"));
         for (int i = 0; i < itemHandler.getSlots(); i++) {
             if (!itemHandler.getStackInSlot(i).isEmpty()) {
-                System.out.println("Slot " + i + " after load: " + itemHandler.getStackInSlot(i));
+                //System.out.println("Slot " + i + " after load: " + itemHandler.getStackInSlot(i));
             }
         }
         if (tag.contains("beeSlotsActive")) {

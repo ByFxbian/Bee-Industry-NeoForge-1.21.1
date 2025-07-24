@@ -1,8 +1,12 @@
-// 1.21.1	2025-07-16T12:24:27.5495277	Loot Tables
+// 1.21.1	2025-07-23T19:29:37.8376234	Loot Tables
 03d6b9f70956e43684d6068801e9126851aed291 data/beeindustry/loot_table/blocks/advanced_beehive.json
+37cde9137fb53ada692853054c3dde514de97ac0 data/beeindustry/loot_table/blocks/beenergy_generator.json
 aecd6a033bee9ef2835d9d03cc36823609a8a43a data/beeindustry/loot_table/blocks/beepost.json
+1c2ba30c4f6100fd80279bdedf12e692c47d6ee4 data/beeindustry/loot_table/blocks/cable_block.json
 c97004c1c4e0e17390e70ea71bca0267def2380f data/beeindustry/loot_table/blocks/dirt_nest.json
 4c48326c5ea9fce9d7816ecb3dba8a0b19d53043 data/beeindustry/loot_table/blocks/example_block.json
 9fdc29a8dcb515d7a4ff49e39c725c5287769222 data/beeindustry/loot_table/blocks/gravel_nest.json
 67efe759a41d7d2bef0f31b5f35a31a5758fc7be data/beeindustry/loot_table/blocks/sand_nest.json
+ff560b23f6143cd07a76d2b44267e6e46b22d720 data/beeindustry/loot_table/blocks/sap_press.json
 52f162e4ffa2301ff265ced50bb5530440a159d8 data/beeindustry/loot_table/blocks/stone_nest.json
+3062013317fe5ebb056749050e803aa4bb43cb7c data/beeindustry/loot_table/blocks/tapped_log.json

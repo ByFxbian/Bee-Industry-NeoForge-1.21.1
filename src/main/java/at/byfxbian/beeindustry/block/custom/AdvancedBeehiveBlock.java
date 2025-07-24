@@ -2,6 +2,7 @@ package at.byfxbian.beeindustry.block.custom;
 
 import at.byfxbian.beeindustry.block.entity.BeeIndustryBlockEntities;
 import at.byfxbian.beeindustry.block.entity.custom.AdvancedBeehiveBlockEntity;
+import at.byfxbian.beeindustry.block.entity.custom.BeepostBlockEntity;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
@@ -60,9 +61,8 @@ public class AdvancedBeehiveBlock extends BaseEntityBlock {
     @Override
     public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         if(!level.isClientSide) {
-            BlockEntity entity = level.getBlockEntity(pos);
-            if(entity instanceof AdvancedBeehiveBlockEntity) {
-                ((ServerPlayer) player).openMenu((MenuProvider) entity, buffer -> buffer.writeBlockPos(pos));
+            if(level.getBlockEntity(pos) instanceof AdvancedBeehiveBlockEntity entity) {
+                ((ServerPlayer) player).openMenu(entity, buffer -> buffer.writeBlockPos(pos));
             }
         }
         return InteractionResult.SUCCESS;

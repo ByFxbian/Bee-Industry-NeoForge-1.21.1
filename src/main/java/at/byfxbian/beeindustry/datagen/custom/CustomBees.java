@@ -37,6 +37,14 @@ public class CustomBees {
     public static final ResourceKey<CustomBee> REDSTONE = createKey("redstone_bee");
     public static final ResourceKey<CustomBee> LAPIS = createKey("lapis_bee");
 
+    public static final ResourceKey<CustomBee> LUMBER = createKey("lumber_bee");
+
+    public static final ResourceKey<CustomBee> ENDSTONE = createKey("endstone_bee");
+    public static final ResourceKey<CustomBee> QUARTZ = createKey("quartz_bee");
+    public static final ResourceKey<CustomBee> BONE = createKey("bone_bee");
+    public static final ResourceKey<CustomBee> NETHERRACK = createKey("netherrack_bee");
+    public static final ResourceKey<CustomBee> AMETHYST = createKey("amethyst_bee");
+
     public static List<ResourceKey<CustomBee>> getAllBeeKeys() {
         return BUILT_IN_BEES.keySet().stream().toList();
     }
@@ -155,16 +163,52 @@ public class CustomBees {
         );
 
         register(context, REDSTONE, "#FF0000", "#8B0000", "#FF4500", "A bee buzzing with energy.",
-                "beeindustry:textures/entity/bee/redstone_bee.png", // Du musst diese Textur noch erstellen
+                "beeindustry:textures/entity/bee/redstone_bee.png",
                 false, "minecraft:redstone_ore", "minecraft:redstone",
                 1.0f, false, false,
                 new CustomBee.Attributes(4, 3, 6, 20.0, 1.0), false, Optional.empty());
 
         register(context, LAPIS, "#00008B", "#4169E1", "#1E90FF", "An enchanting, blue bee.",
-                "beeindustry:textures/entity/bee/lapis_bee.png", // Du musst diese Textur noch erstellen
+                "beeindustry:textures/entity/bee/lapis_bee.png",
                 false, "minecraft:lapis_ore", "minecraft:lapis_lazuli",
                 1.1f, false, false,
                 new CustomBee.Attributes(4, 2, 7, 24.0, 1.5), false, Optional.empty());
+
+        register(context, LUMBER, "#6B4F35", "#3E2A19", "#A07855", "A bee with a knack for woodwork.",
+                "beeindustry:textures/entity/bee/lumber_bee.png",
+                false, "", "beeindustry:tree_sap",
+                1.2f, false, false, new CustomBee.Attributes(4, 4, 6, 25.0, 1.0), false,
+                Optional.of("lumber_bee"));
+
+        register(context, ENDSTONE, "#E0E2A9", "#B8B98A", "#FDFDBC", "A mysterious bee from the void.",
+                "beeindustry:textures/entity/bee/endstone_bee.png",
+                false, "minecraft:end_stone", "minecraft:end_stone",
+                1.0f, false, false, new CustomBee.Attributes(5, 3, 7, 30.0, 2.0), false,
+                Optional.empty());
+
+        register(context, QUARTZ, "#F7F5EC", "#DCDCDC", "#FFFFFF", "A very precise and crystalline bee.",
+                "beeindustry:textures/entity/bee/quartz_bee.png",
+                false, "minecraft:nether_quartz_ore", "minecraft:quartz",
+                1.1f, true, true, new CustomBee.Attributes(6, 4, 8, 22.0, 2.5), false,
+                Optional.empty());
+
+        register(context, BONE, "#E6E6D8", "#C2C2B9", "#FFFFFF", "An eerie, skeletal bee.",
+                "beeindustry:textures/entity/bee/bone_bee.png",
+                false, "minecraft:bone_block", "minecraft:bone_meal",
+                0.9f, false, false, new CustomBee.Attributes(3, 2, 5, 20.0, 1.0), false,
+                Optional.empty());
+
+        register(context, NETHERRACK, "#702F2F", "#5A2525", "#8B3A3A", "This bee feels warm to the touch.",
+                "beeindustry:textures/entity/bee/netherrack_bee.png",
+                false, "minecraft:netherrack", "minecraft:netherrack",
+                1.0f, false, true, new CustomBee.Attributes(2, 2, 6, 20.0, 1.0), false,
+                Optional.empty());
+
+        register(context, AMETHYST, "#9A73C4", "#775A9E", "#C3A6E4", "It makes a gentle chiming sound as it flies.",
+                "beeindustry:textures/entity/bee/amethyst_bee.png",
+                false, "minecraft:amethyst_block", "minecraft:amethyst_shard",
+                1.2f, true, false, new CustomBee.Attributes(7, 1, 7, 28.0, 1.0), false,
+                Optional.empty());
     }
 
     private static void register(BootstrapContext<CustomBee> context,

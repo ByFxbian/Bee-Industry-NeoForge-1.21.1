@@ -1,0 +1,22 @@
+{
+  "attributes": {
+    "attackDamage": 2.5,
+    "maxHealth": 22.0,
+    "productivity": 6,
+    "speed": 8,
+    "temper": 4
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/quartz_bee.png",
+  "createNectar": false,
+  "description": "A very precise and crystalline bee.",
+  "fireproof": true,
+  "flowerBlockTag": "minecraft:nether_quartz_ore",
+  "invulnerable": false,
+  "name": "quartz_bee",
+  "pollenColor": "#FFFFFF",
+  "primaryColor": "#F7F5EC",
+  "productionItem": "minecraft:quartz",
+  "secondaryColor": "#DCDCDC",
+  "size": 1.1,
+  "translucent": true
+}

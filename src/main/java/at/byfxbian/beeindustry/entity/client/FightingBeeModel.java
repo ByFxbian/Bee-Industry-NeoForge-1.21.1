@@ -33,8 +33,6 @@ public class FightingBeeModel extends BeeModel<CustomBeeEntity> {
         this.backLeg = this.bone.getChild("back_legs");
     }
 
-    /* TODO: GEHT NOCH NICHT */
-
     public static LayerDefinition createBodyLayer() {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();

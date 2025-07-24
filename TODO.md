@@ -9,9 +9,9 @@ Hier ist eine strukturierte Übersicht der geplanten Features und Konzepte für 
     - [x] Gravel-Biene
     - [x] Stone-Biene
     - [x] Mossy-Biene (Moos)
-- [ ] **Holz-Biene:**
-    - [ ] Implementierung einer generischen Holz-Biene, deren Holz-Typ vom Bestäubungsblock abhängt (z.B. Eichensetzling -> Eichenholz).
-- [ ] **Mineral-Bienen:**
+- [x] **Holz-Biene:**
+    - [x] Implementierung einer generischen Holz-Biene, deren Holz-Typ vom Bestäubungsblock abhängt (z.B. Eichensetzling -> Eichenholz).
+- [x] **Mineral-Bienen:**
     - [x] Coal-Biene (Kohle)
     - [x] Iron-Biene (Eisen)
     - [x] Copper-Biene
@@ -20,16 +20,16 @@ Hier ist eine strukturierte Übersicht der geplanten Features und Konzepte für 
     - [x] Lapis-Biene
     - [x] Diamond-Biene
     - [x] Emerald-Biene
-    - [ ] Amethyst-Biene
+    - [x] Amethyst-Biene
 - [ ] **Nether-Bienen:**
-    - [ ] Netherrack-Biene
-    - [ ] Quartz-Biene
-    - [ ] Bone-Biene (Knochen)
+    - [x] Netherrack-Biene
+    - [x] Quartz-Biene
+    - [x] Bone-Biene (Knochen)
     - [ ] Slime-Biene
     - [ ] Netherite-Biene (Netherite-Schrott)
     - [ ] Blaze-Biene
 - [ ] **End-Bienen:**
-    - [ ] Endstone-Biene
+    - [x] Endstone-Biene
     - [ ] Ender-Biene
 - [ ] **Wasser/Ozean-Bienen:**
     - [ ] Coral-Biene
@@ -97,7 +97,7 @@ Hier ist eine strukturierte Übersicht der geplanten Features und Konzepte für 
     - [x] **Hose:** Löst bei erlittenem Schaden einen Knochenmehl-Effekt in der Umgebung aus.
     - [x] **Schuhe:** +5 % Geschwindigkeit auf Gras, reduziert Fallschaden leicht.
 
-### Talismane (Charms)
+### Talismane (Charms) - VERWORFEN
 - [x] **Charm-Template** als Basis-Crafting-Item.
 - [ ] **Effizienz-Charm:** (Rezept: 1x Template, 4x Goldblöcke, ...).
 - [ ] **Glücks-Charm:** (Rezept: 1x Template, 1x Diamantblock, 1x Smaragdblock, ...).
@@ -137,9 +137,9 @@ Hier ist eine strukturierte Übersicht der geplanten Features und Konzepte für 
 
 - [ ] **Fortgeschrittene Zucht**: Eine "Breeding Chamber"-Maschine, die die manuelle Paarung ersetzt, mehr Kontrolle über Mutationen bietet und selbst aufwertbar ist.
 
-- [ ] **Genetik-System**: Keine "Bienen-zerquetschen"-Mechanik. Stattdessen eine "Gen-Modifikator"-Maschine, in die man eine Biene und spezielle Items (z.B. ein "Smelting-Upgrade") legt, um ihr neue Fähigkeiten oder verbesserte Attribute zu geben.
+- [ ] **Genetik-System**: Keine "Bienen-zerquetschen"-Mechanik. Stattdessen eine "Gen-Modifikator"-Maschine, in die man eine Biene und spezielle Items (z.B. ein "Smelting-MUTAGEN" (ALS ERSATZ ZU CHARMS)) legt, um ihr neue Fähigkeiten oder verbesserte Attribute zu geben.
 
-- [ ] **Nest-Locator**: Ein einzigartiges Werkzeug wie die "Bienen-Flöte", die beim Benutzen ein leises Summen von nahen, unentdeckten Nestern als Antwort erhält.
+- [x] **Nest-Locator**: Ein einzigartiges Werkzeug wie die "Bienen-Flöte", die beim Benutzen ein leises Summen von nahen, unentdeckten Nestern als Antwort erhält.
 
 - [ ] **Mehr Inhalte**: Der vollständige Zuchtbaum muss noch entworfen und als JSON-Dateien implementiert werden. Es fehlen noch viele Charms, Upgrades und Bienenarten, um die Welt zu füllen.
 

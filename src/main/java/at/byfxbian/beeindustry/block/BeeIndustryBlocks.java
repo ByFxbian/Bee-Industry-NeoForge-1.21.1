@@ -1,8 +1,7 @@
 package at.byfxbian.beeindustry.block;
 
 import at.byfxbian.beeindustry.BeeIndustry;
-import at.byfxbian.beeindustry.block.custom.AdvancedBeehiveBlock;
-import at.byfxbian.beeindustry.block.custom.BeepostBlock;
+import at.byfxbian.beeindustry.block.custom.*;
 import at.byfxbian.beeindustry.block.custom.nests.DirtNestBlock;
 import at.byfxbian.beeindustry.block.custom.nests.GravelNestBlock;
 import at.byfxbian.beeindustry.block.custom.nests.SandNestBlock;
@@ -31,6 +30,18 @@ public class BeeIndustryBlocks {
 
     public static final DeferredBlock<Block> BEEPOST = registerBlock("beepost",
             () -> new BeepostBlock(BlockBehaviour.Properties.of().strength(2.5f).sound(SoundType.WOOD)));
+
+    public static final DeferredBlock<Block> TAPPED_LOG = registerBlock("tapped_log",
+            () -> new TappedLogBlock(BlockBehaviour.Properties.of()));
+
+    public static final DeferredBlock<Block> BEENERGY_GENERATOR = registerBlock("beenergy_generator",
+            () -> new BeenergyGeneratorBlock(BlockBehaviour.Properties.of().strength(3.0f).sound(SoundType.METAL)));
+
+    public static final DeferredBlock<Block> SAP_PRESS = registerBlock("sap_press",
+            () -> new SapPressBlock(BlockBehaviour.Properties.of().strength(3.0f).sound(SoundType.METAL)));
+
+    public static final DeferredBlock<Block> CABLE_BLOCK = registerBlock("cable_block",
+            () -> new CableBlock(BlockBehaviour.Properties.of().strength(0.5f)));
 
     public static final DeferredBlock<Block> DIRT_NEST = registerBlock("dirt_nest",
             () -> new DirtNestBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT)));

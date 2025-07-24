@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "bottom": "beeindustry:block/beenergy_generator_bottom",
+    "front": "beeindustry:block/beenergy_generator_front",
+    "side": "beeindustry:block/beenergy_generator_side",
+    "top": "beeindustry:block/beenergy_generator_top"
+  }
+}

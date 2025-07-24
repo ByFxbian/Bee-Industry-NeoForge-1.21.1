@@ -1,0 +1,22 @@
+{
+  "attributes": {
+    "attackDamage": 1.0,
+    "maxHealth": 20.0,
+    "productivity": 3,
+    "speed": 5,
+    "temper": 2
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/bone_bee.png",
+  "createNectar": false,
+  "description": "An eerie, skeletal bee.",
+  "fireproof": false,
+  "flowerBlockTag": "minecraft:bone_block",
+  "invulnerable": false,
+  "name": "bone_bee",
+  "pollenColor": "#FFFFFF",
+  "primaryColor": "#E6E6D8",
+  "productionItem": "minecraft:bone_meal",
+  "secondaryColor": "#C2C2B9",
+  "size": 0.9,
+  "translucent": false
+}

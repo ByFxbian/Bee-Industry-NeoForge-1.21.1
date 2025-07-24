@@ -27,6 +27,8 @@ public class BeeIndustryLanguageProvider extends LanguageProvider {
         add(BeeIndustryItems.QUANTITY_UPGRADE.get(), "Quantity Upgrade");
         add(BeeIndustryItems.RANGE_UPGRADE.get(), "Range Upgrade");
         add(BeeIndustryItems.SWEET_HONEY.get(), "Sweet Honey");
+        add(BeeIndustryItems.TREE_SAP.get(), "Tree Sap");
+        add("item.beeindustry.tree_sap.tooltip", "Type: %s");
 
         add(BeeIndustryItems.BEEKEEPER_HELMET.get(), "Beekeeper Helmet");
         add(BeeIndustryItems.BEEKEEPER_CHESTPLATE.get(), "Beekeeper Chestplate");
@@ -35,6 +37,10 @@ public class BeeIndustryLanguageProvider extends LanguageProvider {
 
         add(BeeIndustryBlocks.ADVANCED_BEEHIVE.get(), "Advanced Beehive");
         add(BeeIndustryBlocks.BEEPOST.get(), "Beepost");
+        add(BeeIndustryBlocks.CABLE_BLOCK.get(), "Cable");
+        add(BeeIndustryBlocks.TAPPED_LOG.get(), "Tapped Log");
+        add(BeeIndustryBlocks.BEENERGY_GENERATOR.get(), "Beenergy Generator");
+        add(BeeIndustryBlocks.SAP_PRESS.get(), "Sap Press");
 
         add(BeeIndustryBlocks.DIRT_NEST.get(), "Dirt Nest");
         add(BeeIndustryBlocks.STONE_NEST.get(), "Stone Nest");

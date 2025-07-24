@@ -90,10 +90,6 @@ public class MiningGoal extends Goal {
         }
     }
 
-    /*private Optional<BlockPos> findTargetBlock() {
-        TagKey<Block> mineableTag = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("beeindustry", "mineable_by_bee")); // Beispiel-Tag
-        return BlockPos.findClosestMatch(bee.getHivePos(), 10, 10, pos -> bee.level().getBlockState(pos).is(mineableTag));
-    }*/
     private void findTargetBlock() {
         if(bee.getBeeType() == null) return;
         TagKey<Block> mineableTag = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("beeindustry", "mineable_by_bee"));
