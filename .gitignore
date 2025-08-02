@@ -6,6 +6,8 @@ bin
 .classpath
 .project
 
+TODO.md
+
 # idea
 out
 *.ipr
