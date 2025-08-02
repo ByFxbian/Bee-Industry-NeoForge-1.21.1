@@ -1,0 +1,10 @@
+{
+  "outcomes": [
+    {
+      "chance": 1.0,
+      "child": "beeindustry:netherrack_bee"
+    }
+  ],
+  "parentA": "beeindustry:netherrack_bee",
+  "parentB": "beeindustry:netherrack_bee"
+}

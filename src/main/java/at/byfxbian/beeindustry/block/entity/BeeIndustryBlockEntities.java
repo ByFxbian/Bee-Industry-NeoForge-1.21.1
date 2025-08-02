@@ -44,6 +44,11 @@ public class BeeIndustryBlockEntities {
                     BlockEntityType.Builder.of(CableBlockEntity::new,
                             BeeIndustryBlocks.CABLE_BLOCK.get()).build(null));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<NectarLureBlockEntity>> NECTAR_LURE_BE =
+            BLOCK_ENTITIES.register("nectar_lure_be", () ->
+                    BlockEntityType.Builder.of(NectarLureBlockEntity::new,
+                            BeeIndustryBlocks.NECTAR_LURE.get()).build(null));
+
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
     }

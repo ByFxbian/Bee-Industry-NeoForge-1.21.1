@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "beeindustry:block/nectar_lure_front",
+    "side": "beeindustry:block/nectar_lure_side",
+    "top": "beeindustry:block/nectar_lure_top"
+  }
+}

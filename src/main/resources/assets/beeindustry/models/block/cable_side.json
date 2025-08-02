@@ -3,7 +3,8 @@
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
 	"textures": {
-		"2": "beeindustry:block/cable_block"
+		"2": "beeindustry:block/cable_block",
+		"particle": "beeindustry:block/cable_block"
 	},
 	"elements": [
 		{

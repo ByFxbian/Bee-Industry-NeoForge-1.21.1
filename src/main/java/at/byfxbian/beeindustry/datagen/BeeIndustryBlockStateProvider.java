@@ -56,6 +56,11 @@ public class BeeIndustryBlockStateProvider extends BlockStateProvider {
                 modLoc("block/sap_press_bottom"),
                 modLoc("block/sap_press_top"));
 
+        ModelFile nectarLureModel = models().orientable("nectar_lure",
+                modLoc("block/nectar_lure_side"),
+                modLoc("block/nectar_lure_front"),
+                modLoc("block/nectar_lure_top"));
+
         ModelFile core = models().getExistingFile(modLoc("block/cable_core"));
         ModelFile side = models().getExistingFile(modLoc("block/cable_side"));
 
@@ -76,6 +81,7 @@ public class BeeIndustryBlockStateProvider extends BlockStateProvider {
         horizontalBlock(BeeIndustryBlocks.STONE_NEST.get(), stoneNestModel);
         horizontalBlock(BeeIndustryBlocks.SAND_NEST.get(), sandNestModel);
         horizontalBlock(BeeIndustryBlocks.GRAVEL_NEST.get(), gravelNestModel);
+        horizontalBlock(BeeIndustryBlocks.NECTAR_LURE.get(), nectarLureModel);
 
         horizontalBlock(BeeIndustryBlocks.BEENERGY_GENERATOR.get(), beenergyGeneratorModel);
         horizontalBlock(BeeIndustryBlocks.SAP_PRESS.get(), sapPressModel);

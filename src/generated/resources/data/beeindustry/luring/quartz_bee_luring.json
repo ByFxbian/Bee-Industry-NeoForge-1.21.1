@@ -1,0 +1,8 @@
+{
+  "bee": "beeindustry:quartz_bee",
+  "biomeTag": "minecraft:is_nether",
+  "lureItem": {
+    "item": "minecraft:quartz"
+  },
+  "time": 800
+}

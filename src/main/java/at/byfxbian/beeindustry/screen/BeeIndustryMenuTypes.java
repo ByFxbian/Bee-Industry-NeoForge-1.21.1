@@ -28,6 +28,9 @@ public class BeeIndustryMenuTypes {
     public static final DeferredHolder<MenuType<?>, MenuType<SapPressMenu>> SAP_PRESS_MENU =
             MENUS.register("sap_press_menu", () -> IMenuTypeExtension.create(SapPressMenu::new));
 
+    public static final DeferredHolder<MenuType<?>, MenuType<NectarLureMenu>> NECTAR_LURE_MENU =
+            MENUS.register("nectar_lure_menu", () -> IMenuTypeExtension.create(NectarLureMenu::new));
+
     public static void register(IEventBus eventBus) {
         MENUS.register(eventBus);
     }

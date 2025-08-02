@@ -9,11 +9,17 @@ import at.byfxbian.beeindustry.entity.BeeIndustryEntities;
 import at.byfxbian.beeindustry.entity.client.*;
 import at.byfxbian.beeindustry.item.BeeIndustryItems;
 import at.byfxbian.beeindustry.item.custom.CustomBeeSpawnEggItem;
+import at.byfxbian.beeindustry.item.custom.armor.AbstractArmorItem;
+import at.byfxbian.beeindustry.item.custom.armor.client.ArmorClientExtension;
+import at.byfxbian.beeindustry.item.custom.armor.client.model.BeekeeperHelmetModel;
+import at.byfxbian.beeindustry.item.custom.armor.client.provider.ArmorModelProvider;
+import at.byfxbian.beeindustry.item.custom.armor.client.provider.SimpleModelProvider;
 import at.byfxbian.beeindustry.screen.*;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ArmorItem;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -22,6 +28,10 @@ import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
+import net.neoforged.neoforge.registries.DeferredItem;
+
+import java.util.Map;
 
 @EventBusSubscriber(modid = BeeIndustry.MOD_ID, value = Dist.CLIENT)
 public class ClientEvents {
@@ -43,6 +53,16 @@ public class ClientEvents {
     }
 
     @SubscribeEvent
+    public static void onRegisterClientExtensions(RegisterClientExtensionsEvent event) {
+        event.registerItem(new ArmorClientExtension(new SimpleModelProvider(BeekeeperHelmetModel::createBodyLayer, BeekeeperHelmetModel::new)), BeeIndustryItems.BEEKEEPER_HELMET);
+    }
+
+    @SuppressWarnings("unchecked")
+    private static <T extends AbstractArmorItem> void registerArmorExtension(Map<ArmorItem.Type, DeferredItem> map, RegisterClientExtensionsEvent event, ArmorModelProvider provider) {
+        event.registerItem(new ArmorClientExtension(provider), map.values().toArray(DeferredItem[]::new));
+    }
+
+    @SubscribeEvent
     public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(BeeIndustryBlockEntities.TAPPED_LOG_BE.get(), TappedLogRenderer::new);
     }
@@ -53,6 +73,7 @@ public class ClientEvents {
         event.register(BeeIndustryMenuTypes.BEEPOST_MENU.get(), BeepostScreen::new);
         event.register(BeeIndustryMenuTypes.BEENERGY_GENERATOR_MENU.get(), BeenergyGeneratorScreen::new);
         event.register(BeeIndustryMenuTypes.SAP_PRESS_MENU.get(), SapPressScreen::new);
+        event.register(BeeIndustryMenuTypes.NECTAR_LURE_MENU.get(), NectarLureScreen::new);
     }
 
     @SubscribeEvent
@@ -73,6 +94,7 @@ public class ClientEvents {
         event.registerLayerDefinition(BeeIndustryModelLayers.EMERALD_BEE_LAYER, EmeraldBeeModel::createBodyLayer);
         event.registerLayerDefinition(BeeIndustryModelLayers.FIGHTING_BEE_LAYER, FightingBeeModel::createBodyLayer);
         event.registerLayerDefinition(BeeIndustryModelLayers.LUMBER_BEE_LAYER, LumberBeeModel::createBodyLayer);
+        event.registerLayerDefinition(BeeIndustryModelLayers.BLAZE_BEE_LAYER, BlazeBeeModel::createBodyLayer);
     }
 
     @SubscribeEvent

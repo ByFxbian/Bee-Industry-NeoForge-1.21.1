@@ -1,0 +1,8 @@
+{
+  "bee": "beeindustry:netherrack_bee",
+  "biomeTag": "minecraft:is_nether",
+  "lureItem": {
+    "item": "minecraft:netherrack"
+  },
+  "time": 600
+}

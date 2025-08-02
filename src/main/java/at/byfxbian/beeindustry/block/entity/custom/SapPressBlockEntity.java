@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SapPressBlockEntity extends BlockEntity implements MenuProvider {
-    private final ItemStackHandler itemHandler = new ItemStackHandler(5) /* 4 Input, 1 Output */ {
+    private final ItemStackHandler itemHandler = new ItemStackHandler(8) /* 4 Input, 1 Output */ {
         @Override
         public int getSlotLimit(int slot) {
             return super.getSlotLimit(slot);
@@ -39,13 +39,10 @@ public class SapPressBlockEntity extends BlockEntity implements MenuProvider {
 
         @Override
         public boolean isItemValid(int slot, ItemStack stack) {
-            if(slot == 4) {
-                return false;
-            }
-            if (slot == 0 || slot == 1 || slot == 2 || slot == 3) {
+            if (slot >= 0 && slot < 4) {
                 return stack.is(BeeIndustryItems.TREE_SAP.get());
             }
-            return super.isItemValid(slot, stack);
+            return false;
         }
 
         @Override
@@ -146,7 +143,35 @@ public class SapPressBlockEntity extends BlockEntity implements MenuProvider {
             return false;
         }
 
-        return itemHandler.getStackInSlot(4).isEmpty() && energyStorage.getEnergyStored() >= 20;
+        /*boolean hasOutputSpace = false;
+        for (int i = 4; i < 8; i++) {
+            if(itemHandler.getStackInSlot(i).isEmpty()) {
+                hasOutputSpace = true;
+                break;
+            }
+        }
+
+        return hasOutputSpace && energyStorage.getEnergyStored() >= 20;
+        */
+        List<ResourceLocation> potentialOutputs = new ArrayList<>();
+        for(int i = 0; i < 4; i++) {
+            ItemStack stack = itemHandler.getStackInSlot(i);
+            if(!stack.isEmpty()) potentialOutputs.add(stack.get(BeeIndustryDataComponents.WOOD_TYPE.get()));
+        }
+        if(potentialOutputs.isEmpty()) return false;
+        ItemStack resultStack = new ItemStack(BuiltInRegistries.BLOCK.get(potentialOutputs.get(0)).asItem());
+
+        for(int i = 4; i < 8; i++) {
+            ItemStack outputSlot = itemHandler.getStackInSlot(i);
+            if(outputSlot.isEmpty() && energyStorage.getEnergyStored() >= 20) {
+                return true;
+            }
+            if(ItemStack.isSameItemSameComponents(outputSlot, resultStack) && outputSlot.getCount() < outputSlot.getMaxStackSize() && energyStorage.getEnergyStored() >= 20) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private void processItem() {
@@ -171,7 +196,19 @@ public class SapPressBlockEntity extends BlockEntity implements MenuProvider {
 
         ResourceLocation resultType = craftingSet.get(level.random.nextInt(craftingSet.size()));
         ItemStack resultStack = new ItemStack(BuiltInRegistries.BLOCK.get(resultType).asItem());
-        itemHandler.setStackInSlot(4, resultStack);
+        //itemHandler.setStackInSlot(4, resultStack);
+
+        for (int i = 4; i < 8; i++) {
+            ItemStack outputSlot = itemHandler.getStackInSlot(i);
+            if(outputSlot.isEmpty()) {
+                itemHandler.setStackInSlot(i, resultStack);
+                break;
+            }
+            if(ItemStack.isSameItemSameComponents(outputSlot, resultStack) && outputSlot.getCount() < outputSlot.getMaxStackSize()) {
+                outputSlot.grow(1);
+                break;
+            }
+        }
 
         for (int i = 0; i < 4; i++) {
             int slotIndex = availableInputSlots.get(i % availableInputSlots.size());

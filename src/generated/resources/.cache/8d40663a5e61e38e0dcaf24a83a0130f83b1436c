@@ -1,10 +1,11 @@
-// 1.21.1	2025-07-24T00:25:29.6215034	Block States: beeindustry
+// 1.21.1	2025-07-25T13:42:14.8220434	Block States: beeindustry
 efecb1351c346ace547b604d5ac17f2f69188228 assets/beeindustry/blockstates/advanced_beehive.json
 023c35cdd930beef7bfcfe8f3ade1f84a9a273b1 assets/beeindustry/blockstates/beenergy_generator.json
 ef245c66b51566693f2844967d5b9d5e4a6cf59c assets/beeindustry/blockstates/cable_block.json
 8d1315eec98612d172c7bd977068b8a8d7886a17 assets/beeindustry/blockstates/dirt_nest.json
 4585d393be8647b4e99a9dd3d8f154e76fa31293 assets/beeindustry/blockstates/example_block.json
 218e4f3ae2733aa2d92508047289601445a8db3e assets/beeindustry/blockstates/gravel_nest.json
+a776fb774a813b67491c65ca4b1c8d7f4aa76187 assets/beeindustry/blockstates/nectar_lure.json
 2278273d0388fbbe51ec45783f4496f2ab53b74c assets/beeindustry/blockstates/sand_nest.json
 d8ec3d80dface176978efd2e9ffdc113779dc599 assets/beeindustry/blockstates/sap_press.json
 4a7a72777b30a2727dec004dfd39e609f46347cf assets/beeindustry/blockstates/stone_nest.json
@@ -13,6 +14,7 @@ d9dd237ebc4c8e2b366942958738f11f8dfd7348 assets/beeindustry/models/block/beenerg
 7ed0c15ab44511624b25921a0bac6533d6228703 assets/beeindustry/models/block/dirt_nest.json
 292563d5c70bf5bd6e2d0d475a1f1620a3ff257b assets/beeindustry/models/block/example_block.json
 d51bddf76307870c60673879bfe08e6f35f052b1 assets/beeindustry/models/block/gravel_nest.json
+c3a3a85626db91e0e2f2ae11bd888df5436a472a assets/beeindustry/models/block/nectar_lure.json
 d4bca2ba8579d666ef8b7fe76daa62d2f06447b1 assets/beeindustry/models/block/sand_nest.json
 0c27817cdc6ee9c77ababa0deba0f000414966dd assets/beeindustry/models/block/sap_press.json
 fcc022960b4cd3d510c8922103197fb4e66dc864 assets/beeindustry/models/block/stone_nest.json

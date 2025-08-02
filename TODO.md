@@ -26,8 +26,10 @@ Hier ist eine strukturierte Übersicht der geplanten Features und Konzepte für 
     - [x] Quartz-Biene
     - [x] Bone-Biene (Knochen)
     - [ ] Slime-Biene
-    - [ ] Netherite-Biene (Netherite-Schrott)
-    - [ ] Blaze-Biene
+    - [x] Netherite-Biene (Netherite-Schrott)
+    - [x] Blaze-Biene
+    - [ ] Glowstone-Biene
+    - [ ] Soul-Sand-Biene
 - [ ] **End-Bienen:**
     - [x] Endstone-Biene
     - [ ] Ender-Biene
@@ -38,9 +40,9 @@ Hier ist eine strukturierte Übersicht der geplanten Features und Konzepte für 
 - [ ] **Spezial-Bienen:**
     - [ ] Lava-Biene
     - [ ] Honey-Biene
-    - [ ] Obsidian-Biene
-    - [ ] Resin-Biene
-    - [ ] Ice/Snow-Biene
+    - [x] Obsidian-Biene
+    - [x] Resin-Biene
+    - [x] Ice/Snow-Biene
     - [ ] Breeze-Biene
 
 ### Arbeiterbienen
@@ -131,6 +133,31 @@ Hier ist eine strukturierte Übersicht der geplanten Features und Konzepte für 
 
 # BUGS
 - [x] Bee Container wenn man mit einer Biene drin eine andere rechtsklick, wird die neue eingesammelt und die alte einfach gelöscht.
+- [x] Lumber Biene (eventuell auch andere Arbeiterbienen) kehrt nicht zurück in Beepost wenn man Welt verlässt nachdem sie Sap collected hat
+- [x] Tapped Log gerendeter Block ist automatisch Oak log, egal welches Log es war - Nach Cooldown aber wieder zurück zum richtigen originalen Log
+- [ ] Tapped Log Overlay zeigt immer nur in eine Richtung (die selbe)
+- [x] Wenn man den Log abbaut den die Lumber Bee grade collected, dann wird der trotzdem collected und es spawnt ein Tapped Log. Man bekommt außerdem einen Tree Sap mit Typ Air.
+- [ ] Blaze Biene Rods fliegen nicht einzeln sondern in Gruppen (l & r)
+- [x] Sap-Press fehlt Energie-Anzeige
+- [ ] Biene etwas "dumm" -> folgen nicht Beefood Tag Items
+- [x] Wenn man mit Mittlerer-Maustaste (Creative-Picker) auf Biene klickt, dann kriegt man ein unsichtbares SpawnEgg für eine CustomBee ohne Beetype (wenn man spawnt dann ist es eine example_bee)
+- [ ] Beekeeper Helm Textur Bug
+
+# TODO VOR V1
+- [ ] Bienen-Pollen und Angry Textur hinzufügen
+- [ ] Nectar Lure GUI machen
+- [ ] Patchouli Book muss wieder rein + mehr Erklärungen
+- [ ] Blöcke mit Inventar sollen Inventar droppen beim Abbauen
+- [ ] Bienen-Drops/Produktionsblöcke/Produktionsitems/Attribute etc. überarbeiten
+- [ ] Lure- & Breeding-Rezepte erstellen
+- [ ] World-Gen Nestraten anpassen
+- [ ] Beekeeper Armor - 3d Textur anpassen - Items sind gut
+- [ ] Beekeeper Villager Textur anpassen
+- [ ] Beekeeper Villager Trades hinzufügen
+- [ ] Advanced Beehive Progress Textur etwas schöner machen
+- [ ] Tree-Sap soll Holzart in Textur anzeigen (kleiner Holzblock oben links/rechts in Ecke)0
+- [ ] Crafting Rezepte machen
+- [ ] Creative Mode Tab Icon ändern
 
 # Zukunft
 - [ ] **Ressourcen-System überarbeiten**: Anstatt dass Bienen direkt Items wie "Iron Nuggets" produzieren, wollen wir ein einzigartiges System schaffen. Ideen sind ein Essenz/Infuser-System (Eisen-Biene produziert "Eisen-Essenz", die einen Steinblock in Eisenerz verwandelt) oder ein Flüssigkeits-System (Bienen produzieren spezielle Honig-Arten, die in Maschinen weiterverarbeitet werden).
@@ -143,8 +170,9 @@ Hier ist eine strukturierte Übersicht der geplanten Features und Konzepte für 
 
 - [ ] **Mehr Inhalte**: Der vollständige Zuchtbaum muss noch entworfen und als JSON-Dateien implementiert werden. Es fehlen noch viele Charms, Upgrades und Bienenarten, um die Welt zu füllen.
 
-- [ ] **Locksystem**: Nicht alle Bienen sollen Nester haben, nur die Standardbienen. Andere Bienen z.B. GlowStone Biene soll durch einen "Anlock"/"Lure" Block angelockt werden können. Dieser Block wird in einem Biom/Gebiet/auf einem bestimmten Block platziert und mit Sweet Honey als Fuel befüllt und in ca 30sek oder mehr wird eine Biene vom passendem Typ "angelockt" bzw weiter weg gespawnt und fliegt zum Block und muss dann per Hand mit einem BeeContainer gefangen werden.
+- [x] **Locksystem**: Nicht alle Bienen sollen Nester haben, nur die Standardbienen. Andere Bienen z.B. GlowStone Biene soll durch einen "Anlock"/"Lure" Block angelockt werden können. Dieser Block wird in einem Biom/Gebiet/auf einem bestimmten Block platziert und mit Sweet Honey als Fuel befüllt und in ca 30sek oder mehr wird eine Biene vom passendem Typ "angelockt" bzw weiter weg gespawnt und fliegt zum Block und muss dann per Hand mit einem BeeContainer gefangen werden.
 
+- [ ] Custom Sounds/Partikel
 
 # Projektziel & Kernkonzept:
 "Bee Industry" ist eine Mod, die die Bienenhaltung zu einem tiefgründigen, industriellen System ausbaut. Das Kern-Gameplay dreht sich um das Entdecken, Züchten und Nutzen von dutzenden einzigartigen Bienenarten. Spieler bauen fortschrittliche Maschinen, um die Fähigkeiten dieser Bienen zu nutzen und alles zu automatisieren – von der Ressourcengewinnung und Landwirtschaft bis hin zur Verteidigung der eigenen Basis. Die grundlegende Design-Philosophie ist, ein tiefes Fortschrittssystem zu schaffen und die Mod durch datengesteuerte Systeme extrem konfigurierbar für Modpack-Ersteller zu machen.

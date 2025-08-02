@@ -1,8 +1,0 @@
-{
-  "parentA": "beeindustry:gold_bee",
-  "parentB": "beeindustry:iron_bee",
-  "outcomes": [
-    { "child": "beeindustry:gold_bee", "chance":  0.5 },
-    { "child": "beeindustry:iron_bee", "chance":  0.5 }
-  ]
-}

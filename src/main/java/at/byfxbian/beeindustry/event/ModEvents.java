@@ -101,6 +101,17 @@ public class ModEvents {
         );
 
         event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                BeeIndustryBlockEntities.NECTAR_LURE_BE.get(),
+                (blockEntity, side) -> {
+                    if(side == Direction.DOWN) {
+                        return blockEntity.getSidedOutputHandler();
+                    }
+                    return blockEntity.getSidedInputHandler();
+                }
+        );
+
+        event.registerBlockEntity(
                 Capabilities.EnergyStorage.BLOCK,
                 BeeIndustryBlockEntities.CABLE_BE.get(),
                 (blockEntity, side) -> blockEntity.getEnergyStorage()

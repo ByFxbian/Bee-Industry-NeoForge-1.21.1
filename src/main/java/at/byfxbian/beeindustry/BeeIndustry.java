@@ -10,6 +10,7 @@ import at.byfxbian.beeindustry.item.BeeIndustryCreativeModeTabs;
 import at.byfxbian.beeindustry.item.BeeIndustryItems;
 import at.byfxbian.beeindustry.networking.BeeIndustryNetworking;
 import at.byfxbian.beeindustry.recipe.BreedingRecipeManager;
+import at.byfxbian.beeindustry.recipe.LureRecipeManager;
 import at.byfxbian.beeindustry.screen.BeeIndustryMenuTypes;
 import at.byfxbian.beeindustry.util.BeeDefinitionManager;
 import at.byfxbian.beeindustry.util.BeeIndustryPoiTypes;
@@ -76,6 +77,7 @@ public class BeeIndustry {
     @SubscribeEvent
     public void onAddReloadListeners(final AddReloadListenerEvent event) {
         event.addListener(new BreedingRecipeManager());
+        event.addListener(new LureRecipeManager());
         event.addListener(new BeeDefinitionManager());
     }
 

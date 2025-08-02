@@ -1,0 +1,22 @@
+{
+  "attributes": {
+    "attackDamage": 4.0,
+    "maxHealth": 50.0,
+    "productivity": 1,
+    "speed": 2,
+    "temper": 8
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/obsidian_bee.png",
+  "createNectar": false,
+  "description": "An incredibly tough and slow bee.",
+  "fireproof": true,
+  "flowerBlockTag": "minecraft:obsidian",
+  "invulnerable": false,
+  "name": "obsidian_bee",
+  "pollenColor": "#584869",
+  "primaryColor": "#2E2A36",
+  "productionItem": "minecraft:obsidian",
+  "secondaryColor": "#1B171F",
+  "size": 1.5,
+  "translucent": false
+}

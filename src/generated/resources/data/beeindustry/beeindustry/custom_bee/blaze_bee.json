@@ -1,0 +1,23 @@
+{
+  "attributes": {
+    "attackDamage": 5.0,
+    "maxHealth": 25.0,
+    "productivity": 8,
+    "speed": 7,
+    "temper": 6
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/blaze_bee.png",
+  "createNectar": false,
+  "description": "A fiery bee from the Nether fortresses.",
+  "fireproof": true,
+  "flowerBlockTag": "minecraft:magma_block",
+  "invulnerable": false,
+  "name": "blaze_bee",
+  "pollenColor": "#FF4500",
+  "primaryColor": "#FFD700",
+  "productionItem": "minecraft:blaze_powder",
+  "renderer": "blaze_bee",
+  "secondaryColor": "#F0E68C",
+  "size": 1.2,
+  "translucent": false
+}

@@ -1,0 +1,114 @@
+package at.byfxbian.beeindustry.entity.client;
+
+import at.byfxbian.beeindustry.api.CustomBee;
+import at.byfxbian.beeindustry.entity.custom.CustomBeeEntity;
+import net.minecraft.client.model.BeeModel;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.util.Mth;
+
+public class BlazeBeeModel extends BeeModel<CustomBeeEntity> {
+    private final ModelPart bone;
+    private final ModelPart body;
+    private final ModelPart rightWing;
+    private final ModelPart leftWing;
+    private final ModelPart frontLeg;
+    private final ModelPart midLeg;
+    private final ModelPart backLeg;
+    private final ModelPart stinger;
+    private final ModelPart leftAntenna;
+    private final ModelPart rightAntenna;
+    private final ModelPart leftRods;
+    private final ModelPart rightRods;
+
+    private final float initialLeftRodY;
+    private final float initialRightRodY;
+
+    public BlazeBeeModel(ModelPart root) {
+        super(root);
+        this.bone = root.getChild("bone");
+        this.body = this.bone.getChild("body");
+        this.stinger = this.body.getChild("stinger");
+        this.leftAntenna = this.body.getChild("left_antenna");
+        this.rightAntenna = this.body.getChild("right_antenna");
+        this.rightWing = this.bone.getChild("right_wing");
+        this.leftWing = this.bone.getChild("left_wing");
+        this.frontLeg = this.bone.getChild("front_legs");
+        this.midLeg = this.bone.getChild("middle_legs");
+        this.backLeg = this.bone.getChild("back_legs");
+        this.leftRods = body.getChild("left_rods");
+        this.rightRods = body.getChild("right_rods");
+
+        this.initialLeftRodY = this.leftRods.y;
+        this.initialRightRodY = this.rightRods.y;
+    }
+
+    public static LayerDefinition createBodyLayer() {
+        MeshDefinition meshdefinition = new MeshDefinition();
+        PartDefinition partdefinition = meshdefinition.getRoot();
+        PartDefinition partdefinition1 = partdefinition.addOrReplaceChild("bone", CubeListBuilder.create(), PartPose.offset(0.0F, 19.0F, 0.0F));
+
+        PartDefinition partdefinition2 = partdefinition1.addOrReplaceChild(
+                "body", CubeListBuilder.create().texOffs(0, 0).addBox(-3.5F, -4.0F, -5.0F, 7.0F, 7.0F, 10.0F), PartPose.ZERO
+        );
+        partdefinition2.addOrReplaceChild("stinger", CubeListBuilder.create().texOffs(26, 7).addBox(0.0F, -1.0F, 5.0F, 0.0F, 1.0F, 2.0F), PartPose.ZERO);
+        partdefinition2.addOrReplaceChild(
+                "left_antenna", CubeListBuilder.create().texOffs(2, 0).addBox(1.5F, -2.0F, -3.0F, 1.0F, 2.0F, 3.0F), PartPose.offset(0.0F, -2.0F, -5.0F)
+        );
+        partdefinition2.addOrReplaceChild(
+                "right_antenna", CubeListBuilder.create().texOffs(2, 3).addBox(-2.5F, -2.0F, -3.0F, 1.0F, 2.0F, 3.0F), PartPose.offset(0.0F, -2.0F, -5.0F)
+        );
+        CubeDeformation cubedeformation = new CubeDeformation(0.001F);
+        partdefinition1.addOrReplaceChild(
+                "right_wing", CubeListBuilder.create().texOffs(13, 23).addBox(-1.0F, 0.0F, 0.0F, 1.0F, 0.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(-1.5F, -4.0F, -3.0F)
+        );
+        partdefinition1.addOrReplaceChild(
+                "left_wing", CubeListBuilder.create().texOffs(13, 23).mirror().addBox(0.0F, 0.0F, 0.0F, 1.0F, 0.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(1.5F, -4.0F, -3.0F)
+        );
+        partdefinition1.addOrReplaceChild(
+                "front_legs", CubeListBuilder.create().addBox("front_legs", -5.0F, 0.0F, 0.0F, 7, 2, 0, 26, 1), PartPose.offset(1.5F, 3.0F, -2.0F)
+        );
+        partdefinition1.addOrReplaceChild(
+                "middle_legs", CubeListBuilder.create().addBox("middle_legs", -5.0F, 0.0F, 0.0F, 7, 2, 0, 26, 3), PartPose.offset(1.5F, 3.0F, 0.0F)
+        );
+        partdefinition1.addOrReplaceChild(
+                "back_legs", CubeListBuilder.create().addBox("back_legs", -5.0F, 0.0F, 0.0F, 7, 2, 0, 26, 5), PartPose.offset(1.5F, 3.0F, 2.0F)
+        );
+
+        partdefinition2.addOrReplaceChild("right_rods", CubeListBuilder.create().texOffs(57, 1).addBox(-1.0F, -2.0F, -1.0F, 1.0F, 7.0F, 1.0F, new CubeDeformation(0.0F))
+                .texOffs(57, 1).addBox(-2.0F, -3.0F, -7.0F, 1.0F, 7.0F, 1.0F, new CubeDeformation(0.0F))
+                .texOffs(57, 1).addBox(-2.0F, -7.0F, -4.0F, 1.0F, 7.0F, 1.0F, new CubeDeformation(0.0F))
+                .texOffs(57, 1).addBox(-2.0F, -6.0F, -10.0F, 1.0F, 7.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(-3.5F, 0.0F, 6.0F));
+
+        partdefinition2.addOrReplaceChild("left_rods", CubeListBuilder.create().texOffs(57, 1).addBox(-1.0F, -2.0F, -1.0F, 1.0F, 7.0F, 1.0F, new CubeDeformation(0.0F))
+                .texOffs(57, 1).addBox(-2.0F, 3.0F, 2.0F, 1.0F, 7.0F, 1.0F, new CubeDeformation(0.0F))
+                .texOffs(57, 1).addBox(-1.0F, 2.0F, -4.0F, 1.0F, 7.0F, 1.0F, new CubeDeformation(0.0F))
+                .texOffs(57, 1).addBox(-1.0F, -1.0F, -7.0F, 1.0F, 7.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(5.5F, -5.0F, 3.0F));
+
+        return LayerDefinition.create(meshdefinition, 64, 64);
+    }
+
+    @Override
+    public void setupAnim(CustomBeeEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+        super.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
+
+        this.leftRods.xRot = this.body.xRot;
+        this.leftRods.yRot = this.body.yRot;
+        this.leftRods.zRot = this.body.zRot;
+        //leftRods.x = this.body.x;
+        //leftRods.y = this.body.y;
+        //leftRods.z = this.body.z;
+        this.rightRods.xRot = this.body.xRot;
+        this.rightRods.yRot = this.body.yRot;
+        this.rightRods.zRot = this.body.zRot;
+        //rightRods.x = this.body.x;
+        //rightRods.y = this.body.y;
+        //rightRods.z = this.body.z;
+
+        float wobble = Mth.cos(ageInTicks * 0.4f) * 0.5f;
+        this.leftRods.y = this.initialLeftRodY + wobble;
+        this.rightRods.y = this.initialRightRodY - wobble;
+    }
+
+}

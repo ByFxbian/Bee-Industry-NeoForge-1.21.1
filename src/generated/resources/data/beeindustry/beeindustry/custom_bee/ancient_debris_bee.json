@@ -1,0 +1,22 @@
+{
+  "attributes": {
+    "attackDamage": 8.0,
+    "maxHealth": 60.0,
+    "productivity": 10,
+    "speed": 5,
+    "temper": 10
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/ancient_debris_bee.png",
+  "createNectar": false,
+  "description": "The ultimate bee, forged in fire.",
+  "fireproof": true,
+  "flowerBlockTag": "minecraft:ancient_debris",
+  "invulnerable": true,
+  "name": "ancient_debris_bee",
+  "pollenColor": "#6B5D5C",
+  "primaryColor": "#4A4140",
+  "productionItem": "minecraft:netherite_scrap",
+  "secondaryColor": "#3B3332",
+  "size": 1.6,
+  "translucent": false
+}

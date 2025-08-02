@@ -1,4 +1,4 @@
-// 1.21.1	2025-07-23T17:10:29.2216657	Item Models: beeindustry
+// 1.21.1	2025-07-25T13:42:14.8195419	Item Models: beeindustry
 a9ea0139fdd153e7ba892f7668ec553f0bdacd3b assets/beeindustry/models/item/advanced_beehive.json
 6cf521f037228f096b63b9e7b88a126c7fb9161f assets/beeindustry/models/item/apiarists_compass.json
 a057d976ebee4e92f1268067d2f82f715e9c30e2 assets/beeindustry/models/item/beenergy_generator.json
@@ -8,6 +8,7 @@ cff803d7cec79c6d8d54010915ddb8a76dec843e assets/beeindustry/models/item/dirt_nes
 1c36bc8088aaaf17173d5302183ff53b1167a957 assets/beeindustry/models/item/efficiency_upgrade.json
 90a06dd94a07a59df10996d2cb39cf597a8ee914 assets/beeindustry/models/item/example_item.json
 fc4e8f7a6f843a30caaff97a75828903b6a92a64 assets/beeindustry/models/item/gravel_nest.json
+196b5b80aae51b3dcb82ba85f1eb1bf09ea1fa85 assets/beeindustry/models/item/nectar_lure.json
 efecc111897df12c24c32c21c3d70d228bc410be assets/beeindustry/models/item/quantity_upgrade.json
 9f43092f62b72cb39b64dc72ec37b9da4dd90fa5 assets/beeindustry/models/item/range_upgrade.json
 18ccb425820a2e54e33e7d98ca1fdc430e758502 assets/beeindustry/models/item/sand_nest.json

@@ -4,9 +4,11 @@ import at.byfxbian.beeindustry.BeeIndustry;
 import at.byfxbian.beeindustry.api.CustomBee;
 import at.byfxbian.beeindustry.block.entity.custom.AdvancedBeehiveBlockEntity;
 import at.byfxbian.beeindustry.block.entity.custom.BeepostBlockEntity;
+import at.byfxbian.beeindustry.component.BeeColorComponent;
 import at.byfxbian.beeindustry.component.BeeIndustryDataComponents;
 import at.byfxbian.beeindustry.entity.BeeIndustryEntities;
 import at.byfxbian.beeindustry.entity.goal.*;
+import at.byfxbian.beeindustry.item.BeeIndustryItems;
 import at.byfxbian.beeindustry.recipe.BreedingRecipe;
 import at.byfxbian.beeindustry.recipe.BreedingRecipeManager;
 import at.byfxbian.beeindustry.util.BeeDefinitionManager;
@@ -14,6 +16,7 @@ import at.byfxbian.beeindustry.util.BeeRegistries;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.NbtUtils;
@@ -37,12 +40,14 @@ import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Bee;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -88,6 +93,22 @@ public class CustomBeeEntity extends Bee {
 
     public Optional<CustomBee> getBeeData() {
         return Optional.ofNullable(BeeDefinitionManager.getBee(this.getBeeType()));
+    }
+
+    @Override
+    public ItemStack getPickedResult(HitResult target) {
+        ItemStack eggStack = new ItemStack(BeeIndustryItems.BEE_SPAWN_EGG.get());
+
+        CompoundTag entityTag = new CompoundTag();
+        entityTag.putString("id", BeeIndustryEntities.CUSTOM_BEE_ENTITY.getId().toString());
+        entityTag.putString("bee_type", this.getBeeType().toString());
+
+        eggStack.set(DataComponents.ENTITY_DATA, CustomData.of(entityTag));
+        int primaryColor = Integer.parseInt(getBeeData().get().primaryColor().substring(1), 16) | 0xFF000000;
+        int secondaryColor = Integer.parseInt(getBeeData().get().secondaryColor().substring(1), 16) | 0xFF000000;
+        eggStack.set(BeeIndustryDataComponents.BEE_COLORS.get(), new BeeColorComponent(primaryColor, secondaryColor));
+
+        return eggStack;
     }
 
     @Override

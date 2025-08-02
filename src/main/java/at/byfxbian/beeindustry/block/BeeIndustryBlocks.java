@@ -43,6 +43,9 @@ public class BeeIndustryBlocks {
     public static final DeferredBlock<Block> CABLE_BLOCK = registerBlock("cable_block",
             () -> new CableBlock(BlockBehaviour.Properties.of().strength(0.5f)));
 
+    public static final DeferredBlock<Block> NECTAR_LURE = registerBlock("nectar_lure",
+            () -> new NectarLureBlock(BlockBehaviour.Properties.of().strength(2.0f)));
+
     public static final DeferredBlock<Block> DIRT_NEST = registerBlock("dirt_nest",
             () -> new DirtNestBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT)));
     public static final DeferredBlock<Block> STONE_NEST = registerBlock("stone_nest",

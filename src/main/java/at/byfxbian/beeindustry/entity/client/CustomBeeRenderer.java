@@ -27,7 +27,8 @@ public class CustomBeeRenderer extends MobRenderer<CustomBeeEntity, BeeModel<Cus
                 "mining_bee", new MiningBeeModel(context.bakeLayer(BeeIndustryModelLayers.MINING_BEE_LAYER)),
                 "emerald_bee", new EmeraldBeeModel(context.bakeLayer(BeeIndustryModelLayers.EMERALD_BEE_LAYER)),
                 "fighting_bee", new FightingBeeModel(context.bakeLayer(BeeIndustryModelLayers.FIGHTING_BEE_LAYER)),
-                "lumber_bee", new LumberBeeModel(context.bakeLayer(BeeIndustryModelLayers.LUMBER_BEE_LAYER))
+                "lumber_bee", new LumberBeeModel(context.bakeLayer(BeeIndustryModelLayers.LUMBER_BEE_LAYER)),
+                "blaze_bee", new BlazeBeeModel(context.bakeLayer(BeeIndustryModelLayers.BLAZE_BEE_LAYER))
         );
     }
 

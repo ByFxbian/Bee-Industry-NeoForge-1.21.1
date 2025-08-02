@@ -23,6 +23,7 @@ public class BeeIndustryBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(BeeIndustryBlocks.ADVANCED_BEEHIVE.get());
         dropSelf(BeeIndustryBlocks.BEENERGY_GENERATOR.get());
         dropSelf(BeeIndustryBlocks.SAP_PRESS.get());
+        dropSelf(BeeIndustryBlocks.NECTAR_LURE.get());
         dropSelf(BeeIndustryBlocks.BEEPOST.get());
         dropSelf(BeeIndustryBlocks.CABLE_BLOCK.get());
         dropSelf(BeeIndustryBlocks.DIRT_NEST.get());

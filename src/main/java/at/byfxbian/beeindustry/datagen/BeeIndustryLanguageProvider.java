@@ -41,6 +41,7 @@ public class BeeIndustryLanguageProvider extends LanguageProvider {
         add(BeeIndustryBlocks.TAPPED_LOG.get(), "Tapped Log");
         add(BeeIndustryBlocks.BEENERGY_GENERATOR.get(), "Beenergy Generator");
         add(BeeIndustryBlocks.SAP_PRESS.get(), "Sap Press");
+        add(BeeIndustryBlocks.NECTAR_LURE.get(), "Nectar Lure");
 
         add(BeeIndustryBlocks.DIRT_NEST.get(), "Dirt Nest");
         add(BeeIndustryBlocks.STONE_NEST.get(), "Stone Nest");

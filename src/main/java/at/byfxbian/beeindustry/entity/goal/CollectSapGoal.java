@@ -8,10 +8,12 @@ import at.byfxbian.beeindustry.entity.custom.CustomBeeEntity;
 import at.byfxbian.beeindustry.item.BeeIndustryItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -39,7 +41,7 @@ public class CollectSapGoal extends Goal {
 
     @Override
     public boolean canUse() {
-        return bee.getHivePos() != null && beepost != null && bee.getInventory().stream().allMatch(ItemStack::isEmpty);
+        return bee.getHivePos() != null && beepost != null;
     }
 
     @Override
@@ -102,6 +104,7 @@ public class CollectSapGoal extends Goal {
                     collectingTicks = 0;
                     sapsCollected++;
                     if (sapsCollected >= MAX_SAPS) {
+                        bee.setHasWorked(true);
                         currentState = State.RETURN; // Inventar voll, nach Hause
                     } else {
                         currentState = State.FIND_LOG; // Suche den nächsten Baum
@@ -113,6 +116,7 @@ public class CollectSapGoal extends Goal {
                 bee.getNavigation().moveTo(hivePos.getX() + 0.5, hivePos.getY() + 1.5, hivePos.getZ() + 0.5, 1.2);
 
                 if (bee.blockPosition().closerThan(hivePos, 2.0)) {
+                    bee.setHasWorked(false);
                     beepost.onWorkerBeeReturned(bee);
                 }
                 break;
@@ -122,9 +126,20 @@ public class CollectSapGoal extends Goal {
     private void collectSap() {
         if(targetLogPos != null && bee.level() instanceof ServerLevel serverLevel) {
             BlockState logState = serverLevel.getBlockState(targetLogPos);
+
+            if(!logState.is(BlockTags.LOGS)) {
+                this.targetLogPos = null;
+                this.currentState = State.FIND_LOG;
+                return;
+            }
+
             ItemStack sapStack = new ItemStack(BeeIndustryItems.TREE_SAP.get());
 
-            sapStack.set(BeeIndustryDataComponents.WOOD_TYPE.get(), BuiltInRegistries.BLOCK.getKey(logState.getBlock()));
+            ResourceLocation woodType = BuiltInRegistries.BLOCK.getKey(logState.getBlock());
+            if (woodType.equals(BuiltInRegistries.BLOCK.getKey(Blocks.AIR))) {
+                return;
+            }
+            sapStack.set(BeeIndustryDataComponents.WOOD_TYPE.get(), woodType);
 
             int amountToCollect = sapStack.getCount() + bee.bonusQuantity;
             sapStack.setCount(amountToCollect);

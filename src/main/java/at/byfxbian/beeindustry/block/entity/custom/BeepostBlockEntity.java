@@ -96,6 +96,8 @@ public class BeepostBlockEntity extends BlockEntity implements MenuProvider {
     private static final int FUEL_SLOT = 15;
     private static final int[] OUTPUT_SLOTS = {16, 17, 18, 19, 20, 21, 22};
 
+    private boolean hasValidatedOnLoad = false;
+
     private boolean isUpgradeSlot(int slotIndex) {
         // Upgrade-Slots sind 1-3, 5-7, 9-11 und 12-14
         return (slotIndex >= 1 && slotIndex <= 3) ||
@@ -153,7 +155,10 @@ public class BeepostBlockEntity extends BlockEntity implements MenuProvider {
     public void tick(Level level, BlockPos pos, BlockState state) {
         if (level.isClientSide ) return;
 
-        validateWorkingBees();
+        if(!hasValidatedOnLoad) {
+            validateWorkingBees();
+            hasValidatedOnLoad = true;
+        }
 
         if(level.getGameTime() % 40 != 0)
         if (hasFreeWorkerSlot() && hasFuel()) {

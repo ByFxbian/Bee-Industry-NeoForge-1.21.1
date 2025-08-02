@@ -54,6 +54,8 @@ public class BeeIndustryCreativeModeTabs {
                         output.accept(BeeIndustryBlocks.GRAVEL_NEST);
                         output.accept(BeeIndustryBlocks.STONE_NEST);
                         output.accept(BeeIndustryBlocks.SAND_NEST);
+                        output.accept(BeeIndustryBlocks.CABLE_BLOCK);
+                        output.accept(BeeIndustryBlocks.NECTAR_LURE);
 
                       for(ResourceLocation beeId : BeeDefinitionManager.getBeeDefinitionsMap().keySet()) {
                           ItemStack eggStack = new ItemStack(BeeIndustryItems.BEE_SPAWN_EGG.get());

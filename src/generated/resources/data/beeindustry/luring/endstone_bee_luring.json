@@ -1,0 +1,8 @@
+{
+  "bee": "beeindustry:endstone_bee",
+  "biomeTag": "minecraft:is_end",
+  "lureItem": {
+    "item": "minecraft:end_stone"
+  },
+  "time": 600
+}

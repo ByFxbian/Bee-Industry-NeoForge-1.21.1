@@ -1,0 +1,22 @@
+{
+  "attributes": {
+    "attackDamage": 1.0,
+    "maxHealth": 20.0,
+    "productivity": 3,
+    "speed": 6,
+    "temper": 1
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/ice_bee.png",
+  "createNectar": false,
+  "description": "A bee that thrives in the cold.",
+  "fireproof": false,
+  "flowerBlockTag": "minecraft:snow_block",
+  "invulnerable": false,
+  "name": "ice_bee",
+  "pollenColor": "#E0FFFF",
+  "primaryColor": "#A4E2F6",
+  "productionItem": "minecraft:ice",
+  "secondaryColor": "#FFFFFF",
+  "size": 1.0,
+  "translucent": true
+}

@@ -1,0 +1,18 @@
+{
+  "outcomes": [
+    {
+      "chance": 0.15,
+      "child": "beeindustry:emerald_bee"
+    },
+    {
+      "chance": 0.525,
+      "child": "beeindustry:farming_bee"
+    },
+    {
+      "chance": 0.325,
+      "child": "beeindustry:gold_bee"
+    }
+  ],
+  "parentA": "beeindustry:gold_bee",
+  "parentB": "beeindustry:farming_bee"
+}

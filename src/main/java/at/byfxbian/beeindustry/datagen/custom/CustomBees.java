@@ -45,6 +45,12 @@ public class CustomBees {
     public static final ResourceKey<CustomBee> NETHERRACK = createKey("netherrack_bee");
     public static final ResourceKey<CustomBee> AMETHYST = createKey("amethyst_bee");
 
+    public static final ResourceKey<CustomBee> ICE = createKey("ice_bee");
+    public static final ResourceKey<CustomBee> RESIN = createKey("resin_bee");
+    public static final ResourceKey<CustomBee> OBSIDIAN = createKey("obsidian_bee");
+    public static final ResourceKey<CustomBee> BLAZE = createKey("blaze_bee");
+    public static final ResourceKey<CustomBee> ANCIENT_DEBRIS = createKey("ancient_debris_bee");
+
     public static List<ResourceKey<CustomBee>> getAllBeeKeys() {
         return BUILT_IN_BEES.keySet().stream().toList();
     }
@@ -208,6 +214,36 @@ public class CustomBees {
                 "beeindustry:textures/entity/bee/amethyst_bee.png",
                 false, "minecraft:amethyst_block", "minecraft:amethyst_shard",
                 1.2f, true, false, new CustomBee.Attributes(7, 1, 7, 28.0, 1.0), false,
+                Optional.empty());
+
+        register(context, ICE, "#A4E2F6", "#FFFFFF", "#E0FFFF", "A bee that thrives in the cold.",
+                "beeindustry:textures/entity/bee/ice_bee.png", // Textur erstellen
+                false, "minecraft:snow_block", "minecraft:ice",
+                1.0f, true, false, new CustomBee.Attributes(3, 1, 6, 20.0, 1.0), false,
+                Optional.empty());
+
+        register(context, RESIN, "#FFA500", "#D2691E", "#FFD700", "This bee seems unnaturally sticky.",
+                "beeindustry:textures/entity/bee/resin_bee.png",
+                false, "minecraft:logs", "beeindustry:sweet_honey",
+                1.1f, false, false, new CustomBee.Attributes(2, 2, 5, 20.0, 1.0), false,
+                Optional.empty());
+
+        register(context, OBSIDIAN, "#2E2A36", "#1B171F", "#584869", "An incredibly tough and slow bee.",
+                "beeindustry:textures/entity/bee/obsidian_bee.png",
+                false, "minecraft:obsidian", "minecraft:obsidian",
+                1.5f, false, true, new CustomBee.Attributes(1, 8, 2, 50.0, 4.0), false,
+                Optional.empty());
+
+        register(context, BLAZE, "#FFD700", "#F0E68C", "#FF4500", "A fiery bee from the Nether fortresses.",
+                "beeindustry:textures/entity/bee/blaze_bee.png",
+                false, "minecraft:magma_block", "minecraft:blaze_powder",
+                1.2f, false, true, new CustomBee.Attributes(8, 6, 7, 25.0, 5.0), false,
+                Optional.of("blaze_bee"));
+
+        register(context, ANCIENT_DEBRIS, "#4A4140", "#3B3332", "#6B5D5C", "The ultimate bee, forged in fire.",
+                "beeindustry:textures/entity/bee/ancient_debris_bee.png",
+                false, "minecraft:ancient_debris", "minecraft:netherite_scrap",
+                1.6f, false, true, new CustomBee.Attributes(10, 10, 5, 60.0, 8.0), true,
                 Optional.empty());
     }
 

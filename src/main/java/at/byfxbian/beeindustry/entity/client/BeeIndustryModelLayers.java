@@ -20,4 +20,7 @@ public class BeeIndustryModelLayers {
     public static final ModelLayerLocation LUMBER_BEE_LAYER = new ModelLayerLocation(
             ResourceLocation.fromNamespaceAndPath(BeeIndustry.MOD_ID, "lumber_bee"), "main"
     );
+    public static final ModelLayerLocation BLAZE_BEE_LAYER = new ModelLayerLocation(
+            ResourceLocation.fromNamespaceAndPath(BeeIndustry.MOD_ID, "blaze_bee"), "main"
+    );
 }

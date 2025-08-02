@@ -1,0 +1,10 @@
+{
+  "outcomes": [
+    {
+      "chance": 1.0,
+      "child": "beeindustry:gravel_bee"
+    }
+  ],
+  "parentA": "beeindustry:gravel_bee",
+  "parentB": "beeindustry:gravel_bee"
+}

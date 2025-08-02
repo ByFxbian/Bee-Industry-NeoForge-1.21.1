@@ -50,6 +50,7 @@ public class BeeIndustryItemModelProvider extends ItemModelProvider {
         withExistingParent(BeeIndustryBlocks.STONE_NEST.getId().getPath(), modLoc("block/stone_nest"));
         withExistingParent(BeeIndustryBlocks.SAND_NEST.getId().getPath(), modLoc("block/sand_nest"));
         withExistingParent(BeeIndustryBlocks.GRAVEL_NEST.getId().getPath(), modLoc("block/gravel_nest"));
+        withExistingParent(BeeIndustryBlocks.NECTAR_LURE.getId().getPath(), modLoc("block/nectar_lure"));
     }
 
 

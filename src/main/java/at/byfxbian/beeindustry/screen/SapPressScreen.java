@@ -12,6 +12,8 @@ import java.util.Optional;
 
 public class SapPressScreen extends AbstractContainerScreen<SapPressMenu> {
     private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(BeeIndustry.MOD_ID, "textures/gui/sap_press_gui.png");
+    private static final ResourceLocation CRAFT_PROGRESS = ResourceLocation.fromNamespaceAndPath(BeeIndustry.MOD_ID, "container/sap_press/craft_progress");
+
 
     public SapPressScreen(SapPressMenu menu, Inventory inv, Component title) {
         super(menu, inv, title);
@@ -25,13 +27,14 @@ public class SapPressScreen extends AbstractContainerScreen<SapPressMenu> {
 
         if (menu.isCrafting()) {
             int progress = menu.getScaledProgress();
-            gg.blit(TEXTURE, x + 85, y + 26, 176, 0, progress, 17);
+            //gg.blit(TEXTURE, x + 85, y + 26, 176, 0, progress, 17);
+            gg.blitSprite(CRAFT_PROGRESS, 24, 16, 0, 0, x + 76, y + 27, progress, 16);
         }
 
         int energy = menu.getEnergy();
-        int maxEnergy = 20000;
+        int maxEnergy = menu.getMaxEnergy();
         int energyHeight = (int) (52 * ((float)energy / (float)maxEnergy));
-        gg.blit(TEXTURE, x + 152, y + 17 + (52 - energyHeight), 176, 17, 16, energyHeight);
+        gg.blit(TEXTURE, x + 164, y + 18 + (52 - energyHeight), 176, 17, 4, energyHeight);
     }
 
     @Override
@@ -40,8 +43,8 @@ public class SapPressScreen extends AbstractContainerScreen<SapPressMenu> {
         super.render(gg, mouseX, mouseY, delta);
         renderTooltip(gg, mouseX, mouseY);
 
-        if (isMouseOver(mouseX, mouseY, 152, 17, 16, 52)) {
-            gg.renderTooltip(this.font, Component.literal(menu.getEnergy() + " / 20000 FE").toFlatList(), Optional.empty(), mouseX, mouseY);
+        if (isMouseOver(mouseX, mouseY, 164, 18, 4, 52)) {
+            gg.renderTooltip(this.font, Component.literal(menu.getEnergy() + " / " + menu.getMaxEnergy() + " FE").toFlatList(), Optional.empty(), mouseX, mouseY);
         }
     }
 

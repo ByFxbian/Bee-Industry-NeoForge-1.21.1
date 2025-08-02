@@ -1,6 +1,8 @@
 package at.byfxbian.beeindustry.datagen;
 
 import at.byfxbian.beeindustry.BeeIndustry;
+import at.byfxbian.beeindustry.datagen.custom.BreedingRecipeProvider;
+import at.byfxbian.beeindustry.datagen.custom.LureRecipeProvider;
 import at.byfxbian.beeindustry.entity.BeeIndustryEntities;
 import at.byfxbian.beeindustry.entity.custom.CustomBeeEntity;
 import net.minecraft.core.HolderLookup;
@@ -47,6 +49,9 @@ public class DataGenerators {
         generator.addProvider(event.includeClient(), new BeeIndustryItemModelProvider(packOutput, existingFileHelper));
 
         generator.addProvider(event.includeClient(), new BeeIndustryLanguageProvider(packOutput, "en_us"));
+
+        generator.addProvider(event.includeServer(), new BreedingRecipeProvider(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new LureRecipeProvider(packOutput, lookupProvider));
     }
 
     @SubscribeEvent
