@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "beeindustry:item/tree_sap"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "beeindustry:wood_type_present": 1
+      },
+      "model": "beeindustry:item/tree_sap_wood"
+    }
+  ]
+}

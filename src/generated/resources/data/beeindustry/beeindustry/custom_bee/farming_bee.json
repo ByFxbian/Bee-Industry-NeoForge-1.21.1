@@ -1,7 +1,7 @@
 {
   "attributes": {
     "attackDamage": 1.0,
-    "maxHealth": 20.0,
+    "maxHealth": 15.0,
     "productivity": 1,
     "speed": 8,
     "temper": 8
@@ -10,7 +10,7 @@
   "createNectar": false,
   "description": "A hard-working farming bee.",
   "fireproof": false,
-  "flowerBlockTag": "minecraft:farmland",
+  "flowerBlockTag": "beeindustry:flowers/farming_bee",
   "invulnerable": false,
   "name": "farming_bee",
   "pollenColor": "#8f6700",

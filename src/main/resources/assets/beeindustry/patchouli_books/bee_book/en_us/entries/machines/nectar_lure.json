@@ -1,0 +1,20 @@
+{
+  "name": "Nectar Lure",
+  "category": "beeindustry:machines",
+  "icon": "beeindustry:nectar_lure",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Some bee species are too elusive to be found in nests. The Nectar Lure allows you to attract these rare bees by using specific items as bait within their native biome.$(br2)This is the primary method for discovering biome-specific bees, especially those from other dimensions."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "How to Use",
+      "text": "1. Place the Nectar Lure in the correct biome (e.g., The Nether).$(br)2. Insert the required lure item into the lure slot (e.g., Netherrack).$(br)3. Fuel it with $(l:beeindustry:items/fuel)Sweet Honey$().$(br)4. Over time, a bee of the corresponding type will spawn nearby and fly towards the lure. Be ready to catch it with a $(l:beeindustry:getting_started/first_steps)Bee Container$()!"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "beeindustry:nectar_lure"
+    }
+  ]
+}

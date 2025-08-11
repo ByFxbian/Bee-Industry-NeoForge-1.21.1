@@ -1,4 +1,9 @@
-// 1.21.1	2025-07-25T12:13:13.0636155	Bee Luring Recipes
-ada5f44d7c9d76af48e158c4eb9be657f9084d14 data/beeindustry/luring/endstone_bee_luring.json
+// 1.21.1	2025-08-09T12:31:50.5173362	Bee Luring Recipes
+618c70817390839cca13b615838adef9a89e2bc8 data/beeindustry/luring/ender_bee_luring.json
+17435cbde757ebd364f77756bb59e8582c4aa327 data/beeindustry/luring/endstone_bee_luring.json
+4b4bfac39c94ee701431e687f8e0bc59cf3c3d35 data/beeindustry/luring/glowstone_bee_luring.json
+3bffd31f7c98051ecdbaa8c305c6831e393b1383 data/beeindustry/luring/ice_bee_luring.json
 8196a6f3655ce494cdc6da1b7398bcbf8523487d data/beeindustry/luring/netherrack_bee_luring.json
 fe2754e4e549ac92e1b37783e73270ebb1a4869b data/beeindustry/luring/quartz_bee_luring.json
+59b03a8edadac6a597f2e242a2d6311409a3f3ea data/beeindustry/luring/slime_bee_luring.json
+f042eda8a72b43dad8e9a1e7068b55065bdcf7a1 data/beeindustry/luring/soul_sand_bee_luring.json

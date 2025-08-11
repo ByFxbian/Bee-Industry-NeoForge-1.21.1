@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "beeindustry:advanced_beehive"
+    },
+    "I": {
+      "item": "minecraft:iron_block"
+    },
+    "P": {
+      "tag": "minecraft:planks"
+    },
+    "S": {
+      "item": "minecraft:smooth_stone"
+    }
+  },
+  "pattern": [
+    "PIP",
+    "PBP",
+    "SSS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "beeindustry:beepost"
+  }
+}

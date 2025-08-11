@@ -52,6 +52,10 @@ public class BeepostBlockEntity extends BlockEntity implements MenuProvider {
                 return 1;
             }
 
+            if(isBlockUpgradeSlot(slot)) {
+                return 1;
+            }
+
             return super.getSlotLimit(slot);
         }
 
@@ -61,12 +65,17 @@ public class BeepostBlockEntity extends BlockEntity implements MenuProvider {
                 return stack.is(BeeIndustryItems.SWEET_HONEY.get());
             }
             if(isBeeSlot(slot)) {
-                return stack.is(BeeIndustryItems.BEE_CONTAINER.get());
+                //return stack.is(BeeIndustryItems.BEE_CONTAINER.get());
+                if (!stack.is(BeeIndustryItems.BEE_CONTAINER.get())) return false;
+                ResourceLocation beeId = stack.get(BeeIndustryDataComponents.STORED_BEE_ID.get());
+                return isWorkerBeeId(beeId);
             }
             if(isUpgradeSlot(slot)) {
                 return stack.is(BeeIndustryItems.EFFICIENCY_UPGRADE.get()) ||
-                        stack.is(BeeIndustryItems.QUANTITY_UPGRADE.get()) ||
-                        stack.is(BeeIndustryItems.RANGE_UPGRADE);
+                        stack.is(BeeIndustryItems.QUANTITY_UPGRADE.get());
+            }
+            if(isBlockUpgradeSlot(slot)) {
+                return stack.is(BeeIndustryItems.RANGE_UPGRADE.get());
             }
             if(isOutputSlot(slot)) {
                 return false;
@@ -102,8 +111,11 @@ public class BeepostBlockEntity extends BlockEntity implements MenuProvider {
         // Upgrade-Slots sind 1-3, 5-7, 9-11 und 12-14
         return (slotIndex >= 1 && slotIndex <= 3) ||
                 (slotIndex >= 5 && slotIndex <= 7) ||
-                (slotIndex >= 9 && slotIndex <= 11) ||
-                (slotIndex >= 12 && slotIndex <= 14);
+                (slotIndex >= 9 && slotIndex <= 11);
+    }
+
+    private boolean isBlockUpgradeSlot(int slotIndex) {
+        return (slotIndex >= 12 && slotIndex <= 14);
     }
 
     private boolean isBeeSlot(int slotIndex) {
@@ -116,6 +128,7 @@ public class BeepostBlockEntity extends BlockEntity implements MenuProvider {
 
     // final boolean[] beeSlotsActive = {true, true, true};
     private final Map<Integer, UUID> workingBees = new HashMap<>();
+    private final Set<BlockPos> reservedBlocks = new HashSet<>();
 
     public BeepostBlockEntity(BlockPos pos, BlockState blockState) {
         super(BeeIndustryBlockEntities.BEEPOST_BE.get(), pos, blockState);
@@ -160,9 +173,13 @@ public class BeepostBlockEntity extends BlockEntity implements MenuProvider {
             hasValidatedOnLoad = true;
         }
 
-        if(level.getGameTime() % 40 != 0)
-        if (hasFreeWorkerSlot() && hasFuel()) {
-            spawnWorkerBee();
+        if(level.getGameTime() % 40 == 0) {
+            if (hasFreeWorkerSlot() && hasFuel()) {
+                spawnWorkerBee();
+            }
+        }
+        if (level.getGameTime() % 100 == 0) {
+            validateWorkingBees();
         }
     }
 
@@ -216,6 +233,7 @@ public class BeepostBlockEntity extends BlockEntity implements MenuProvider {
                         if(beeToSpawn.isInvulnerable()) {
                             beeToSpawn.setHealth(1000);
                         }
+                        beeToSpawn.isWorkingForMachine = true;
 
                         beeToSpawn.setPos(this.worldPosition.getX() + 0.5, this.worldPosition.getY() + 1.5, this.worldPosition.getZ() + 0.5);
                         beeToSpawn.registerGoals();
@@ -234,7 +252,10 @@ public class BeepostBlockEntity extends BlockEntity implements MenuProvider {
     private boolean checkForWork(String beeTypeId) {
         if(beeTypeId.equals("beeindustry:farming_bee")) {
             return BlockPos.findClosestMatch(this.worldPosition, 10, 5,
-                    p -> level.getBlockState(p).getBlock() instanceof CropBlock crop && crop.isMaxAge(level.getBlockState(p))).isPresent();
+                    p -> {
+                        BlockState st = level.getBlockState(p);
+                        return st.getBlock() instanceof CropBlock crop && crop.isMaxAge(st) && !isBlockReserved(p);
+                    }).isPresent();
         } else if (beeTypeId.equals("beeindustry:mining_bee")) {
             TagKey<Block> mineableTag = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("beeindustry", "mineable_by_bee"));
             return BlockPos.findClosestMatch(this.worldPosition, 10, 10,
@@ -405,8 +426,10 @@ public class BeepostBlockEntity extends BlockEntity implements MenuProvider {
         return false;
     }
 
-    private boolean isWorkerBee(CustomBee beeData) {
-        return true;
+    private boolean isWorkerBeeId(ResourceLocation id) {
+        if(id == null) return false;
+        String p = id.getPath();
+        return p.equals("farming_bee") || p.equals("mining_bee") || p.equals("lumber_bee");
     }
 
     private boolean hasFuel() {
@@ -455,5 +478,51 @@ public class BeepostBlockEntity extends BlockEntity implements MenuProvider {
             }
         }
         return false;
+    }
+
+    public void forceStopWorkingBee(int slotIndex) {
+        if (this.level instanceof ServerLevel serverLevel && this.workingBees.containsKey(slotIndex)) {
+            UUID beeUuid = this.workingBees.get(slotIndex);
+            if (beeUuid != null) {
+                Entity bee = serverLevel.getEntity(beeUuid);
+                if (bee != null) {
+                    bee.discard();
+                }
+            }
+            this.workingBees.remove(slotIndex);
+            ItemStack container = this.itemHandler.getStackInSlot(slotIndex);
+            if (!container.isEmpty()) {
+                container.remove(BeeIndustryDataComponents.IS_BEE_WORKING.get());
+            }
+            setChanged();
+        }
+    }
+
+    public void onWorkerBeeDied(UUID beeUuid) {
+        Integer slotToReset = null;
+        for (Map.Entry<Integer, UUID> entry : this.workingBees.entrySet()) {
+            if (entry.getValue().equals(beeUuid)) {
+                slotToReset = entry.getKey();
+                break;
+            }
+        }
+
+        if (slotToReset != null) {
+            this.workingBees.remove(slotToReset);
+            this.itemHandler.setStackInSlot(slotToReset, new ItemStack(BeeIndustryItems.BEE_CONTAINER.get()));
+            setChanged();
+        }
+    }
+
+    public boolean isBlockReserved(BlockPos pos) {
+        return this.reservedBlocks.contains(pos);
+    }
+
+    public void reserveBlock(BlockPos pos) {
+        this.reservedBlocks.add(pos);
+    }
+
+    public void releaseBlock(BlockPos pos) {
+        this.reservedBlocks.remove(pos);
     }
 }

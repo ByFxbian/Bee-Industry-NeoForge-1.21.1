@@ -1,0 +1,8 @@
+{
+  "bee": "beeindustry:ice_bee",
+  "biomeTag": "minecraft:is_taiga",
+  "lureItem": {
+    "item": "minecraft:slime_ball"
+  },
+  "time": 600
+}

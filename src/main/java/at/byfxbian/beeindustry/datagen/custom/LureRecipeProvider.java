@@ -8,6 +8,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.repository.Pack;
 import net.minecraft.tags.BiomeTags;
@@ -48,18 +49,48 @@ public class LureRecipeProvider implements DataProvider {
                 futures
         );
 
-        /*createLureRecipe(output, "soul_sand_bee_luring",
+        createLureRecipe(output, "soul_sand_bee_luring",
                 Ingredient.of(Items.SOUL_SAND),
-                Biomes.SOUL_SAND_VALLEY,
+                TagKey.create(Biomes.SOUL_SAND_VALLEY.registryKey(), Biomes.SOUL_SAND_VALLEY.location()),
                 CustomBees.SOUL_SAND.location(),
-                600,
+                700,
                 futures
-        );*/
+        );
+
+        createLureRecipe(output, "glowstone_bee_luring",
+                Ingredient.of(Items.GLOWSTONE),
+                BiomeTags.IS_NETHER,
+                CustomBees.GLOWSTONE.location(),
+                1000,
+                futures
+        );
 
         createLureRecipe(output, "endstone_bee_luring",
                 Ingredient.of(Items.END_STONE),
                 BiomeTags.IS_END,
                 CustomBees.ENDSTONE.location(),
+                800,
+                futures
+        );
+        createLureRecipe(output, "ender_bee_luring",
+                Ingredient.of(Items.ENDER_PEARL),
+                BiomeTags.IS_END,
+                CustomBees.ENDSTONE.location(),
+                1200,
+                futures
+        );
+
+        createLureRecipe(output, "slime_bee_luring",
+                Ingredient.of(Items.SLIME_BALL),
+                TagKey.create(Biomes.SWAMP.registryKey(), Biomes.SWAMP.location()),
+                CustomBees.SLIME.location(),
+                500,
+                futures
+        );
+        createLureRecipe(output, "ice_bee_luring",
+                Ingredient.of(Items.SLIME_BALL),
+                BiomeTags.IS_TAIGA,
+                CustomBees.ICE.location(),
                 600,
                 futures
         );

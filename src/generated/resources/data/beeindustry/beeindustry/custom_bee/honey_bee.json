@@ -1,0 +1,23 @@
+{
+  "attributes": {
+    "attackDamage": 1.0,
+    "maxHealth": 10.0,
+    "productivity": 3,
+    "speed": 5,
+    "temper": 1
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/honey_bee.png",
+  "createNectar": true,
+  "description": "The quintessential honey bee, a master of honey production.",
+  "fireproof": false,
+  "flowerBlockTag": "beeindustry:flowers/honey_bee",
+  "invulnerable": false,
+  "name": "honey_bee",
+  "pollenColor": "#FFD56B",
+  "primaryColor": "#FFB300",
+  "productionItem": "minecraft:honey_block",
+  "renderer": "dripping_bee",
+  "secondaryColor": "#FFC740",
+  "size": 1.0,
+  "translucent": false
+}

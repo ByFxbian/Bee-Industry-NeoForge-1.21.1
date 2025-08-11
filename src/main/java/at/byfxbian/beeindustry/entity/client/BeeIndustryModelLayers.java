@@ -23,4 +23,13 @@ public class BeeIndustryModelLayers {
     public static final ModelLayerLocation BLAZE_BEE_LAYER = new ModelLayerLocation(
             ResourceLocation.fromNamespaceAndPath(BeeIndustry.MOD_ID, "blaze_bee"), "main"
     );
+    public static final ModelLayerLocation LIGHT_BEE_LAYER = new ModelLayerLocation(
+            ResourceLocation.fromNamespaceAndPath(BeeIndustry.MOD_ID, "light_bee"), "main"
+    );
+    public static final ModelLayerLocation DRIPPING_BEE_LAYER = new ModelLayerLocation(
+            ResourceLocation.fromNamespaceAndPath(BeeIndustry.MOD_ID, "dripping_bee"), "main"
+    );
+    public static final ModelLayerLocation BREEZE_BEE_LAYER = new ModelLayerLocation(
+            ResourceLocation.fromNamespaceAndPath(BeeIndustry.MOD_ID, "breeze_bee"), "main"
+    );
 }

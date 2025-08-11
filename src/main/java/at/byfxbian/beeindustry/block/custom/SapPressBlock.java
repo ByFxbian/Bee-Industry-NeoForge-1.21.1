@@ -1,10 +1,13 @@
 package at.byfxbian.beeindustry.block.custom;
 
 import at.byfxbian.beeindustry.block.entity.BeeIndustryBlockEntities;
+import at.byfxbian.beeindustry.block.entity.custom.AdvancedBeehiveBlockEntity;
 import at.byfxbian.beeindustry.block.entity.custom.SapPressBlockEntity;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.Container;
+import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -65,6 +68,22 @@ public class SapPressBlock extends BaseEntityBlock {
             }
         }
         return InteractionResult.SUCCESS;
+    }
+
+    @Override
+    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
+        if(!state.is(newState.getBlock())) {
+            BlockEntity blockEntity = level.getBlockEntity(pos);
+            if(blockEntity instanceof SapPressBlockEntity entity) {
+                if(!level.isClientSide) {
+                    for(int i = 0; i < entity.getItemHandler().getSlots(); i++) {
+                        Containers.dropItemStack(level, pos.getX(), pos.getY(), pos.getZ(), entity.getItemHandler().getStackInSlot(i));
+                    }
+                }
+                level.updateNeighbourForOutputSignal(pos, this);
+            }
+        }
+        super.onRemove(state, level, pos, newState, movedByPiston);
     }
 
     @Nullable

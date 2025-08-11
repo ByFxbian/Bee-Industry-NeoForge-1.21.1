@@ -1,0 +1,18 @@
+{
+  "outcomes": [
+    {
+      "chance": 0.1,
+      "child": "beeindustry:mining_bee"
+    },
+    {
+      "chance": 0.45,
+      "child": "beeindustry:stone_bee"
+    },
+    {
+      "chance": 0.45,
+      "child": "beeindustry:gravel_bee"
+    }
+  ],
+  "parentA": "beeindustry:stone_bee",
+  "parentB": "beeindustry:gravel_bee"
+}

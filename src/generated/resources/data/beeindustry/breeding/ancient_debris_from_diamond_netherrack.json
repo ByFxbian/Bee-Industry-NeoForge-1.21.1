@@ -1,0 +1,18 @@
+{
+  "outcomes": [
+    {
+      "chance": 0.05,
+      "child": "beeindustry:ancient_debris_bee"
+    },
+    {
+      "chance": 0.475,
+      "child": "beeindustry:diamond_bee"
+    },
+    {
+      "chance": 0.475,
+      "child": "beeindustry:netherrack_bee"
+    }
+  ],
+  "parentA": "beeindustry:diamond_bee",
+  "parentB": "beeindustry:netherrack_bee"
+}

@@ -1,0 +1,18 @@
+{
+  "outcomes": [
+    {
+      "chance": 0.1,
+      "child": "beeindustry:honey_bee"
+    },
+    {
+      "chance": 0.45,
+      "child": "beeindustry:water_bee"
+    },
+    {
+      "chance": 0.45,
+      "child": "beeindustry:sand_bee"
+    }
+  ],
+  "parentA": "beeindustry:water_bee",
+  "parentB": "beeindustry:sand_bee"
+}

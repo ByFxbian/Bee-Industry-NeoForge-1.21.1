@@ -25,6 +25,7 @@ public class BeeIndustryLanguageProvider extends LanguageProvider {
         add(BeeIndustryItems.APIARISTS_COMPASS.get(), "Apiarists Compass");
         add(BeeIndustryItems.EFFICIENCY_UPGRADE.get(), "Efficiency Upgrade");
         add(BeeIndustryItems.QUANTITY_UPGRADE.get(), "Quantity Upgrade");
+        add(BeeIndustryItems.UPGRADE_TEMPLATE.get(), "Upgrade Template");
         add(BeeIndustryItems.RANGE_UPGRADE.get(), "Range Upgrade");
         add(BeeIndustryItems.SWEET_HONEY.get(), "Sweet Honey");
         add(BeeIndustryItems.TREE_SAP.get(), "Tree Sap");
@@ -62,6 +63,20 @@ public class BeeIndustryLanguageProvider extends LanguageProvider {
         add("tooltip.beeindustry.apiarists_compass.description", "Right-click to sense the direction of a nearby nest. (Look around)");
 
         add("tooltip.beeindustry.hold_shift_for_info", "Hold [SHIFT] for more information.");
+        add("tooltip.beeindustry.beekeeper_helmet", "Bees calm down 90% faster.");
+        add("tooltip.beeindustry.beekeeper_chestplate", "Increases bee attraction radius by 5 blocks.");
+        add("tooltip.beeindustry.beekeeper_leggings", "Applies a bonemeal effect on taking damage.");
+        add("tooltip.beeindustry.beekeeper_boots", "Grants +5% speed on grass blocks.");
+        add("tooltip.beeindustry.beekeeper_set_bonus", "Full Set: Bees are no longer aggressive.");
+
+        add("book.beeindustry.name", "Bee Industry Handbook");
+        add("book.beeindustry.landing_text", "Welcome, Apiarist, to the world of Bee Industry!$(br2)This guide will walk you through discovering new bee species, building advanced machinery, and automating your world with the power of apiculture.");
+        add("beeindustry.category.beeconomicom.name", "The Beeconomicom");
+        add("beeindustry.category.beeconomicom.desc", "A complete encyclopedia of all bee species discovered so far, detailing their traits and products.");
+        add("beeindustry.entry.beeconomicom.overworld_bees.name", "Overworld Species");
+        add("beeindustry.entry.beeconomicom.nether_bees.name", "Nether Species");
+        add("beeindustry.entry.beeconomicom.end_beeds.name", "The End Species");
+        add("beeindustry.entry.beeconomicom.special_bees.name", "Special & Worker Bees");
     }
 
     private String snakeCaseToTitleCase(String snakeCase) {

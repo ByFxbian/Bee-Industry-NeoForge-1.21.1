@@ -7,16 +7,22 @@ import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.SlotItemHandler;
 
 public class UpgradeSlot extends SlotItemHandler {
+    public enum UpgradeKind { BEE, BLOCK }
 
-    public UpgradeSlot(IItemHandler itemHandler, int index, int xPosition, int yPosition) {
+    private final UpgradeKind kind;
+
+    public UpgradeSlot(IItemHandler itemHandler, int index, int xPosition, int yPosition, UpgradeKind kind) {
         super(itemHandler, index, xPosition, yPosition);
+        this.kind = kind;
     }
 
     @Override
     public boolean mayPlace(ItemStack stack) {
-        return stack.is(BeeIndustryItems.EFFICIENCY_UPGRADE.get()) ||
-                stack.is(BeeIndustryItems.QUANTITY_UPGRADE.get()) ||
-                stack.is(BeeIndustryItems.RANGE_UPGRADE);
+        return switch (kind) {
+            case BEE -> stack.is(BeeIndustryItems.EFFICIENCY_UPGRADE.get())
+                    || stack.is(BeeIndustryItems.QUANTITY_UPGRADE.get());
+            case BLOCK -> stack.is(BeeIndustryItems.RANGE_UPGRADE.get());
+        };
     }
 
     @Override

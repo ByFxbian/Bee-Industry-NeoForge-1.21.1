@@ -36,13 +36,13 @@ public class AdvancedBeehiveMenu extends AbstractContainerMenu {
         this.level = inv.player.level();
         this.data = blockEntity.getData();
 
-        this.addSlot(new BeeContainerSlot(blockEntity.getItemHandler(), 0, 26, 36));
-        this.addSlot(new UpgradeSlot(blockEntity.getItemHandler(), 1, 44, 36));
-        this.addSlot(new UpgradeSlot(blockEntity.getItemHandler(), 2, 62, 36));
-        this.addSlot(new UpgradeSlot(blockEntity.getItemHandler(), 3, 80, 36));
-        this.addSlot(new UpgradeSlot(blockEntity.getItemHandler(), 4, 178, 19));
-        this.addSlot(new UpgradeSlot(blockEntity.getItemHandler(), 5, 178, 37));
-        this.addSlot(new UpgradeSlot(blockEntity.getItemHandler(), 6, 178, 55));
+        this.addSlot(new BeeContainerSlot(blockEntity.getItemHandler(), 0, 26, 36, blockEntity));
+        this.addSlot(new UpgradeSlot(blockEntity.getItemHandler(), 1, 44, 36, UpgradeSlot.UpgradeKind.BEE));
+        this.addSlot(new UpgradeSlot(blockEntity.getItemHandler(), 2, 62, 36, UpgradeSlot.UpgradeKind.BEE));
+        this.addSlot(new UpgradeSlot(blockEntity.getItemHandler(), 3, 80, 36, UpgradeSlot.UpgradeKind.BEE));
+        this.addSlot(new UpgradeSlot(blockEntity.getItemHandler(), 4, 178, 19, UpgradeSlot.UpgradeKind.BLOCK));
+        this.addSlot(new UpgradeSlot(blockEntity.getItemHandler(), 5, 178, 37, UpgradeSlot.UpgradeKind.BLOCK));
+        this.addSlot(new UpgradeSlot(blockEntity.getItemHandler(), 6, 178, 55, UpgradeSlot.UpgradeKind.BLOCK));
         this.addSlot(new OutputSlot(blockEntity.getItemHandler(), 7, 121, 26));
         this.addSlot(new OutputSlot(blockEntity.getItemHandler(), 8, 138, 36));
         this.addSlot(new OutputSlot(blockEntity.getItemHandler(), 9, 121, 46));
@@ -70,8 +70,10 @@ public class AdvancedBeehiveMenu extends AbstractContainerMenu {
             } else {
                 if(originalStack.is(BeeIndustryItems.BEE_CONTAINER.get())) {
                     if(!this.moveItemStackTo(originalStack, 0, 1, false)) return ItemStack.EMPTY;
-                } else if(originalStack.is(BeeIndustryItems.EFFICIENCY_UPGRADE.get()) || originalStack.is(BeeIndustryItems.QUANTITY_UPGRADE.get()) || originalStack.is(BeeIndustryItems.RANGE_UPGRADE.get())) {
-                    if(!this.moveItemStackTo(originalStack, 1, 4, false)) return ItemStack.EMPTY;
+                } else if(originalStack.is(BeeIndustryItems.EFFICIENCY_UPGRADE.get()) || originalStack.is(BeeIndustryItems.QUANTITY_UPGRADE.get())) {
+                    if (!this.moveItemStackTo(originalStack, 1, 4, false)) return ItemStack.EMPTY;
+                } else if (originalStack.is(BeeIndustryItems.RANGE_UPGRADE.get())) {
+                    if (!this.moveItemStackTo(originalStack, 4, 7, false)) return ItemStack.EMPTY;
                 } else {
                     return ItemStack.EMPTY;
                 }

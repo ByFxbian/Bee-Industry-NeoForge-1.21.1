@@ -1,0 +1,23 @@
+{
+  "attributes": {
+    "attackDamage": 1.0,
+    "maxHealth": 10.0,
+    "productivity": 2,
+    "speed": 5,
+    "temper": 1
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/water_bee.png",
+  "createNectar": false,
+  "description": "An aquatic bee that feels most at home near water.",
+  "fireproof": false,
+  "flowerBlockTag": "beeindustry:flowers/water_bee",
+  "invulnerable": false,
+  "name": "water_bee",
+  "pollenColor": "#87CEEB",
+  "primaryColor": "#00BFFF",
+  "productionItem": "minecraft:prismarine_shard",
+  "renderer": "dripping_bee",
+  "secondaryColor": "#1E90FF",
+  "size": 1.0,
+  "translucent": false
+}

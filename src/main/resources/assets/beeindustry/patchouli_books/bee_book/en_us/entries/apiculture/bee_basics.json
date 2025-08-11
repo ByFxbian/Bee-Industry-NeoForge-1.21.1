@@ -1,0 +1,23 @@
+{
+  "name": "Bee Species",
+  "category": "beeindustry:apiculture",
+  "icon": "minecraft:honeycomb",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The world is teeming with different species of bees, each with unique traits and products. They are generally categorized into two types: Resource Bees and Worker Bees.$(br2)You can view the specific attributes of any bee by holding SHIFT while hovering over its container or spawn egg."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Resource Bees",
+      "anchor": "resource",
+      "text": "These bees are the backbone of your production. When placed in an $(l:beeindustry:machines/advanced_beehive)Advanced Beehive$(), they will generate resources based on their species.$(br)For example:$(br)- $(l)Iron Bee$() produces Iron Nuggets.$(br)- $(l)Coal Bee$() produces Coal.$(br)- $(l)Diamond Bee$() produces Diamonds.$(br2)Each resource bee requires a specific block nearby to work, listed in its tooltip (e.g., Iron Ore for the Iron Bee)."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Worker Bees",
+      "anchor": "worker",
+      "text": "Worker bees perform tasks in the world when managed by a $(l:beeindustry:machines/the_beepost)Beepost$().$(br)Examples include:$(br)- $(l)Farming Bee$(): Harvests mature crops.$(br)- $(l)Mining Bee$(): Breaks common stone-type blocks.$(br)- $(l)Lumber Bee$(): Collects sap from trees.$(br)- $(l)Fighting Bee$(): Defends the area around its Beepost."
+    }
+  ]
+}

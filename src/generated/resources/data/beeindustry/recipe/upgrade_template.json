@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "Q": {
+      "item": "minecraft:quartz"
+    }
+  },
+  "pattern": [
+    "GGG",
+    "DQD",
+    "GGG"
+  ],
+  "result": {
+    "count": 4,
+    "id": "beeindustry:upgrade_template"
+  }
+}

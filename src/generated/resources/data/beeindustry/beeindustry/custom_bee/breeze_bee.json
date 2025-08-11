@@ -1,0 +1,23 @@
+{
+  "attributes": {
+    "attackDamage": 4.0,
+    "maxHealth": 20.0,
+    "productivity": 7,
+    "speed": 9,
+    "temper": 5
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/breeze_bee.png",
+  "createNectar": false,
+  "description": "A swift and airy bee that seems to ride the wind.",
+  "fireproof": false,
+  "flowerBlockTag": "beeindustry:flowers/breeze_bee",
+  "invulnerable": false,
+  "name": "breeze_bee",
+  "pollenColor": "#C2E0E0",
+  "primaryColor": "#A6D3D9",
+  "productionItem": "minecraft:breeze_rod",
+  "renderer": "breeze_bee",
+  "secondaryColor": "#E1F2F2",
+  "size": 1.1,
+  "translucent": false
+}

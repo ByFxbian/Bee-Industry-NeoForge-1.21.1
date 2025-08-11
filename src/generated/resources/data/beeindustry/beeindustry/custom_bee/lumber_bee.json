@@ -1,10 +1,10 @@
 {
   "attributes": {
-    "attackDamage": 1.0,
-    "maxHealth": 25.0,
-    "productivity": 4,
-    "speed": 6,
-    "temper": 4
+    "attackDamage": 2.0,
+    "maxHealth": 15.0,
+    "productivity": 2,
+    "speed": 5,
+    "temper": 3
   },
   "beeTexture": "beeindustry:textures/entity/bee/lumber_bee.png",
   "createNectar": false,

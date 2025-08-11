@@ -1,0 +1,21 @@
+{
+  "name": "Special & Worker Bees",
+  "category": "beeindustry:beeconomicom",
+  "icon": "minecraft:beacon",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Special Species",
+      "text": "These bees are the pinnacle of breeding or are obtained through unique means. They possess powerful traits and produce valuable resources."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(li)Emerald Bee: Produces Emeralds.$(br)$(li)Diamond Bee: Produces Diamonds.$(br)$(li)Obsidian Bee: A very slow but tough bee that produces Obsidian.$(br)$(li)Amethyst Bee: Produces Amethyst Shards.$(br)$(li)Ancient Debris Bee: The ultimate bee, produces Netherite Scrap and is invulnerable."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Worker & Utility Bees",
+      "text": "$(li)Farming Bee: Harvests crops.$(br)$(li)Mining Bee: Mines stone-type blocks.$(br)$(li)Fighting Bee: Attacks monsters.$(br)$(li)Breeze Bee: Produces Breeze Rods.$(br)$(li)Light Bee: Illuminates its surroundings.$(br)$(li)Rideable Bee: Can be ridden by players."
+    }
+  ]
+}

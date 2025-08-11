@@ -29,6 +29,9 @@ public class BeeIndustryItems {
     public static final DeferredItem<Item> BEE_CONTAINER = ITEMS.register("bee_container",
             () -> new BeeContainerItem(new Item.Properties().stacksTo(1)));
 
+    public static final DeferredItem<Item> UPGRADE_TEMPLATE = ITEMS.register("upgrade_template",
+            () -> new Item(new Item.Properties().stacksTo(16)));
+
     public static final DeferredItem<Item> EFFICIENCY_UPGRADE = ITEMS.register("efficiency_upgrade",
             () -> new Item(new Item.Properties().stacksTo(16)));
 

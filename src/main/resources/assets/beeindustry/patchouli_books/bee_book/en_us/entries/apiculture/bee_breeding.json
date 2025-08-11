@@ -1,0 +1,16 @@
+{
+  "name": "Bee Breeding",
+  "category": "beeindustry:apiculture",
+  "icon": "minecraft:wheat_seeds",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Breeding is the core mechanic for discovering new bee species. By feeding two different bees flowers, you can encourage them to mate. The offspring has a chance to be a new, hybrid species, or a copy of one of its parents.$(br2)Experiment with different combinations to unlock the entire bee family tree!"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "How to Breed",
+      "text": "1. Find two bees you wish to breed.$(br)2. Feed each of them a flower (any item tagged as `minecraft:flowers`).$(br)3. The bees will enter love mode and produce a baby bee.$(br2)The resulting species depends on the defined breeding recipes. For example, breeding a $(l:beeindustry:apiculture/bee_basics#dirt)Dirt Bee$() with a $(l:beeindustry:apiculture/bee_basics#stone)Stone Bee$() might result in a Mossy Bee!"
+    }
+  ]
+}

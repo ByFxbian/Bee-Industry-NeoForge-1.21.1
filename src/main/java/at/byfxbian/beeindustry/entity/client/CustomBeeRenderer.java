@@ -5,11 +5,14 @@ import at.byfxbian.beeindustry.api.CustomBee;
 import at.byfxbian.beeindustry.entity.custom.CustomBeeEntity;
 import at.byfxbian.beeindustry.util.BeeDefinitionManager;
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.BeeModel;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
@@ -28,7 +31,10 @@ public class CustomBeeRenderer extends MobRenderer<CustomBeeEntity, BeeModel<Cus
                 "emerald_bee", new EmeraldBeeModel(context.bakeLayer(BeeIndustryModelLayers.EMERALD_BEE_LAYER)),
                 "fighting_bee", new FightingBeeModel(context.bakeLayer(BeeIndustryModelLayers.FIGHTING_BEE_LAYER)),
                 "lumber_bee", new LumberBeeModel(context.bakeLayer(BeeIndustryModelLayers.LUMBER_BEE_LAYER)),
-                "blaze_bee", new BlazeBeeModel(context.bakeLayer(BeeIndustryModelLayers.BLAZE_BEE_LAYER))
+                "blaze_bee", new BlazeBeeModel(context.bakeLayer(BeeIndustryModelLayers.BLAZE_BEE_LAYER)),
+                "light_bee", new LightBeeModel(context.bakeLayer(BeeIndustryModelLayers.LIGHT_BEE_LAYER)),
+                "dripping_bee", new DrippingBeeModel(context.bakeLayer(BeeIndustryModelLayers.DRIPPING_BEE_LAYER)),
+                "breeze_bee", new BreezeBeeModel(context.bakeLayer(BeeIndustryModelLayers.BREEZE_BEE_LAYER))
         );
     }
 
@@ -36,6 +42,8 @@ public class CustomBeeRenderer extends MobRenderer<CustomBeeEntity, BeeModel<Cus
     public void render(CustomBeeEntity entity, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight) {
         String rendererType = entity.getBeeData().flatMap(CustomBee::renderer).orElse("default");
         this.model = this.models.getOrDefault(rendererType, this.models.get("default"));
+
+        CustomBee beeData = BeeDefinitionManager.getBee(entity.getBeeType());
         super.render(entity, entityYaw, partialTicks, poseStack, buffer, packedLight);
     }
 

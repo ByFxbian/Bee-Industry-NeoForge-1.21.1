@@ -40,24 +40,24 @@ public class BeepostMenu extends AbstractContainerMenu {
 
         IItemHandler itemHandler = blockEntity.getItemHandler();
 
-        this.addSlot(new BeeContainerSlot(itemHandler, 0, 26, 18));
-        this.addSlot(new UpgradeSlot(itemHandler, 1, 44, 18));
-        this.addSlot(new UpgradeSlot(itemHandler, 2, 62, 18));
-        this.addSlot(new UpgradeSlot(itemHandler, 3, 80, 18));
+        this.addSlot(new BeeContainerSlot(itemHandler, 0, 26, 18, blockEntity));
+        this.addSlot(new UpgradeSlot(itemHandler, 1, 44, 18, UpgradeSlot.UpgradeKind.BEE));
+        this.addSlot(new UpgradeSlot(itemHandler, 2, 62, 18, UpgradeSlot.UpgradeKind.BEE));
+        this.addSlot(new UpgradeSlot(itemHandler, 3, 80, 18, UpgradeSlot.UpgradeKind.BEE));
 
-        this.addSlot(new BeeContainerSlot(itemHandler, 4, 26, 36));
-        this.addSlot(new UpgradeSlot(itemHandler, 5, 44, 36));
-        this.addSlot(new UpgradeSlot(itemHandler, 6, 62, 36));
-        this.addSlot(new UpgradeSlot(itemHandler, 7, 80, 36));
+        this.addSlot(new BeeContainerSlot(itemHandler, 4, 26, 36, blockEntity));
+        this.addSlot(new UpgradeSlot(itemHandler, 5, 44, 36, UpgradeSlot.UpgradeKind.BEE));
+        this.addSlot(new UpgradeSlot(itemHandler, 6, 62, 36, UpgradeSlot.UpgradeKind.BEE));
+        this.addSlot(new UpgradeSlot(itemHandler, 7, 80, 36, UpgradeSlot.UpgradeKind.BEE));
 
-        this.addSlot(new BeeContainerSlot(itemHandler, 8, 26, 54));
-        this.addSlot(new UpgradeSlot(itemHandler, 9, 44, 54));
-        this.addSlot(new UpgradeSlot(itemHandler, 10, 62, 54));
-        this.addSlot(new UpgradeSlot(itemHandler, 11, 80, 54));
+        this.addSlot(new BeeContainerSlot(itemHandler, 8, 26, 54, blockEntity));
+        this.addSlot(new UpgradeSlot(itemHandler, 9, 44, 54, UpgradeSlot.UpgradeKind.BEE));
+        this.addSlot(new UpgradeSlot(itemHandler, 10, 62, 54, UpgradeSlot.UpgradeKind.BEE));
+        this.addSlot(new UpgradeSlot(itemHandler, 11, 80, 54, UpgradeSlot.UpgradeKind.BEE));
 
-        this.addSlot(new UpgradeSlot(itemHandler, 12, 134, 18));
-        this.addSlot(new UpgradeSlot(itemHandler, 13, 134, 36));
-        this.addSlot(new UpgradeSlot(itemHandler, 14, 134, 54));
+        this.addSlot(new UpgradeSlot(itemHandler, 12, 134, 18, UpgradeSlot.UpgradeKind.BLOCK));
+        this.addSlot(new UpgradeSlot(itemHandler, 13, 134, 36, UpgradeSlot.UpgradeKind.BLOCK));
+        this.addSlot(new UpgradeSlot(itemHandler, 14, 134, 54, UpgradeSlot.UpgradeKind.BLOCK));
 
         this.addSlot(new FuelSlot(itemHandler, 15, 134, 90));
 
@@ -112,11 +112,12 @@ public class BeepostMenu extends AbstractContainerMenu {
                     if (!this.moveItemStackTo(originalStack, 0, 1, false) && // Slot 0
                             !this.moveItemStackTo(originalStack, 4, 5, false) && // Slot 4
                             !this.moveItemStackTo(originalStack, 8, 9, false)) return ItemStack.EMPTY;
-                } else { // Upgrades
+                } else if(originalStack.is(BeeIndustryItems.EFFICIENCY_UPGRADE.get()) || (originalStack.is(BeeIndustryItems.QUANTITY_UPGRADE.get()))){ // Upgrades
                     if (!this.moveItemStackTo(originalStack, 1, 4, false) && // Row 1
                             !this.moveItemStackTo(originalStack, 5, 8, false) && // Row 2
-                            !this.moveItemStackTo(originalStack, 9, 12, false) && // Row 3
-                            !this.moveItemStackTo(originalStack, 12, 15, false)) return ItemStack.EMPTY;
+                            !this.moveItemStackTo(originalStack, 9, 12, false)) return ItemStack.EMPTY;
+                } else if (originalStack.is(BeeIndustryItems.RANGE_UPGRADE.get())) {
+                    if(!this.moveItemStackTo(originalStack, 12, 15, false)) return ItemStack.EMPTY;
                 }
             }
             if (originalStack.isEmpty()) {

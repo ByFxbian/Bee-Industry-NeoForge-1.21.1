@@ -1,0 +1,32 @@
+{
+  "name": "Overworld Species",
+  "category": "beeindustry:beeconomicom",
+  "icon": "minecraft:grass_block",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Tier 0: Foundational",
+      "text": "$(li)Dirt Bee: Produces Dirt.$(br)$(li)Stone Bee: Produces Cobblestone.$(br)$(li)Sand Bee: Produces Sand.$(br)$(li)Gravel Bee: Produces Flint.$(br)$(li)Water Bee: Produces Prismarine Shards."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Tier 1: Simple Hybrids",
+      "text": "$(li)Mossy Bee: Produces Moss Blocks.$(br)$(li)Lumber Bee: A worker bee that produces Tree Sap.$(br)$(li)Honey Bee: Produces Honey Blocks."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Tier 2: First Resources",
+      "text": "$(li)Coal Bee: Produces Coal.$(br)$(li)Resin Bee: Produces Sweet Honey fuel."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Tier 3: Metals",
+      "text": "$(li)Copper Bee: Produces Raw Copper.$(br)$(li)Iron Bee: Produces Raw Iron.$(br)$(li)Gold Bee: Produces Raw Gold."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Tier 4: Gems & Magic",
+      "text": "$(li)Lapis Bee: Produces Lapis Lazuli.$(br)$(li)Redstone Bee: Produces Redstone Dust.$(br)$(li)Slime Bee: A rare find, produces Slime Balls."
+    }
+  ]
+}

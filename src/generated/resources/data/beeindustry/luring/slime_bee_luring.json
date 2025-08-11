@@ -1,0 +1,8 @@
+{
+  "bee": "beeindustry:slime_bee",
+  "biomeTag": "minecraft:swamp",
+  "lureItem": {
+    "item": "minecraft:slime_ball"
+  },
+  "time": 500
+}

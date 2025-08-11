@@ -1,0 +1,22 @@
+{
+  "attributes": {
+    "attackDamage": 1.5,
+    "maxHealth": 18.0,
+    "productivity": 5,
+    "speed": 6,
+    "temper": 3
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/glowstone_bee.png",
+  "createNectar": false,
+  "description": "A brightly glowing bee from the Nether.",
+  "fireproof": true,
+  "flowerBlockTag": "beeindustry:flowers/glowstone_bee",
+  "invulnerable": false,
+  "name": "glowstone_bee",
+  "pollenColor": "#FFFF00",
+  "primaryColor": "#FFD700",
+  "productionItem": "minecraft:glowstone_dust",
+  "secondaryColor": "#FFA500",
+  "size": 1.1,
+  "translucent": false
+}

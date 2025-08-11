@@ -1,5 +1,6 @@
 package at.byfxbian.beeindustry.block.entity.custom;
 
+import at.byfxbian.beeindustry.BeeIndustry;
 import at.byfxbian.beeindustry.api.CustomBee;
 import at.byfxbian.beeindustry.block.custom.AdvancedBeehiveBlock;
 import at.byfxbian.beeindustry.block.entity.BeeIndustryBlockEntities;
@@ -12,12 +13,18 @@ import at.byfxbian.beeindustry.util.BeeDefinitionManager;
 import at.byfxbian.beeindustry.util.SidedItemHandler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.NonNullList;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.MenuProvider;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -25,8 +32,11 @@ import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import org.jetbrains.annotations.Nullable;
@@ -52,9 +62,14 @@ public class AdvancedBeehiveBlockEntity extends BlockEntity implements MenuProvi
                 return stack.is(BeeIndustryItems.BEE_CONTAINER.get());
             }
             if(isUpgradeSlot(slot)) {
-                return stack.is(BeeIndustryItems.EFFICIENCY_UPGRADE.get()) ||
+                /*return stack.is(BeeIndustryItems.EFFICIENCY_UPGRADE.get()) ||
                         stack.is(BeeIndustryItems.QUANTITY_UPGRADE.get()) ||
-                        stack.is(BeeIndustryItems.RANGE_UPGRADE);
+                        stack.is(BeeIndustryItems.RANGE_UPGRADE);*/
+                if(slot >= 1 && slot <= 3) {
+                    return stack.is(BeeIndustryItems.EFFICIENCY_UPGRADE.get()) || stack.is(BeeIndustryItems.QUANTITY_UPGRADE.get());
+                } else if (slot >= 4 && slot <= 6) {
+                    return stack.is(BeeIndustryItems.RANGE_UPGRADE.get());
+                }
             }
             if(isOutputSlot(slot)) {
                 return false;
@@ -64,6 +79,19 @@ public class AdvancedBeehiveBlockEntity extends BlockEntity implements MenuProvi
 
         @Override
         protected void onContentsChanged(int slot) {
+            if(slot == BEE_SLOT) {
+                AdvancedBeehiveBlockEntity.this.progress = 0;
+
+                if(currentState == BeeState.WORKING) {
+                    if(assignedBeeUuid != null && level instanceof ServerLevel serverLevel) {
+                        Entity e = serverLevel.getEntity(assignedBeeUuid);
+                        if(e != null) {
+                            e.discard();
+                        }
+                    }
+                    resetToIdle();
+                }
+            }
             setChanged();
 
             if(level != null && !level.isClientSide) {
@@ -102,8 +130,25 @@ public class AdvancedBeehiveBlockEntity extends BlockEntity implements MenuProvi
         return slotIndex >= 7 && slotIndex < 10;
     }
 
-    public ItemStackHandler getItemHandler() {
-        return itemHandler;
+    private int getUpgradeCount(Item upgradeItem) {
+        int count = 0;
+        for (int slotIndex : UPGRADE_SLOTS_BEE) {
+            if (this.itemHandler.getStackInSlot(slotIndex).is(upgradeItem)) {
+                count += this.itemHandler.getStackInSlot(slotIndex).getCount();
+            }
+        }
+        return count;
+    }
+
+    public int getRangeBonus() {
+        int bonus = 0;
+        for(int i = 0; i <= 2; i++) {
+            ItemStack stack = getItemHandler().getStackInSlot(BLOCK_UPGRADE_SLOTS[i]);
+            if(stack.is(BeeIndustryItems.RANGE_UPGRADE)) {
+                bonus += (stack.getCount() * 2);
+            }
+        }
+        return bonus;
     }
 
     public AdvancedBeehiveBlockEntity(BlockPos pos, BlockState state) {
@@ -141,6 +186,10 @@ public class AdvancedBeehiveBlockEntity extends BlockEntity implements MenuProvi
                 (slot) -> slot >= 7 && slot < 10,
                 (slot, stack) -> false
         );
+    }
+
+    public ItemStackHandler getItemHandler() {
+        return itemHandler;
     }
 
     public IItemHandler getSidedInputHandler() { return this.sidedInputHandler; }
@@ -219,9 +268,28 @@ public class AdvancedBeehiveBlockEntity extends BlockEntity implements MenuProvi
         }
     }
 
+    private boolean checkForWork() {
+        String tagIdString = getContainedBeeData().get().flowerBlockTag();
+        if(tagIdString.isEmpty()){
+            BeeIndustry.LOGGER.debug("TagIdString is Empty");
+        }
+        BeeIndustry.LOGGER.debug("TagIdString: " + tagIdString);
+        TagKey<Block> productionTag = TagKey.create(Registries.BLOCK, ResourceLocation.parse(tagIdString));
+        int range = 10 + getRangeBonus();
+        int vRange = Math.max(12, range);
+        Optional<BlockPos> nearestBlock = BlockPos.findClosestMatch(this.worldPosition, range, vRange,
+                p -> level.getBlockState(p).is(productionTag));
+
+        return nearestBlock.isPresent();
+    }
+
     private void spawnWorkerBee() {
         Optional<ResourceLocation> beeIdOptional = getContainedBeeId();
         if (beeIdOptional.isEmpty() || this.level == null) return;
+
+        if(!checkForWork()) {
+            return;
+        }
 
         CustomBeeEntity beeToSpawn = BeeIndustryEntities.CUSTOM_BEE_ENTITY.get().create(this.level);
         if (beeToSpawn != null) {
@@ -231,6 +299,7 @@ public class AdvancedBeehiveBlockEntity extends BlockEntity implements MenuProvi
 
             beeToSpawn.workRange = 10 + getRangeBonus();
             beeToSpawn.workSpeedModifier = 1.0f + (getUpgradeCount(BeeIndustryItems.EFFICIENCY_UPGRADE.get()) * 0.2f);
+            beeToSpawn.isWorkingForMachine = true;
             beeToSpawn.registerGoals();
 
             this.level.addFreshEntity(beeToSpawn);
@@ -244,12 +313,21 @@ public class AdvancedBeehiveBlockEntity extends BlockEntity implements MenuProvi
     }
 
     public void onWorkedBeeReturned(CustomBeeEntity bee) {
+        if(this.level == null || this.level.isClientSide) return;
+
+        boolean worked = bee.getHasWorked();
+
         this.assignedBeeUuid = null;
         this.currentState = BeeState.PRODUCING;
 
         this.itemHandler.getStackInSlot(BEE_SLOT).remove(BeeIndustryDataComponents.IS_BEE_WORKING.get());
-        bee.discard();
+        this.itemHandler.setStackInSlot(BEE_SLOT, this.itemHandler.getStackInSlot(BEE_SLOT));
+
+        this.currentState = worked ? BeeState.PRODUCING : BeeState.IDLE;
+
         setChanged();
+
+        bee.discard();
     }
 
     private void validateWorkingBee() {
@@ -285,6 +363,7 @@ public class AdvancedBeehiveBlockEntity extends BlockEntity implements MenuProvi
 
     private boolean hasIntactBeeContainer() {
         ItemStack stack = this.itemHandler.getStackInSlot(BEE_SLOT);
+        BeeIndustry.LOGGER.debug("STORED BEE ID: " + BeeIndustryDataComponents.STORED_BEE_ID.get());
         return !stack.isEmpty() && stack.is(BeeIndustryItems.BEE_CONTAINER.get())
                 && stack.get(BeeIndustryDataComponents.STORED_BEE_ID.get()) != null
                 && !stack.has(BeeIndustryDataComponents.IS_BEE_WORKING.get());
@@ -300,13 +379,11 @@ public class AdvancedBeehiveBlockEntity extends BlockEntity implements MenuProvi
             if(outputStack.isEmpty()) {
                 return true;
             }
-            if(ItemStack.isSameItemSameComponents(outputStack, result) && outputStack.getCount() < outputStack.getMaxStackSize()) {
+            if(ItemStack.isSameItemSameComponents(outputStack, result) && outputStack.getCount() + result.getCount() <= outputStack.getMaxStackSize()) {
                 return true;
             }
         }
         return false;
-        //ItemStack outputSlot = this.itemHandler.getStackInSlot(4);
-        //return outputSlot.isEmpty() || (ItemStack.isSameItem(outputSlot, result) && outputSlot.getCount() < outputSlot.getMaxStackSize());
     }
 
     private void craftItem() {
@@ -314,26 +391,29 @@ public class AdvancedBeehiveBlockEntity extends BlockEntity implements MenuProvi
         if (beeData.isEmpty()) return;
 
         Item resultItem = BuiltInRegistries.ITEM.get(ResourceLocation.parse(beeData.get().productionItem()));
+        ItemStack result = new ItemStack(resultItem);
 
         int amount = 1 + getBonusAmount();
+        result.setCount(result.getCount() + amount);
 
-        ItemStack result = new ItemStack(resultItem, amount);
         for(int slotIndex : OUTPUT_SLOTS) {
             ItemStack outputStack = this.getItemHandler().getStackInSlot(slotIndex);
             if(outputStack.isEmpty()) {
                 this.getItemHandler().setStackInSlot(slotIndex, result.copy());
                 return;
             }
-            if(ItemStack.isSameItemSameComponents(outputStack, result) && outputStack.getCount() < outputStack.getMaxStackSize()) {
-                int amountToInsert = Math.min(result.getCount(), outputStack.getMaxStackSize() - outputStack.getCount());
+            if(ItemStack.isSameItemSameComponents(outputStack, result) && outputStack.getCount() + result.getCount() <= outputStack.getMaxStackSize()) {
+               /* int amountToInsert = Math.min(result.getCount(), outputStack.getMaxStackSize() - outputStack.getCount());
                 outputStack.grow(amountToInsert);
                 result.shrink(amountToInsert);
                 if(result.isEmpty()) {
                     return;
-                }
+                }*/
+                outputStack.grow(result.getCount());
+                this.itemHandler.setStackInSlot(slotIndex, outputStack);
+                return;
             }
         }
-        //this.itemHandler.insertItem(4, result, false);
     }
 
     private int getBonusAmount() {
@@ -341,7 +421,7 @@ public class AdvancedBeehiveBlockEntity extends BlockEntity implements MenuProvi
         int quantityLevel = getUpgradeCount(BeeIndustryItems.QUANTITY_UPGRADE.get());
 
         for (int i = 0; i < quantityLevel; i++) {
-            if (this.level != null && this.level.random.nextFloat() < 0.33f) {
+            if (this.level != null && this.level.random.nextFloat() < 0.60f) {
                 bonus++;
             }
         }
@@ -349,33 +429,40 @@ public class AdvancedBeehiveBlockEntity extends BlockEntity implements MenuProvi
     }
 
     private Optional<ResourceLocation> getContainedBeeId() {
-        ItemStack container = this.itemHandler.getStackInSlot(0);
-        if (container.isEmpty()) return Optional.empty();
+        ItemStack container = this.itemHandler.getStackInSlot(BEE_SLOT);
+        if (container.isEmpty() || !container.is(BeeIndustryItems.BEE_CONTAINER.get())) return Optional.empty();
         return Optional.ofNullable(container.get(BeeIndustryDataComponents.STORED_BEE_ID.get()));
     }
 
     private Optional<CustomBee> getContainedBeeData() {
-        return getContainedBeeId().map(BeeDefinitionManager::getBee);
+        Optional<ResourceLocation> id = getContainedBeeId();
+        return id.map(BeeDefinitionManager::getBee);
     }
 
-    private int getUpgradeCount(Item upgradeItem) {
-        int count = 0;
-        for (int slotIndex : UPGRADE_SLOTS_BEE) {
-            if (this.itemHandler.getStackInSlot(slotIndex).is(upgradeItem)) {
-                count += this.itemHandler.getStackInSlot(slotIndex).getCount();
+    public void forceStopWorkingBee() {
+        if (this.level instanceof ServerLevel serverLevel && this.assignedBeeUuid != null) {
+            Entity bee = serverLevel.getEntity(this.assignedBeeUuid);
+            if (bee != null) {
+                bee.discard();
             }
         }
-        return count;
+        this.assignedBeeUuid = null;
+        this.currentState = BeeState.IDLE;
+        this.progress = 0;
+        ItemStack container = this.itemHandler.getStackInSlot(BEE_SLOT);
+        if (!container.isEmpty()) {
+            container.remove(BeeIndustryDataComponents.IS_BEE_WORKING.get());
+        }
+        setChanged();
     }
 
-    public int getRangeBonus() {
-        int bonus = 0;
-        for(int i = 0; i <= 2; i++) {
-            ItemStack stack = getItemHandler().getStackInSlot(BLOCK_UPGRADE_SLOTS[i]);
-            if(stack.is(BeeIndustryItems.RANGE_UPGRADE)) {
-                bonus += (stack.getCount() * 2);
-            }
+    public void onWorkerBeeDied(UUID beeUuid) {
+        if (beeUuid.equals(this.assignedBeeUuid)) {
+            this.assignedBeeUuid = null;
+            this.currentState = BeeState.IDLE;
+            this.progress = 0;
+            this.itemHandler.setStackInSlot(BEE_SLOT, new ItemStack(BeeIndustryItems.BEE_CONTAINER.get()));
+            setChanged();
         }
-        return bonus;
     }
 }

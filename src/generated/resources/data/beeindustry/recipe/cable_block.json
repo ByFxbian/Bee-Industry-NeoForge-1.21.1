@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "pattern": [
+    "GGG",
+    "R R",
+    "GGG"
+  ],
+  "result": {
+    "count": 8,
+    "id": "beeindustry:cable_block"
+  }
+}

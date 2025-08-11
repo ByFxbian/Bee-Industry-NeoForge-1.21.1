@@ -6,6 +6,8 @@ import at.byfxbian.beeindustry.block.entity.custom.BeepostBlockEntity;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.Container;
+import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Player;
@@ -51,6 +53,23 @@ public class AdvancedBeehiveBlock extends BaseEntityBlock {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(FACING);
+    }
+
+    @Override
+    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
+        if(!state.is(newState.getBlock())) {
+            BlockEntity blockEntity = level.getBlockEntity(pos);
+            if(blockEntity instanceof AdvancedBeehiveBlockEntity entity) {
+                if(!level.isClientSide) {
+                    for(int i = 0; i < entity.getItemHandler().getSlots(); i++) {
+                        entity.forceStopWorkingBee();
+                        Containers.dropItemStack(level, pos.getX(), pos.getY(), pos.getZ(), entity.getItemHandler().getStackInSlot(i));
+                    }
+                }
+                level.updateNeighbourForOutputSignal(pos, this);
+            }
+        }
+        super.onRemove(state, level, pos, newState, movedByPiston);
     }
 
     @Override

@@ -1,0 +1,11 @@
+{
+  "name": "The Beekeeper",
+  "category": "beeindustry:getting_started",
+  "icon": "minecraft:emerald",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "You may find a new type of Villager in your world: the Beekeeper. Their workstation is the $(l:beeindustry:machines/advanced_beehive)Advanced Beehive$().$(br2)Beekeepers are an excellent source for early-game equipment and can even offer rare bees for sale at higher trade levels, saving you some of the trouble of breeding."
+    }
+  ]
+}

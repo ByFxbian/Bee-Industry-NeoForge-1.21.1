@@ -1,0 +1,18 @@
+{
+  "outcomes": [
+    {
+      "chance": 0.1,
+      "child": "beeindustry:obsidian_bee"
+    },
+    {
+      "chance": 0.45,
+      "child": "beeindustry:lava_bee"
+    },
+    {
+      "chance": 0.45,
+      "child": "beeindustry:water_bee"
+    }
+  ],
+  "parentA": "beeindustry:lava_bee",
+  "parentB": "beeindustry:water_bee"
+}

@@ -1,0 +1,20 @@
+{
+  "name": "Beenergy Generator",
+  "category": "beeindustry:machines",
+  "icon": "beeindustry:beenergy_generator",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Beenergy Generator is a simple yet effective way to generate Forging Energy (FE). It burns bee-related products to produce power for your other machines, like the $(l:beeindustry:machines/sap_press)Sap Press$().$(br2)It's an essential first step into the energy management of Bee Industry."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Operation",
+      "text": "Simply place a valid fuel source, such as $(l:beeindustry:items/fuel)Sweet Honey$() or even simple Coal, into the fuel slot. The generator will start burning it to produce energy. $(br2)You can extract the energy from any side using Cables or other compatible energy pipes."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "beeindustry:beenergy_generator"
+    }
+  ]
+}

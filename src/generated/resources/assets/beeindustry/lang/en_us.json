@@ -1,4 +1,10 @@
 {
+  "beeindustry.category.beeconomicom.desc": "A complete encyclopedia of all bee species discovered so far, detailing their traits and products.",
+  "beeindustry.category.beeconomicom.name": "The Beeconomicon",
+  "beeindustry.entry.beeconomicom.end_beeds.name": "The End Species",
+  "beeindustry.entry.beeconomicom.nether_bees.name": "Nether Species",
+  "beeindustry.entry.beeconomicom.overworld_bees.name": "Overworld Species",
+  "beeindustry.entry.beeconomicom.special_bees.name": "Special & Worker Bees",
   "block.beeindustry.advanced_beehive": "Advanced Beehive",
   "block.beeindustry.beenergy_generator": "Beenergy Generator",
   "block.beeindustry.beepost": "Beepost",
@@ -11,6 +17,8 @@
   "block.beeindustry.sap_press": "Sap Press",
   "block.beeindustry.stone_nest": "Stone Nest",
   "block.beeindustry.tapped_log": "Tapped Log",
+  "book.beeindustry.landing_text": "Welcome, Apiarist, to the world of Bee Industry!$(br2)This guide will walk you through discovering new bee species, building advanced machinery, and automating your world with the power of apiculture.",
+  "book.beeindustry.name": "Bee Industry Handbook",
   "creativetab.beeindustry": "Bee Industry",
   "entity.minecraft.villager.beeindustry.beekeeper": "Beekeeper",
   "item.beeindustry.apiarists_compass": "Apiarists Compass",
@@ -32,6 +40,12 @@
   "item.beeindustry.sweet_honey": "Sweet Honey",
   "item.beeindustry.tree_sap": "Tree Sap",
   "item.beeindustry.tree_sap.tooltip": "Type: %s",
+  "item.beeindustry.upgrade_template": "Upgrade Template",
   "tooltip.beeindustry.apiarists_compass.description": "Right-click to sense the direction of a nearby nest. (Look around)",
+  "tooltip.beeindustry.beekeeper_boots": "Grants +5% speed on grass blocks.",
+  "tooltip.beeindustry.beekeeper_chestplate": "Increases bee attraction radius by 5 blocks.",
+  "tooltip.beeindustry.beekeeper_helmet": "Bees calm down 90% faster.",
+  "tooltip.beeindustry.beekeeper_leggings": "Applies a bonemeal effect on taking damage.",
+  "tooltip.beeindustry.beekeeper_set_bonus": "Full Set: Bees are no longer aggressive.",
   "tooltip.beeindustry.hold_shift_for_info": "Hold [SHIFT] for more information."
 }

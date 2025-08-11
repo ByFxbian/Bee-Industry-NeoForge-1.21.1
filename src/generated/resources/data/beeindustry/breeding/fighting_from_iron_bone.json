@@ -1,0 +1,18 @@
+{
+  "outcomes": [
+    {
+      "chance": 0.1,
+      "child": "beeindustry:fighting_bee"
+    },
+    {
+      "chance": 0.45,
+      "child": "beeindustry:iron_bee"
+    },
+    {
+      "chance": 0.45,
+      "child": "beeindustry:bone_bee"
+    }
+  ],
+  "parentA": "beeindustry:iron_bee",
+  "parentB": "beeindustry:bone_bee"
+}

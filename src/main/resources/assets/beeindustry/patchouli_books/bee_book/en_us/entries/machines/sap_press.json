@@ -1,0 +1,15 @@
+{
+  "name": "Sap Press",
+  "category": "beeindustry:machines",
+  "icon": "beeindustry:sap_press",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Sap Press is a machine used to process $(l:beeindustry:items/tree_sap)Tree Sap$(), which is collected by Lumber Bees.$(br2)It requires Forging Energy (FE) to operate and can convert four units of sap into one plank of the corresponding wood type. This allows for fully automated wood farming."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "beeindustry:sap_press"
+    }
+  ]
+}

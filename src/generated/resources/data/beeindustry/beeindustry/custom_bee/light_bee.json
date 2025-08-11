@@ -1,0 +1,23 @@
+{
+  "attributes": {
+    "attackDamage": 0.0,
+    "maxHealth": 15.0,
+    "productivity": 5,
+    "speed": 6,
+    "temper": 1
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/light_bee.png",
+  "createNectar": false,
+  "description": "A radiant bee that illuminates its surroundings.",
+  "fireproof": false,
+  "flowerBlockTag": "beeindustry:flowers/light_bee",
+  "invulnerable": false,
+  "name": "light_bee",
+  "pollenColor": "#FFFFFF",
+  "primaryColor": "#FFFFAA",
+  "productionItem": "minecraft:glowstone_dust",
+  "renderer": "light_bee",
+  "secondaryColor": "#FFFFE0",
+  "size": 1.0,
+  "translucent": true
+}

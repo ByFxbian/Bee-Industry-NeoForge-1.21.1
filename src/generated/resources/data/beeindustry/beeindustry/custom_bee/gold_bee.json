@@ -1,9 +1,9 @@
 {
   "attributes": {
-    "attackDamage": 1.0,
-    "maxHealth": 20.0,
-    "productivity": 5,
-    "speed": 5,
+    "attackDamage": 1.5,
+    "maxHealth": 18.0,
+    "productivity": 3,
+    "speed": 6,
     "temper": 2
   },
   "beeTexture": "beeindustry:textures/entity/bee/gold_bee.png",

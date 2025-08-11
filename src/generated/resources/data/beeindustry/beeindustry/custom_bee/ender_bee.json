@@ -1,0 +1,22 @@
+{
+  "attributes": {
+    "attackDamage": 3.0,
+    "maxHealth": 30.0,
+    "productivity": 8,
+    "speed": 8,
+    "temper": 4
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/ender_bee.png",
+  "createNectar": false,
+  "description": "A mysterious bee that seems to teleport short distances.",
+  "fireproof": false,
+  "flowerBlockTag": "beeindustry:flowers/ender_bee",
+  "invulnerable": false,
+  "name": "ender_bee",
+  "pollenColor": "#CC00CC",
+  "primaryColor": "#1A2424",
+  "productionItem": "minecraft:ender_pearl",
+  "secondaryColor": "#660066",
+  "size": 1.2,
+  "translucent": false
+}

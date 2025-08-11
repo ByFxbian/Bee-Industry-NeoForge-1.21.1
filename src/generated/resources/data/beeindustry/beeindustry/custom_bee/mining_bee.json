@@ -1,8 +1,8 @@
 {
   "attributes": {
-    "attackDamage": 2.0,
-    "maxHealth": 30.0,
-    "productivity": 5,
+    "attackDamage": 3.0,
+    "maxHealth": 20.0,
+    "productivity": 1,
     "speed": 5,
     "temper": 5
   },

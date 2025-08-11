@@ -1,0 +1,22 @@
+{
+  "attributes": {
+    "attackDamage": 1.5,
+    "maxHealth": 20.0,
+    "productivity": 2,
+    "speed": 4,
+    "temper": 6
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/soul_sand_bee.png",
+  "createNectar": false,
+  "description": "A tormented bee that glides over soul sand.",
+  "fireproof": true,
+  "flowerBlockTag": "beeindustry:flowers/soul_sand_bee",
+  "invulnerable": false,
+  "name": "soul_sand_bee",
+  "pollenColor": "#6B4B3A",
+  "primaryColor": "#59382B",
+  "productionItem": "minecraft:soul_sand",
+  "secondaryColor": "#4A2F25",
+  "size": 1.0,
+  "translucent": false
+}

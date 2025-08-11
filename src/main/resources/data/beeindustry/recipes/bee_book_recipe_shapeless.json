@@ -1,0 +1,9 @@
+{
+  "type": "patchouli:shapeless_book_recipe",
+  "ingredients": [
+    {
+      "item": "minecraft:honey_comb"
+    }
+  ],
+  "book": "beeindustry:bee_book"
+}

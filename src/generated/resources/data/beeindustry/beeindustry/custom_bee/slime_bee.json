@@ -1,0 +1,23 @@
+{
+  "attributes": {
+    "attackDamage": 1.0,
+    "maxHealth": 25.0,
+    "productivity": 3,
+    "speed": 3,
+    "temper": 2
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/slime_bee.png",
+  "createNectar": false,
+  "description": "A bouncy, gelatinous bee. It's surprisingly sticky.",
+  "fireproof": false,
+  "flowerBlockTag": "beeindustry:flowers/slime_bee",
+  "invulnerable": false,
+  "name": "slime_bee",
+  "pollenColor": "#9CE35B",
+  "primaryColor": "#7ED321",
+  "productionItem": "minecraft:slime_ball",
+  "renderer": "dripping_bee",
+  "secondaryColor": "#B8E986",
+  "size": 1.2,
+  "translucent": false
+}

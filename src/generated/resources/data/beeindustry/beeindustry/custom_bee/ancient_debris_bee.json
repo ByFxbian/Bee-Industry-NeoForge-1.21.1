@@ -10,7 +10,7 @@
   "createNectar": false,
   "description": "The ultimate bee, forged in fire.",
   "fireproof": true,
-  "flowerBlockTag": "minecraft:ancient_debris",
+  "flowerBlockTag": "beeindustry:flowers/ancient_debris_bee",
   "invulnerable": true,
   "name": "ancient_debris_bee",
   "pollenColor": "#6B5D5C",

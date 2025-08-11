@@ -10,7 +10,7 @@
   "createNectar": false,
   "description": "The pinnacle of bee evolution.",
   "fireproof": true,
-  "flowerBlockTag": "minecraft:diamond_ore",
+  "flowerBlockTag": "beeindustry:flowers/diamond_bee",
   "invulnerable": false,
   "name": "diamond_bee",
   "pollenColor": "#FFFFFF",
@@ -18,5 +18,5 @@
   "productionItem": "minecraft:diamond",
   "secondaryColor": "#ABF6FB",
   "size": 1.4,
-  "translucent": true
+  "translucent": false
 }

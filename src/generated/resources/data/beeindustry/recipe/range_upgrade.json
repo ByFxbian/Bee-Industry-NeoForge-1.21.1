@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "beeindustry:upgrade_template"
+    },
+    {
+      "item": "minecraft:redstone"
+    },
+    {
+      "item": "minecraft:redstone"
+    },
+    {
+      "item": "minecraft:bow"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "beeindustry:range_upgrade"
+  }
+}

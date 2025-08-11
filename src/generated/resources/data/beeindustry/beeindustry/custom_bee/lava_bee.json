@@ -1,0 +1,23 @@
+{
+  "attributes": {
+    "attackDamage": 3.0,
+    "maxHealth": 25.0,
+    "productivity": 4,
+    "speed": 5,
+    "temper": 7
+  },
+  "beeTexture": "beeindustry:textures/entity/bee/lava_bee.png",
+  "createNectar": false,
+  "description": "A bee born from magma, immune to the searing heat.",
+  "fireproof": true,
+  "flowerBlockTag": "beeindustry:flowers/lava_bee",
+  "invulnerable": false,
+  "name": "lava_bee",
+  "pollenColor": "#D45028",
+  "primaryColor": "#FF4500",
+  "productionItem": "minecraft:magma_cream",
+  "renderer": "dripping_bee",
+  "secondaryColor": "#FF6347",
+  "size": 1.1,
+  "translucent": false
+}

@@ -33,6 +33,12 @@ public class BeeContainerItem extends Item {
     @Override
     public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity interactionTarget, InteractionHand usedHand) {
         if(interactionTarget instanceof CustomBeeEntity bee && stack.get(BeeIndustryDataComponents.STORED_BEE_ID.get()) == null) {
+            if(bee.isWorkingForMachine) {
+                if(!player.level().isClientSide()) {
+                    player.sendSystemMessage(Component.literal("This bee is currently assigned to a machine and cannot be caught.").withStyle(ChatFormatting.RED));
+                }
+                return InteractionResult.FAIL;
+            }
             if(!player.level().isClientSide()) {
                 ItemStack filledContainer = new ItemStack(this);
 

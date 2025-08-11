@@ -1,0 +1,18 @@
+{
+  "outcomes": [
+    {
+      "chance": 0.1,
+      "child": "beeindustry:glowstone_bee"
+    },
+    {
+      "chance": 0.45,
+      "child": "beeindustry:netherrack_bee"
+    },
+    {
+      "chance": 0.45,
+      "child": "beeindustry:light_bee"
+    }
+  ],
+  "parentA": "beeindustry:netherrack_bee",
+  "parentB": "beeindustry:light_bee"
+}

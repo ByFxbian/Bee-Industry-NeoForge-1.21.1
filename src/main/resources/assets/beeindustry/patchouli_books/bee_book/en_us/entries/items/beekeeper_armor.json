@@ -1,0 +1,26 @@
+{
+  "name": "Beekeeper Armor",
+  "category": "beeindustry:items",
+  "icon": "beeindustry:beekeeper_helmet",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Beekeeper Armor is a specialized set of leather armor, reinforced with honeycombs. It not only provides decent protection but also offers unique bonuses that make handling bees much safer and more efficient."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Set & Piece Bonuses",
+      "text": "$(l)Full Set Bonus$(): Bees will no longer become aggressive towards you, even if you attack them or harvest from their hives.$(br2)$(l)Helmet$(): Bees that are angry at other targets will calm down much faster.$(br)$(l)Chestplate$(): Increases the range at which bees are attracted to you when holding flowers.$(br)$(l)Leggings$(): When you take damage, a bonemeal effect is applied to plants in a small radius around you.$(br)$(l)Boots$(): Grants a slight speed boost when walking on dirt blocks."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "beeindustry:beekeeper_helmet",
+      "recipe2": "beeindustry:beekeeper_chestplate"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "beeindustry:beekeeper_leggings",
+      "recipe2": "beeindustry:beekeeper_boots"
+    }
+  ]
+}

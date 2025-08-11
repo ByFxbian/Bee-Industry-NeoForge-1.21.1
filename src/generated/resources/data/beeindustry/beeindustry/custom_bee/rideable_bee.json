@@ -2,11 +2,11 @@
   "attributes": {
     "attackDamage": 2.0,
     "maxHealth": 50.0,
-    "productivity": 2,
+    "productivity": 1,
     "speed": 8,
-    "temper": 2
+    "temper": 1
   },
-  "beeTexture": "beeindustry:textures/entity/bee/example_bee.png",
+  "beeTexture": "beeindustry:textures/entity/bee/rideable_bee.png",
   "createNectar": false,
   "description": "A large, friendly bee you can ride.",
   "fireproof": false,

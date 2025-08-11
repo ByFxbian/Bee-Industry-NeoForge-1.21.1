@@ -28,7 +28,7 @@ public class BeeIndustryCreativeModeTabs {
 
     public static final Supplier<CreativeModeTab> BEE_INDUSTRY_TAB= CREATIVE_MODE_TAB.register("beeindustry",
             () -> CreativeModeTab.builder()
-                    .icon(() -> new ItemStack(BeeIndustryItems.EXAMPLE_ITEM.get()))
+                    .icon(() -> new ItemStack(BeeIndustryBlocks.ADVANCED_BEEHIVE.asItem()))
                     .title(Component.translatable("creativetab.beeindustry"))
                     .displayItems((itemDisplayParameters, output) -> {
                       //output.accept(BeeIndustryItems.EXAMPLE_ITEM);
@@ -36,6 +36,7 @@ public class BeeIndustryCreativeModeTabs {
                         output.accept(BeeIndustryItems.BEE_CONTAINER);
                         output.accept(BeeIndustryItems.BEE_SMOKER);
                         output.accept(BeeIndustryItems.APIARISTS_COMPASS);
+                        output.accept(BeeIndustryItems.UPGRADE_TEMPLATE);
                         output.accept(BeeIndustryItems.QUANTITY_UPGRADE);
                         output.accept(BeeIndustryItems.EFFICIENCY_UPGRADE);
                         output.accept(BeeIndustryItems.RANGE_UPGRADE);

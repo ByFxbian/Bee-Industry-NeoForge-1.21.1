@@ -1,8 +1,8 @@
 {
   "attributes": {
-    "attackDamage": 1.5,
-    "maxHealth": 22.0,
-    "productivity": 4,
+    "attackDamage": 2.0,
+    "maxHealth": 16.0,
+    "productivity": 3,
     "speed": 5,
     "temper": 3
   },
@@ -10,12 +10,12 @@
   "createNectar": false,
   "description": "A metallic bee with a greenish tint.",
   "fireproof": false,
-  "flowerBlockTag": "minecraft:copper_ore",
+  "flowerBlockTag": "beeindustry:flowers/copper_bee",
   "invulnerable": false,
   "name": "copper_bee",
   "pollenColor": "#B36341",
   "primaryColor": "#D17D58",
-  "productionItem": "minecraft:copper_ingot",
+  "productionItem": "minecraft:raw_copper",
   "secondaryColor": "#E7936D",
   "size": 1.1,
   "translucent": false

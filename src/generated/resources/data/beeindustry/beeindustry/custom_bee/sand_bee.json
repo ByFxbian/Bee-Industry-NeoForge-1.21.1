@@ -1,7 +1,7 @@
 {
   "attributes": {
     "attackDamage": 1.0,
-    "maxHealth": 15.0,
+    "maxHealth": 8.0,
     "productivity": 1,
     "speed": 4,
     "temper": 1
@@ -10,7 +10,7 @@
   "createNectar": false,
   "description": "A grainy bee.",
   "fireproof": false,
-  "flowerBlockTag": "minecraft:sand",
+  "flowerBlockTag": "beeindustry:flowers/sand_bee",
   "invulnerable": false,
   "name": "sand_bee",
   "pollenColor": "#F4A460",

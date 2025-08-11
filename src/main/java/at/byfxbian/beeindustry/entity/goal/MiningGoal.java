@@ -1,5 +1,6 @@
 package at.byfxbian.beeindustry.entity.goal;
 
+import at.byfxbian.beeindustry.BeeIndustry;
 import at.byfxbian.beeindustry.block.entity.custom.BeepostBlockEntity;
 import at.byfxbian.beeindustry.entity.custom.CustomBeeEntity;
 import net.minecraft.core.BlockPos;
@@ -72,6 +73,14 @@ public class MiningGoal extends Goal {
                     currentState = State.FIND_BLOCK;
                     return;
                 }
+                BlockState currentStateAtTarget = bee.level().getBlockState(targetBlockPos);
+                TagKey<Block> mineableTag = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(BeeIndustry.MOD_ID, "mineable_by_bee"));
+                if(!currentStateAtTarget.is(mineableTag)) {
+                    this.targetBlockPos = null;
+                    this.currentState = State.FIND_BLOCK;
+                    return;
+                }
+
                 miningTicks++;
                 if (miningTicks > (40 / bee.workSpeedModifier)) {
                     mineBlock();
@@ -98,11 +107,12 @@ public class MiningGoal extends Goal {
                 bee.getHivePos(),
                 bee.workRange,
                 bee.workRange,
-                pos -> bee.level().getBlockState(pos).is(mineableTag)
+                pos -> bee.level().getBlockState(pos).is(mineableTag) && !this.beepost.isBlockReserved(pos)
         );
 
         nearestBlock.ifPresent(pos -> {
             this.targetBlockPos = pos;
+            this.beepost.reserveBlock(pos);
             bee.getNavigation().moveTo(pos.getX(), pos.getY(), pos.getZ(), 1.0);
             this.currentState = State.GO_TO_BLOCK;
         });
@@ -130,6 +140,19 @@ public class MiningGoal extends Goal {
             bee.getNavigation().moveTo(beepost.getBlockPos().getX(), beepost.getBlockPos().getY() + 1, beepost.getBlockPos().getZ(), 1.0);
             beepost.onWorkerBeeReturned(bee);
             bee.discard();
+            if(this.targetBlockPos != null) {
+                this.beepost.releaseBlock(this.targetBlockPos);
+                this.targetBlockPos = null;
+            }
         }
+    }
+
+    @Override
+    public void stop() {
+        if(this.targetBlockPos != null) {
+            this.beepost.releaseBlock(this.targetBlockPos);
+            this.targetBlockPos = null;
+        }
+        bee.getNavigation().stop();
     }
 }

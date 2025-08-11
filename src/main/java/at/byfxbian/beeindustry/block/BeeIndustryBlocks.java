@@ -29,7 +29,7 @@ public class BeeIndustryBlocks {
             () -> new AdvancedBeehiveBlock(BlockBehaviour.Properties.of().strength(2f).sound(SoundType.WOOD)));
 
     public static final DeferredBlock<Block> BEEPOST = registerBlock("beepost",
-            () -> new BeepostBlock(BlockBehaviour.Properties.of().strength(2.5f).sound(SoundType.WOOD)));
+            () -> new BeepostBlock(BlockBehaviour.Properties.of().strength(2.5f).sound(SoundType.WOOD).noOcclusion()));
 
     public static final DeferredBlock<Block> TAPPED_LOG = registerBlock("tapped_log",
             () -> new TappedLogBlock(BlockBehaviour.Properties.of()));

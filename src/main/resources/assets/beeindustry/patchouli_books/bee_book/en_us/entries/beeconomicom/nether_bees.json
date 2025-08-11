@@ -1,0 +1,16 @@
+{
+  "name": "Nether Species",
+  "category": "beeindustry:beeconomicom",
+  "icon": "minecraft:netherrack",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Nether Species",
+      "text": "These bees can only be acquired in the Nether, either through breeding or by using a $(l:beeindustry:machines/nectar_lure)Nectar Lure$(). They are often resistant to fire."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(li)Netherrack Bee: Produces Netherrack.$(br)$(li)Quartz Bee: Produces Quartz.$(br)$(li)Bone Bee: Produces Bone Meal.$(br)$(li)Soul Sand Bee: Produces Soul Sand.$(br)$(li)Glowstone Bee: Produces Glowstone Dust.$(br)$(li)Lava Bee: Produces Magma Cream.$(br)$(li)Blaze Bee: Produces Blaze Powder."
+    }
+  ]
+}

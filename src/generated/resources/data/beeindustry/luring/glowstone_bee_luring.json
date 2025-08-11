@@ -1,0 +1,8 @@
+{
+  "bee": "beeindustry:glowstone_bee",
+  "biomeTag": "minecraft:is_nether",
+  "lureItem": {
+    "item": "minecraft:glowstone"
+  },
+  "time": 1000
+}

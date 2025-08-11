@@ -1,8 +1,8 @@
 {
   "attributes": {
     "attackDamage": 1.0,
-    "maxHealth": 20.0,
-    "productivity": 3,
+    "maxHealth": 12.0,
+    "productivity": 2,
     "speed": 4,
     "temper": 1
   },
@@ -10,7 +10,7 @@
   "createNectar": false,
   "description": "A bee that thrives in damp, green places.",
   "fireproof": false,
-  "flowerBlockTag": "minecraft:moss_block",
+  "flowerBlockTag": "beeindustry:flowers/mossy_bee",
   "invulnerable": false,
   "name": "mossy_bee",
   "pollenColor": "#455938",

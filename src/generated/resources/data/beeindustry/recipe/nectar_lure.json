@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:bee_nest"
+    },
+    "H": {
+      "item": "minecraft:honey_block"
+    },
+    "Q": {
+      "item": "minecraft:quartz_block"
+    }
+  },
+  "pattern": [
+    "QHQ",
+    "HBH",
+    "QHQ"
+  ],
+  "result": {
+    "count": 1,
+    "id": "beeindustry:nectar_lure"
+  }
+}

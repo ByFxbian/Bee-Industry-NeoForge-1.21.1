@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_advanced_beehive": {
+      "conditions": {
+        "items": [
+          {
+            "items": "beeindustry:advanced_beehive"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "beeindustry:beepost"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_advanced_beehive"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "beeindustry:beepost"
+    ]
+  }
+}

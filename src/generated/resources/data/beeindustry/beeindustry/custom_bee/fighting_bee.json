@@ -2,8 +2,8 @@
   "attributes": {
     "attackDamage": 6.0,
     "maxHealth": 40.0,
-    "productivity": 10,
-    "speed": 7,
+    "productivity": 1,
+    "speed": 8,
     "temper": 10
   },
   "beeTexture": "beeindustry:textures/entity/bee/fighting_bee.png",

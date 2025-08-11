@@ -34,8 +34,8 @@ public class NectarLureMenu extends AbstractContainerMenu {
         this.data = blockEntity.getData();
 
         // Slots für den Nectar Lure
-        this.addSlot(new SlotItemHandler(blockEntity.getItemHandler(), 0, 44, 35)); // Lure Slot
-        this.addSlot(new FuelSlot(blockEntity.getItemHandler(), 1, 116, 35));    // Fuel Slot
+        this.addSlot(new SlotItemHandler(blockEntity.getItemHandler(), 0, 26, 36)); // Lure Slot
+        this.addSlot(new FuelSlot(blockEntity.getItemHandler(), 1, 134, 36));    // Fuel Slot
 
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
@@ -89,14 +89,14 @@ public class NectarLureMenu extends AbstractContainerMenu {
     private void addPlayerInventory(Inventory playerInventory) {
         for (int i = 0; i < 3; ++i) {
             for (int j = 0; j < 9; ++j) {
-                this.addSlot(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
+                this.addSlot(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 86 + i * 18));
             }
         }
     }
 
     private void addPlayerHotbar(Inventory playerInventory) {
         for (int i = 0; i < 9; ++i) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
+            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 144));
         }
     }
 }

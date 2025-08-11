@@ -11,15 +11,23 @@ import at.byfxbian.beeindustry.item.BeeIndustryItems;
 import at.byfxbian.beeindustry.item.custom.CustomBeeSpawnEggItem;
 import at.byfxbian.beeindustry.item.custom.armor.AbstractArmorItem;
 import at.byfxbian.beeindustry.item.custom.armor.client.ArmorClientExtension;
+import at.byfxbian.beeindustry.item.custom.armor.client.model.BeekeeperArmorModel;
 import at.byfxbian.beeindustry.item.custom.armor.client.model.BeekeeperHelmetModel;
 import at.byfxbian.beeindustry.item.custom.armor.client.provider.ArmorModelProvider;
 import at.byfxbian.beeindustry.item.custom.armor.client.provider.SimpleModelProvider;
 import at.byfxbian.beeindustry.screen.*;
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.MapColor;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -43,8 +51,47 @@ public class ClientEvents {
             if (colors != null) {
                 return tintIndex == 0 ? colors.primaryColor() : colors.secondaryColor();
             }
-            return 0xFFFFFF;
+            return 0xFFFFFFFF;
         }, BeeIndustryItems.BEE_SPAWN_EGG.get());
+
+        /*event.register((stack, tintIndex) -> {
+            if (tintIndex == 1) {
+                try {
+                    ResourceLocation woodTypeId = stack.get(BeeIndustryDataComponents.WOOD_TYPE.get());
+                    if (woodTypeId != null) {
+                        Block woodBlock = BuiltInRegistries.BLOCK.get(woodTypeId);
+                        // Prüfe, ob der Block existiert und nicht "air" ist
+                        if (woodBlock != null && woodBlock != Blocks.AIR) {
+                            return woodBlock.defaultBlockState().getMapColor(null, null).col;
+                        }
+                    }
+                } catch (Exception e) {
+                    // Falls irgendetwas schiefgeht, loggen wir den Fehler und geben eine Standardfarbe zurück
+                    BeeIndustry.LOGGER.warn("Failed to get map color for tree sap item: " + stack, e);
+                    return 0xFFFFFF;
+                }
+            }
+            return 0xFFFFFF;
+        }, BeeIndustryItems.TREE_SAP.get());*/
+        event.register((stack, tintIndex) -> {
+            if(tintIndex == 1) {
+                try {
+                    ResourceLocation woodTypeId = stack.get(BeeIndustryDataComponents.WOOD_TYPE.get());
+                    if(woodTypeId != null) {
+                        Block woodBlock = BuiltInRegistries.BLOCK.get(woodTypeId);
+                        if(woodBlock != null && woodBlock != Blocks.AIR) {
+                            MapColor mapColor = woodBlock.defaultMapColor();
+                            if(mapColor != null) {
+                                return mapColor.col | 0xFF000000;
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    BeeIndustry.LOGGER.error("Failed to get map color for tree sap item, falling back to default. Item: " + stack, e);
+                }
+            }
+            return 0xFFFFFFFF;
+        }, BeeIndustryItems.TREE_SAP.get());
     }
 
     @SubscribeEvent
@@ -54,11 +101,12 @@ public class ClientEvents {
 
     @SubscribeEvent
     public static void onRegisterClientExtensions(RegisterClientExtensionsEvent event) {
+        //registerArmorExtension(BeeIndustryItems.BEEKEEPER_ARMOR, event, new SimpleModelProvider(BeekeeperArmorModel::createBodyLayer, BeekeeperArmorModel::new));
         event.registerItem(new ArmorClientExtension(new SimpleModelProvider(BeekeeperHelmetModel::createBodyLayer, BeekeeperHelmetModel::new)), BeeIndustryItems.BEEKEEPER_HELMET);
     }
 
     @SuppressWarnings("unchecked")
-    private static <T extends AbstractArmorItem> void registerArmorExtension(Map<ArmorItem.Type, DeferredItem> map, RegisterClientExtensionsEvent event, ArmorModelProvider provider) {
+    private static <T extends AbstractArmorItem> void registerArmorExtension(Map<ArmorItem.Type, DeferredItem<T>> map, RegisterClientExtensionsEvent event, ArmorModelProvider provider) {
         event.registerItem(new ArmorClientExtension(provider), map.values().toArray(DeferredItem[]::new));
     }
 
@@ -84,6 +132,10 @@ public class ClientEvents {
                     (stack, level, entity, seed) -> {
                         return stack.get(BeeIndustryDataComponents.STORED_BEE_ID.get()) != null ? 1.0f : 0.0f;
                     });
+
+            ItemProperties.register(BeeIndustryItems.TREE_SAP.get(),
+                    ResourceLocation.fromNamespaceAndPath(BeeIndustry.MOD_ID, "wood_type_present"),
+                    (stack, level, entity, seed) -> stack.has(BeeIndustryDataComponents.WOOD_TYPE) ? 1.0f : 0.0f);
         });
     }
 
@@ -95,6 +147,9 @@ public class ClientEvents {
         event.registerLayerDefinition(BeeIndustryModelLayers.FIGHTING_BEE_LAYER, FightingBeeModel::createBodyLayer);
         event.registerLayerDefinition(BeeIndustryModelLayers.LUMBER_BEE_LAYER, LumberBeeModel::createBodyLayer);
         event.registerLayerDefinition(BeeIndustryModelLayers.BLAZE_BEE_LAYER, BlazeBeeModel::createBodyLayer);
+        event.registerLayerDefinition(BeeIndustryModelLayers.LIGHT_BEE_LAYER, LightBeeModel::createBodyLayer);
+        event.registerLayerDefinition(BeeIndustryModelLayers.DRIPPING_BEE_LAYER, DrippingBeeModel::createBodyLayer);
+        event.registerLayerDefinition(BeeIndustryModelLayers.BREEZE_BEE_LAYER, BreezeBeeModel::createBodyLayer);
     }
 
     @SubscribeEvent

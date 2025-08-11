@@ -16,6 +16,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 import javax.swing.text.html.Option;
 import java.util.EnumSet;
@@ -60,6 +61,10 @@ public class CollectSapGoal extends Goal {
 
     @Override
     public void stop() {
+        if(this.targetLogPos != null) {
+            this.beepost.releaseBlock(this.targetLogPos);
+            this.targetLogPos = null;
+        }
         bee.getNavigation().stop();
     }
 
@@ -70,6 +75,7 @@ public class CollectSapGoal extends Goal {
                 findNearbyLog().ifPresentOrElse(
                         pos -> {
                             targetLogPos = pos;
+                            this.beepost.reserveBlock(pos);
                             bee.getNavigation().moveTo(pos.getX(), pos.getY(), pos.getZ(), 1.0);
                             currentState = State.GO_TO_LOG;
                         },
@@ -98,6 +104,13 @@ public class CollectSapGoal extends Goal {
                     currentState = State.FIND_LOG;
                     return;
                 }
+
+                if(!bee.level().getBlockState(targetLogPos).is(BlockTags.LOGS)) {
+                    this.targetLogPos = null;
+                    this.currentState = State.FIND_LOG;
+                    return;
+                }
+
                 collectingTicks++;
                 if (collectingTicks > (60 / bee.workSpeedModifier)) {
                     collectSap();
@@ -126,7 +139,12 @@ public class CollectSapGoal extends Goal {
     private void collectSap() {
         if(targetLogPos != null && bee.level() instanceof ServerLevel serverLevel) {
             BlockState logState = serverLevel.getBlockState(targetLogPos);
+            BlockState targetState = bee.level().getBlockState(targetLogPos);
+            BlockState newState = BeeIndustryBlocks.TAPPED_LOG.get().defaultBlockState();
 
+            if (targetState.hasProperty(BlockStateProperties.AXIS)) {
+                newState = newState.setValue(BlockStateProperties.AXIS, targetState.getValue(BlockStateProperties.AXIS));
+            }
             if(!logState.is(BlockTags.LOGS)) {
                 this.targetLogPos = null;
                 this.currentState = State.FIND_LOG;
@@ -146,7 +164,8 @@ public class CollectSapGoal extends Goal {
 
             bee.addItemStack(sapStack);
 
-            bee.level().setBlock(targetLogPos, BeeIndustryBlocks.TAPPED_LOG.get().defaultBlockState(), 3);
+            //bee.level().setBlock(targetLogPos, BeeIndustryBlocks.TAPPED_LOG.get().defaultBlockState(), 3);
+            bee.level().setBlock(targetLogPos, newState, 3);
             if(bee.level().getBlockEntity(targetLogPos) instanceof TappedLogBlockEntity tappedLog) {
                 tappedLog.setOriginalState(logState, 2400);
             }
@@ -165,6 +184,6 @@ public class CollectSapGoal extends Goal {
     }
 
     private Optional<BlockPos> findNearbyLog() {
-        return BlockPos.findClosestMatch(bee.blockPosition(), bee.workRange, 5, pos -> bee.level().getBlockState(pos).is(BlockTags.LOGS));
+        return BlockPos.findClosestMatch(bee.blockPosition(), bee.workRange, 5, pos -> bee.level().getBlockState(pos).is(BlockTags.LOGS) && !this.beepost.isBlockReserved(pos));
     }
 }

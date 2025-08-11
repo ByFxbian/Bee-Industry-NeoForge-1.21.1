@@ -1,0 +1,8 @@
+{
+  "bee": "beeindustry:soul_sand_bee",
+  "biomeTag": "minecraft:soul_sand_valley",
+  "lureItem": {
+    "item": "minecraft:soul_sand"
+  },
+  "time": 700
+}

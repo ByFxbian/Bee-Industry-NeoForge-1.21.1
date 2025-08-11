@@ -143,85 +143,67 @@ public class NectarLureBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     private void spawnLuredBee(LureRecipe recipe) {
-        if(level == null) return;
+        /*if (level == null) return;
         CustomBeeEntity bee = BeeIndustryEntities.CUSTOM_BEE_ENTITY.get().create(level);
         if(bee != null) {
             System.out.println("Bee not null");
-            for(int i = 0; i < 10; i++) {
+            for(int i = 0; i < 15; i++) {
                 System.out.println("Checking Possible Spawn Location");
                 RandomSource random = level.random;
                 double angle = random.nextDouble() * 2 * Math.PI;
                 double radius = 15 + random.nextDouble() * 15;
                 int x = (int) (this.worldPosition.getX() + Math.cos(angle) * radius);
-                int y = this.worldPosition.getY() + random.nextInt(11) - 5;
                 int z = (int) (this.worldPosition.getZ() + Math.sin(angle) * radius);
+                int y = this.worldPosition.getY() + random.nextInt(11) - 5;
 
-                /*BlockPos potentialPos = null;
-                System.out.println(level.getBlockEntity(this.worldPosition).getLevel().dimension().location());
-                if(level.getBlockEntity(this.worldPosition).getLevel().dimension().location().toString().equals("minecraft:the_nether")) {
-                    potentialPos = findSafeSpawnLocation(level, new BlockPos(x, 124 - 1, z));
-                } else {
-                    potentialPos = findSafeSpawnLocation(level, new BlockPos(x, level.getMaxBuildHeight() - 1, z));
-                }*/
+                BlockPos.MutableBlockPos potentialPos = new BlockPos.MutableBlockPos(x, y, z);
 
-                BlockPos potentialPos = new BlockPos(x, y, z);
+                for (int j = 0; j < 10; j++) {
+                    if (level.isEmptyBlock(potentialPos) && level.isEmptyBlock(potentialPos.above()) && !level.isEmptyBlock(potentialPos.below())) {
+                        System.out.println("Potential Spawn Location not Null. Checking Path...");
+                        Path path = bee.getNavigation().createPath(potentialPos, 0);
+                        if (path != null) {
+                            System.out.println("Path not Null and can be Reached. Spawning Bee...");
+                            bee.setBeeType(recipe.bee());
+                            bee.setPos(potentialPos.getX() + 0.5, potentialPos.getY(), potentialPos.getZ() + 0.5);
+                            System.out.println("Bee spawned at: " + potentialPos);
 
-                if(level.isEmptyBlock(potentialPos) && level.isEmptyBlock(potentialPos.above())) {
-                    System.out.println("Potential Spawn Location not Null. Checking Path...");
-                    Path path = bee.getNavigation().createPath(this.worldPosition, 0);
-                    if(path != null) {
-                        System.out.println("Path not Null and can be Reached. Spawning Bee...");
-                        bee.setBeeType(recipe.bee());
-                        bee.setPos(potentialPos.getX() + 0.5, potentialPos.getY(), potentialPos.getZ() + 0.5);
-                        System.out.println("Bee spawned at: " + potentialPos);
+                            bee.goalSelector.removeAllGoals(g -> true);
+                            bee.targetSelector.removeAllGoals(g -> true);
+                            bee.goalSelector.addGoal(0, new GoToLureGoal(bee, this.worldPosition));
 
-                        bee.goalSelector.removeAllGoals(g -> true);
-                        bee.targetSelector.removeAllGoals(g -> true);
-                        bee.goalSelector.addGoal(0, new GoToLureGoal(bee, this.worldPosition));
-
-                        level.addFreshEntity(bee);
-                        return;
-                    } else {
-                        System.out.println("Path is " + path);
-                        System.out.println("Path can be reached: " + path.canReach());
+                            level.addFreshEntity(bee);
+                            return;
+                        } else {
+                            System.out.println("Path is " + path);
+                            System.out.println("Path can be reached: " + path.canReach());
+                        }
+                    }
+                    potentialPos.setY(potentialPos.getY() - 1);
+                    if (potentialPos.getY() < level.getMinBuildHeight()) {
+                        break;
                     }
                 }
             }
-        }
+        }*/
+        if(level == null) return;
+        var bee = BeeIndustryEntities.CUSTOM_BEE_ENTITY.get().create(level);
+        if(bee == null) return;
+
+        BlockPos spawn = this.worldPosition.above();
+        if(!level.isEmptyBlock(spawn)) spawn = spawn.above();
+        if(!level.isEmptyBlock(spawn)) return;
+
+        bee.setBeeType(recipe.bee());
+        bee.setPos(spawn.getX() + 0.5, spawn.getY(), spawn.getZ() + 0.5);
+
+        bee.goalSelector.removeAllGoals(g -> true);
+        bee.targetSelector.removeAllGoals(g -> true);
+        bee.goalSelector.addGoal(0, new GoToLureGoal(bee, this.worldPosition));
+
+        level.addFreshEntity(bee);
     }
 
-   /* @Nullable
-    private BlockPos findSafeSpawnLocation(Level level, BlockPos startPos) {
-        BlockPos.MutableBlockPos mutablePos = new BlockPos.MutableBlockPos().set(startPos);
-
-        while (mutablePos.getY() > level.getMinBuildHeight() && level.isEmptyBlock(mutablePos)) {
-            System.out.println("Checking if bee can spawn");
-            mutablePos.move(Direction.DOWN);
-        }
-
-        mutablePos.move(Direction.UP, 2);
-
-        if(level.isEmptyBlock(mutablePos) && level.isEmptyBlock(mutablePos.below())) {
-            System.out.println("Bee Spawn Location found");
-            return mutablePos.immutable();
-        }
-
-        return null;
-    }*/
-
-    @Nullable
-    private BlockPos findSafeSpawnLocation(Level level, BlockPos groundPos) {
-        BlockPos.MutableBlockPos mutablePos = new BlockPos.MutableBlockPos().set(groundPos);
-
-        for(int i = 0; i < 10; i++) {
-            mutablePos.move(Direction.UP);
-            if(level.isEmptyBlock(mutablePos) && level.isEmptyBlock(mutablePos.above())) {
-                return mutablePos.immutable();
-            }
-        }
-
-        return null;
-    }
 
     @Override
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {

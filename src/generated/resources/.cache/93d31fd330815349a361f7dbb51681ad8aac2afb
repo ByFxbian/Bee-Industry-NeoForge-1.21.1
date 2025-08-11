@@ -1,4 +1,4 @@
-// 1.21.1	2025-07-25T13:42:14.8195419	Item Models: beeindustry
+// 1.21.1	2025-08-09T12:31:50.5128328	Item Models: beeindustry
 a9ea0139fdd153e7ba892f7668ec553f0bdacd3b assets/beeindustry/models/item/advanced_beehive.json
 6cf521f037228f096b63b9e7b88a126c7fb9161f assets/beeindustry/models/item/apiarists_compass.json
 a057d976ebee4e92f1268067d2f82f715e9c30e2 assets/beeindustry/models/item/beenergy_generator.json
@@ -15,4 +15,4 @@ efecc111897df12c24c32c21c3d70d228bc410be assets/beeindustry/models/item/quantity
 3528cbb66dcd957bcc276189790f7c8925cc7648 assets/beeindustry/models/item/sap_press.json
 929874a81bce57d27cd40a48970ee6c4a6739552 assets/beeindustry/models/item/stone_nest.json
 3ff2e56ddc848dd5d2a1b384171dcd012d1d6e85 assets/beeindustry/models/item/sweet_honey.json
-1a710596ba00606aed9f6c3115eed4bf874f4976 assets/beeindustry/models/item/tree_sap.json
+866446600b13c5c2eefe02a1fcf956d43a220ec9 assets/beeindustry/models/item/upgrade_template.json

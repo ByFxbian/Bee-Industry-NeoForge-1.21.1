@@ -9,9 +9,15 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 @Mod(value = BeeIndustry.MOD_ID, dist = Dist.CLIENT)
 @EventBusSubscriber(modid = BeeIndustry.MOD_ID, value = Dist.CLIENT)
 public class BeeIndustryClient {
+
     public BeeIndustryClient(ModContainer container) {
         container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
     }

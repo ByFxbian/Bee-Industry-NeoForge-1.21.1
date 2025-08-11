@@ -1,7 +1,7 @@
 {
   "attributes": {
     "attackDamage": 1.0,
-    "maxHealth": 20.0,
+    "maxHealth": 12.0,
     "productivity": 2,
     "speed": 5,
     "temper": 2
@@ -10,12 +10,12 @@
   "createNectar": false,
   "description": "This bee seems unnaturally sticky.",
   "fireproof": false,
-  "flowerBlockTag": "minecraft:logs",
+  "flowerBlockTag": "beeindustry:flowers/resin_bee",
   "invulnerable": false,
   "name": "resin_bee",
   "pollenColor": "#FFD700",
   "primaryColor": "#FFA500",
-  "productionItem": "beeindustry:sweet_honey",
+  "productionItem": "minecraft:honeycomb",
   "secondaryColor": "#D2691E",
   "size": 1.1,
   "translucent": false

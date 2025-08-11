@@ -1,0 +1,36 @@
+{
+  "name": "Breeding Tree",
+  "category": "beeindustry:apiculture",
+  "icon": "minecraft:oak_sapling",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The path to discovering all bee species is a long one, built upon combining simpler species to create more complex ones.$(br2)This entry serves as a reference for the primary breeding paths. Remember that each cross-breed has a specific chance of success; sometimes you will just get one of the parent species back."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Tier 1",
+      "text": "$(li)Mossy = Dirt + Stone$(li)Lumber = Dirt + Water$(li)Honey = Water + Sand"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Tier 2",
+      "text": "$(li)Coal = Stone + Lumber$(li)Resin = Lumber + Honey$(li)Farming = Mossy + Lumber$(li)Mining = Stone + Gravel"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Tier 3 (Metals)",
+      "text": "$(li)Copper = Gravel + Coal$(li)Iron = Stone + Coal$(li)Gold = Sand + Iron"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Tier 4 (Gems & Magic)",
+      "text": "$(li)Lapis = Sand + Water$(li)Redstone = Stone + Iron"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "High Tier & Endgame",
+      "text": "$(li)Fighting = Iron + Bone$(li)Emerald = Lapis + Farming$(li)Diamond = Gold + Coal$(li)Ancient Debris = Diamond + Netherrack"
+    }
+  ]
+}

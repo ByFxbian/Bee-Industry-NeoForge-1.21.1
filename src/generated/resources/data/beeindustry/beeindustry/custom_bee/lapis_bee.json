@@ -1,7 +1,7 @@
 {
   "attributes": {
     "attackDamage": 1.5,
-    "maxHealth": 24.0,
+    "maxHealth": 22.0,
     "productivity": 4,
     "speed": 7,
     "temper": 2
@@ -10,7 +10,7 @@
   "createNectar": false,
   "description": "An enchanting, blue bee.",
   "fireproof": false,
-  "flowerBlockTag": "minecraft:lapis_ore",
+  "flowerBlockTag": "beeindustry:flowers/lapis_bee",
   "invulnerable": false,
   "name": "lapis_bee",
   "pollenColor": "#1E90FF",

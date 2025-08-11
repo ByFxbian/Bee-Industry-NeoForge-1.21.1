@@ -1,7 +1,7 @@
 {
   "attributes": {
     "attackDamage": 1.0,
-    "maxHealth": 18.0,
+    "maxHealth": 10.0,
     "productivity": 1,
     "speed": 4,
     "temper": 1
@@ -10,7 +10,7 @@
   "createNectar": false,
   "description": "A crunchy bee.",
   "fireproof": false,
-  "flowerBlockTag": "minecraft:gravel",
+  "flowerBlockTag": "beeindustry:flowers/gravel_bee",
   "invulnerable": false,
   "name": "gravel_bee",
   "pollenColor": "#808080",

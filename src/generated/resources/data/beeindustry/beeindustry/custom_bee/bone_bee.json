@@ -1,7 +1,7 @@
 {
   "attributes": {
     "attackDamage": 1.0,
-    "maxHealth": 20.0,
+    "maxHealth": 18.0,
     "productivity": 3,
     "speed": 5,
     "temper": 2
@@ -10,7 +10,7 @@
   "createNectar": false,
   "description": "An eerie, skeletal bee.",
   "fireproof": false,
-  "flowerBlockTag": "minecraft:bone_block",
+  "flowerBlockTag": "beeindustry:flowers/bone_bee",
   "invulnerable": false,
   "name": "bone_bee",
   "pollenColor": "#FFFFFF",

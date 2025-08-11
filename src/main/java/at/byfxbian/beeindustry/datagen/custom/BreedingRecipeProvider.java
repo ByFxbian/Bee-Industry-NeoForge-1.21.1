@@ -29,188 +29,133 @@ public class BreedingRecipeProvider implements DataProvider {
     public CompletableFuture<?> run(CachedOutput output) {
         List<CompletableFuture<?>> futures = new ArrayList<>();
 
-        createSelfBreedingRecipe(output, "dirt_breeding",
-                CustomBees.DIRT.location(),
-                futures
-        );
-        createSelfBreedingRecipe(output, "sand_breeding",
-                CustomBees.SAND.location(),
-                futures
-        );
-        createSelfBreedingRecipe(output, "gravel_breeding",
-                CustomBees.GRAVEL.location(),
-                futures
-        );
-        createSelfBreedingRecipe(output, "stone_breeding",
-                CustomBees.STONE.location(),
-                futures
-        );
-        createSelfBreedingRecipe(output, "mossy_breeding",
-                CustomBees.MOSSY.location(),
-                futures
-        );
-        createSelfBreedingRecipe(output, "coal_breeding",
-                CustomBees.COAL.location(),
-                futures
-        );
-        createSelfBreedingRecipe(output, "iron_breeding",
-                CustomBees.IRON.location(),
-                futures
-        );
-        createSelfBreedingRecipe(output, "copper_breeding",
-                CustomBees.COPPER.location(),
-                futures
-        );
-        createSelfBreedingRecipe(output, "gold_breeding",
-                CustomBees.GOLD.location(),
-                futures
-        );
-        createSelfBreedingRecipe(output, "redstone_breeding",
-                CustomBees.REDSTONE.location(),
-                futures
-        );
-        createSelfBreedingRecipe(output, "lapis_breeding",
-                CustomBees.LAPIS.location(),
-                futures
-        );
-        createSelfBreedingRecipe(output, "diamond_breeding",
-                CustomBees.DIAMOND.location(),
-                futures
-        );
-        createSelfBreedingRecipe(output, "emerald_breeding",
-                CustomBees.EMERALD.location(),
-                futures
-        );
-        createSelfBreedingRecipe(output, "amethyst_breeding",
-                CustomBees.AMETHYST.location(),
-                futures
-        );
-        createSelfBreedingRecipe(output, "netherrack_breeding",
-                CustomBees.NETHERRACK.location(),
-                futures
-        );
-        createSelfBreedingRecipe(output, "quartz_breeding",
-                CustomBees.QUARTZ.location(),
-                futures
-        );
-        createSelfBreedingRecipe(output, "bone_breeding",
-                CustomBees.BONE.location(),
-                futures
-        );
-        createSelfBreedingRecipe(output, "endstone_breeding",
-                CustomBees.ENDSTONE.location(),
-                futures
-        );
+        createSelfBreedingRecipe(output, "dirt_breeding", CustomBees.DIRT.location(), futures);
+        createSelfBreedingRecipe(output, "stone_breeding", CustomBees.STONE.location(), futures);
+        createSelfBreedingRecipe(output, "sand_breeding", CustomBees.SAND.location(), futures);
+        createSelfBreedingRecipe(output, "gravel_breeding", CustomBees.GRAVEL.location(), futures);
+        createSelfBreedingRecipe(output, "water_breeding", CustomBees.WATER.location(), futures);
+        createSelfBreedingRecipe(output, "netherrack_breeding", CustomBees.NETHERRACK.location(), futures);
+        createSelfBreedingRecipe(output, "endstone_breeding", CustomBees.ENDSTONE.location(), futures);
 
-        createBreedingRecipe(output, "dirt_stone_breeding",
-                CustomBees.DIRT.location(),
-                CustomBees.STONE.location(),
-                List.of(
-                        new BreedingRecipe.Outcome(CustomBees.MOSSY.location(), 0.15f),
-                        new BreedingRecipe.Outcome(CustomBees.DIRT.location(), 0.425f),
-                        new BreedingRecipe.Outcome(CustomBees.STONE.location(), 0.425f)
-                ), futures
-        );
+        // TIER 0 -> 1
+        createBreedingRecipe(output, "mossy_from_dirt_stone", CustomBees.DIRT.location(), CustomBees.STONE.location(), List.of(
+                new BreedingRecipe.Outcome(CustomBees.MOSSY.location(), 0.15f),
+                new BreedingRecipe.Outcome(CustomBees.DIRT.location(), 0.425f),
+                new BreedingRecipe.Outcome(CustomBees.STONE.location(), 0.425f)
+        ), futures);
+        createBreedingRecipe(output, "lumber_from_dirt_water", CustomBees.DIRT.location(), CustomBees.WATER.location(), List.of(
+                new BreedingRecipe.Outcome(CustomBees.LUMBER.location(), 0.15f),
+                new BreedingRecipe.Outcome(CustomBees.DIRT.location(), 0.425f),
+                new BreedingRecipe.Outcome(CustomBees.WATER.location(), 0.425f)
+        ), futures);
+        createBreedingRecipe(output, "honey_from_water_sand", CustomBees.WATER.location(), CustomBees.SAND.location(), List.of(
+                new BreedingRecipe.Outcome(CustomBees.HONEY.location(), 0.10f),
+                new BreedingRecipe.Outcome(CustomBees.WATER.location(), 0.45f),
+                new BreedingRecipe.Outcome(CustomBees.SAND.location(), 0.45f)
+        ), futures);
 
-        createBreedingRecipe(output, "stone_lumber_breeding",
-                CustomBees.STONE.location(),
-                CustomBees.LUMBER.location(),
-                List.of(
-                        new BreedingRecipe.Outcome(CustomBees.COAL.location(), 0.15f),
-                        new BreedingRecipe.Outcome(CustomBees.STONE.location(), 0.625f),
-                        new BreedingRecipe.Outcome(CustomBees.LUMBER.location(), 0.225f)
-                ), futures
-        );
+        // TIER 1 -> TIER 2
+        createBreedingRecipe(output, "coal_from_stone_lumber", CustomBees.STONE.location(), CustomBees.LUMBER.location(), List.of(
+                new BreedingRecipe.Outcome(CustomBees.COAL.location(), 0.15f),
+                new BreedingRecipe.Outcome(CustomBees.STONE.location(), 0.425f),
+                new BreedingRecipe.Outcome(CustomBees.LUMBER.location(), 0.425f)
+        ), futures);
+        createBreedingRecipe(output, "resin_from_lumber_honey", CustomBees.LUMBER.location(), CustomBees.HONEY.location(), List.of(
+                new BreedingRecipe.Outcome(CustomBees.RESIN.location(), 0.12f),
+                new BreedingRecipe.Outcome(CustomBees.LUMBER.location(), 0.44f),
+                new BreedingRecipe.Outcome(CustomBees.HONEY.location(), 0.44f)
+        ), futures);
+        createBreedingRecipe(output, "farming_from_mossy_lumber", CustomBees.MOSSY.location(), CustomBees.LUMBER.location(), List.of(
+                new BreedingRecipe.Outcome(CustomBees.FARMING.location(), 0.10f),
+                new BreedingRecipe.Outcome(CustomBees.MOSSY.location(), 0.45f),
+                new BreedingRecipe.Outcome(CustomBees.LUMBER.location(), 0.45f)
+        ), futures);
+        createBreedingRecipe(output, "mining_from_stone_gravel", CustomBees.STONE.location(), CustomBees.GRAVEL.location(), List.of(
+                new BreedingRecipe.Outcome(CustomBees.MINING.location(), 0.10f),
+                new BreedingRecipe.Outcome(CustomBees.STONE.location(), 0.45f),
+                new BreedingRecipe.Outcome(CustomBees.GRAVEL.location(), 0.45f)
+        ), futures);
 
-        createBreedingRecipe(output, "dirt_mossy_breeding",
-                CustomBees.DIRT.location(),
-                CustomBees.MOSSY.location(),
-                List.of(
-                        new BreedingRecipe.Outcome(CustomBees.LUMBER.location(), 0.15f),
-                        new BreedingRecipe.Outcome(CustomBees.DIRT.location(), 0.425f),
-                        new BreedingRecipe.Outcome(CustomBees.MOSSY.location(), 0.425f)
-                ), futures
-        );
+        // TIER 2 -> 3
+        createBreedingRecipe(output, "copper_from_gravel_coal", CustomBees.GRAVEL.location(), CustomBees.COAL.location(), List.of(
+                new BreedingRecipe.Outcome(CustomBees.COPPER.location(), 0.15f),
+                new BreedingRecipe.Outcome(CustomBees.GRAVEL.location(), 0.425f),
+                new BreedingRecipe.Outcome(CustomBees.COAL.location(), 0.425f)
+        ), futures);
+        createBreedingRecipe(output, "iron_from_stone_coal", CustomBees.STONE.location(), CustomBees.COAL.location(), List.of(
+                new BreedingRecipe.Outcome(CustomBees.IRON.location(), 0.12f),
+                new BreedingRecipe.Outcome(CustomBees.STONE.location(), 0.44f),
+                new BreedingRecipe.Outcome(CustomBees.COAL.location(), 0.44f)
+        ), futures);
+        createBreedingRecipe(output, "gold_from_sand_iron", CustomBees.SAND.location(), CustomBees.IRON.location(), List.of(
+                new BreedingRecipe.Outcome(CustomBees.GOLD.location(), 0.10f),
+                new BreedingRecipe.Outcome(CustomBees.SAND.location(), 0.45f),
+                new BreedingRecipe.Outcome(CustomBees.IRON.location(), 0.45f)
+        ), futures);
 
-        createBreedingRecipe(output, "stone_coal_breeding",
-                CustomBees.STONE.location(),
-                CustomBees.COAL.location(),
-                List.of(
-                        new BreedingRecipe.Outcome(CustomBees.IRON.location(), 0.15f),
-                        new BreedingRecipe.Outcome(CustomBees.STONE.location(), 0.525f),
-                        new BreedingRecipe.Outcome(CustomBees.COAL.location(), 0.325f)
-                ), futures
-        );
+        // TIER 3 -> 4
+        createBreedingRecipe(output, "lapis_from_sand_water", CustomBees.SAND.location(), CustomBees.WATER.location(), List.of(
+                new BreedingRecipe.Outcome(CustomBees.LAPIS.location(), 0.12f),
+                new BreedingRecipe.Outcome(CustomBees.SAND.location(), 0.44f),
+                new BreedingRecipe.Outcome(CustomBees.WATER.location(), 0.44f)
+        ), futures);
+        createBreedingRecipe(output, "redstone_from_stone_iron", CustomBees.STONE.location(), CustomBees.IRON.location(), List.of(
+                new BreedingRecipe.Outcome(CustomBees.REDSTONE.location(), 0.12f),
+                new BreedingRecipe.Outcome(CustomBees.STONE.location(), 0.44f),
+                new BreedingRecipe.Outcome(CustomBees.IRON.location(), 0.44f)
+        ), futures);
 
-        createBreedingRecipe(output, "gravel_coal_breeding",
-                CustomBees.GRAVEL.location(),
-                CustomBees.COAL.location(),
-                List.of(
-                        new BreedingRecipe.Outcome(CustomBees.COPPER.location(), 0.15f),
-                        new BreedingRecipe.Outcome(CustomBees.GRAVEL.location(), 0.525f),
-                        new BreedingRecipe.Outcome(CustomBees.COAL.location(), 0.325f)
-                ), futures
-        );
+        // NETHER
+        createBreedingRecipe(output, "bone_from_gravel_netherrack", CustomBees.GRAVEL.location(), CustomBees.NETHERRACK.location(), List.of(
+                new BreedingRecipe.Outcome(CustomBees.BONE.location(), 0.15f),
+                new BreedingRecipe.Outcome(CustomBees.GRAVEL.location(), 0.425f),
+                new BreedingRecipe.Outcome(CustomBees.NETHERRACK.location(), 0.425f)
+        ), futures);
+        createBreedingRecipe(output, "glowstone_from_netherrack_light", CustomBees.NETHERRACK.location(), CustomBees.LIGHT.location(), List.of(
+                new BreedingRecipe.Outcome(CustomBees.GLOWSTONE.location(), 0.10f),
+                new BreedingRecipe.Outcome(CustomBees.NETHERRACK.location(), 0.45f),
+                new BreedingRecipe.Outcome(CustomBees.LIGHT.location(), 0.45f)
+        ), futures);
+        createBreedingRecipe(output, "lava_from_stone_netherrack", CustomBees.STONE.location(), CustomBees.NETHERRACK.location(), List.of(
+                new BreedingRecipe.Outcome(CustomBees.LAVA.location(), 0.10f),
+                new BreedingRecipe.Outcome(CustomBees.STONE.location(), 0.45f),
+                new BreedingRecipe.Outcome(CustomBees.NETHERRACK.location(), 0.45f)
+        ), futures);
+        createBreedingRecipe(output, "blaze_from_lava_gold", CustomBees.LAVA.location(), CustomBees.GOLD.location(), List.of(
+                new BreedingRecipe.Outcome(CustomBees.BLAZE.location(), 0.08f),
+                new BreedingRecipe.Outcome(CustomBees.LAVA.location(), 0.46f),
+                new BreedingRecipe.Outcome(CustomBees.GOLD.location(), 0.46f)
+        ), futures);
 
-        createBreedingRecipe(output, "iron_sand_breeding",
-                CustomBees.IRON.location(),
-                CustomBees.SAND.location(),
-                List.of(
-                        new BreedingRecipe.Outcome(CustomBees.GOLD.location(), 0.10f),
-                        new BreedingRecipe.Outcome(CustomBees.SAND.location(), 0.65f),
-                        new BreedingRecipe.Outcome(CustomBees.IRON.location(), 0.25f)
-                ), futures
-        );
+        // END
+        createBreedingRecipe(output, "obsidian_from_lava_water", CustomBees.LAVA.location(), CustomBees.WATER.location(), List.of(
+                new BreedingRecipe.Outcome(CustomBees.OBSIDIAN.location(), 0.10f),
+                new BreedingRecipe.Outcome(CustomBees.LAVA.location(), 0.45f),
+                new BreedingRecipe.Outcome(CustomBees.WATER.location(), 0.45f)
+        ), futures);
 
-        createBreedingRecipe(output, "iron_copper_breeding",
-                CustomBees.IRON.location(),
-                CustomBees.COPPER.location(),
-                List.of(
-                        new BreedingRecipe.Outcome(CustomBees.REDSTONE.location(), 0.15f),
-                        new BreedingRecipe.Outcome(CustomBees.COPPER.location(), 0.525f),
-                        new BreedingRecipe.Outcome(CustomBees.IRON.location(), 0.325f)
-                ), futures
-        );
+        // HIGH TIER
+        createBreedingRecipe(output, "fighting_from_iron_bone", CustomBees.IRON.location(), CustomBees.BONE.location(), List.of(
+                new BreedingRecipe.Outcome(CustomBees.FIGHTING.location(), 0.10f),
+                new BreedingRecipe.Outcome(CustomBees.IRON.location(), 0.45f),
+                new BreedingRecipe.Outcome(CustomBees.BONE.location(), 0.45f)
+        ), futures);
+        createBreedingRecipe(output, "emerald_from_lapis_farming", CustomBees.LAPIS.location(), CustomBees.FARMING.location(), List.of(
+                new BreedingRecipe.Outcome(CustomBees.EMERALD.location(), 0.08f),
+                new BreedingRecipe.Outcome(CustomBees.LAPIS.location(), 0.46f),
+                new BreedingRecipe.Outcome(CustomBees.FARMING.location(), 0.46f)
+        ), futures);
+        createBreedingRecipe(output, "diamond_from_gold_coal", CustomBees.GOLD.location(), CustomBees.COAL.location(), List.of(
+                new BreedingRecipe.Outcome(CustomBees.DIAMOND.location(), 0.07f),
+                new BreedingRecipe.Outcome(CustomBees.GOLD.location(), 0.465f),
+                new BreedingRecipe.Outcome(CustomBees.COAL.location(), 0.465f)
+        ), futures);
+        createBreedingRecipe(output, "ancient_debris_from_diamond_netherrack", CustomBees.DIAMOND.location(), CustomBees.NETHERRACK.location(), List.of(
+                new BreedingRecipe.Outcome(CustomBees.ANCIENT_DEBRIS.location(), 0.05f),
+                new BreedingRecipe.Outcome(CustomBees.DIAMOND.location(), 0.475f),
+                new BreedingRecipe.Outcome(CustomBees.NETHERRACK.location(), 0.475f)
+        ), futures);
 
-        createBreedingRecipe(output, "gold_farming_breeding",
-                CustomBees.GOLD.location(),
-                CustomBees.FARMING.location(),
-                List.of(
-                        new BreedingRecipe.Outcome(CustomBees.EMERALD.location(), 0.15f),
-                        new BreedingRecipe.Outcome(CustomBees.FARMING.location(), 0.525f),
-                        new BreedingRecipe.Outcome(CustomBees.GOLD.location(), 0.325f)
-                ), futures
-        );
-
-        createBreedingRecipe(output, "coal_emerald_breeding",
-                CustomBees.EMERALD.location(),
-                CustomBees.COAL.location(),
-                List.of(
-                        new BreedingRecipe.Outcome(CustomBees.DIAMOND.location(), 0.15f),
-                        new BreedingRecipe.Outcome(CustomBees.COAL.location(), 0.625f),
-                        new BreedingRecipe.Outcome(CustomBees.EMERALD.location(), 0.225f)
-                ), futures
-        );
-
-        createBreedingRecipe(output, "bone_iron_breeding",
-                CustomBees.BONE.location(),
-                CustomBees.IRON.location(),
-                List.of(
-                        new BreedingRecipe.Outcome(CustomBees.FIGHTING.location(), 0.15f),
-                        new BreedingRecipe.Outcome(CustomBees.BONE.location(), 0.525f),
-                        new BreedingRecipe.Outcome(CustomBees.IRON.location(), 0.325f)
-                ), futures
-        );
-
-        createBreedingRecipe(output, "iron_stone_breeding",
-                CustomBees.STONE.location(),
-                CustomBees.IRON.location(),
-                List.of(
-                        new BreedingRecipe.Outcome(CustomBees.MINING.location(), 0.15f),
-                        new BreedingRecipe.Outcome(CustomBees.STONE.location(), 0.525f),
-                        new BreedingRecipe.Outcome(CustomBees.IRON.location(), 0.325f)
-                ), futures
-        );
 
         return CompletableFuture.allOf(futures.toArray(CompletableFuture[]::new));
     }

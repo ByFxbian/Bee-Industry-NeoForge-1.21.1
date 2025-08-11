@@ -10,7 +10,7 @@
     {
       "type": "patchouli:image",
       "images": [
-        "beeindustry:textures/gui/beepost_gui_layout.png"
+        "beeindustry:textures/gui/beepost_gui.png"
       ],
       "border": true,
       "text": "The Beepost GUI allows you to manage up to three bees, each with their own dedicated upgrades. Use the toggle buttons to activate or deactivate each bee slot."

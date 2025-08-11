@@ -1,10 +1,10 @@
 {
   "attributes": {
-    "attackDamage": 1.0,
+    "attackDamage": 2.0,
     "maxHealth": 20.0,
-    "productivity": 3,
+    "productivity": 4,
     "speed": 5,
-    "temper": 5
+    "temper": 4
   },
   "beeTexture": "beeindustry:textures/entity/bee/iron_bee.png",
   "createNectar": true,

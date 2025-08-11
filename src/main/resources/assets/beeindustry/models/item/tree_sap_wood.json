@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "beeindustry:item/tree_sap",
+    "layer1": "beeindustry:item/tree_sap_overlay"
+  }
+}

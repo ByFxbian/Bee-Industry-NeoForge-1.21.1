@@ -10,7 +10,7 @@
   "createNectar": false,
   "description": "It makes a gentle chiming sound as it flies.",
   "fireproof": false,
-  "flowerBlockTag": "minecraft:amethyst_block",
+  "flowerBlockTag": "beeindustry:flowers/amethyst_bee",
   "invulnerable": false,
   "name": "amethyst_bee",
   "pollenColor": "#C3A6E4",
@@ -18,5 +18,5 @@
   "productionItem": "minecraft:amethyst_shard",
   "secondaryColor": "#775A9E",
   "size": 1.2,
-  "translucent": true
+  "translucent": false
 }

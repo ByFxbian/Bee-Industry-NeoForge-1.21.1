@@ -1,7 +1,7 @@
 {
   "attributes": {
     "attackDamage": 2.0,
-    "maxHealth": 30.0,
+    "maxHealth": 2.0,
     "productivity": 8,
     "speed": 8,
     "temper": 2
@@ -10,7 +10,7 @@
   "createNectar": false,
   "description": "A very rare and valuable trading bee.",
   "fireproof": false,
-  "flowerBlockTag": "minecraft:emerald_ore",
+  "flowerBlockTag": "beeindustry:flowers/emerald_bee",
   "invulnerable": false,
   "name": "emerald_bee",
   "pollenColor": "#8CFFB9",
@@ -19,5 +19,5 @@
   "renderer": "emerald_bee",
   "secondaryColor": "#17AC54",
   "size": 1.3,
-  "translucent": true
+  "translucent": false
 }

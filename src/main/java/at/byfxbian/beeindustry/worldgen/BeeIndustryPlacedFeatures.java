@@ -37,16 +37,16 @@ public class BeeIndustryPlacedFeatures {
                 surfacePlacementWithCondition(4, BlockPredicateFilter.forPredicate(BlockPredicate.matchesBlocks(Blocks.GRAVEL)))
         );*/
         register(context, DIRT_NEST_PLACED_KEY, configuredFeatures.getOrThrow(BeeIndustryConfiguredFeatures.DIRT_NEST_KEY),
-                List.of(RarityFilter.onAverageOnceEvery(4), BiomeFilter.biome()));
+                List.of(BiomeFilter.biome()));
 
         register(context, STONE_NEST_PLACED_KEY, configuredFeatures.getOrThrow(BeeIndustryConfiguredFeatures.STONE_NEST_KEY),
-                List.of(RarityFilter.onAverageOnceEvery(4), BiomeFilter.biome()));
+                List.of(BiomeFilter.biome()));
 
         register(context, SAND_NEST_PLACED_KEY, configuredFeatures.getOrThrow(BeeIndustryConfiguredFeatures.SAND_NEST_KEY),
-                List.of(RarityFilter.onAverageOnceEvery(4), BiomeFilter.biome()));
+                List.of(BiomeFilter.biome()));
 
         register(context, GRAVEL_NEST_PLACED_KEY, configuredFeatures.getOrThrow(BeeIndustryConfiguredFeatures.GRAVEL_NEST_KEY),
-                List.of(RarityFilter.onAverageOnceEvery(4), BiomeFilter.biome()));
+                List.of(BiomeFilter.biome()));
     }
 
     private static List<PlacementModifier> surfacePlacementWithCondition(int rarity, BlockPredicateFilter condition) {

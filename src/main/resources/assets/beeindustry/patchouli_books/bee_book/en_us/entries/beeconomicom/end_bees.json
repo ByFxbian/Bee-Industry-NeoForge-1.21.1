@@ -1,0 +1,16 @@
+{
+  "name": "The End Species",
+  "category": "beeindustry:beeconomicom",
+  "icon": "minecraft:end_stone",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "The End Species",
+      "text": "Bees from The End are elusive and powerful, often requiring high-tier parent species to breed."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(li)Endstone Bee: Produces End Stone.$(br)$(li)Ender Bee: Produces Ender Pearls and can teleport when attacked."
+    }
+  ]
+}
