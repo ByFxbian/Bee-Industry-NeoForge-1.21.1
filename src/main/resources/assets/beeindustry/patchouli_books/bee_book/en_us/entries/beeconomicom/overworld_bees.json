@@ -6,27 +6,27 @@
     {
       "type": "patchouli:text",
       "title": "Tier 0: Foundational",
-      "text": "$(li)Dirt Bee: Produces Dirt.$(br)$(li)Stone Bee: Produces Cobblestone.$(br)$(li)Sand Bee: Produces Sand.$(br)$(li)Gravel Bee: Produces Flint.$(br)$(li)Water Bee: Produces Prismarine Shards."
+      "text": "$(li)Dirt Bee: Produces Dirt.$(br)$(o)Blocks: Dirt, Coarse Dirt, Rooted Dirt.$()$(br)$(li)Stone Bee: Produces Cobblestone.$(br)$(o)Blocks: Stone, Cobblestone, Andesite, Diorite, Granite, Deepslate.$()$(br)$(li)Sand Bee: Produces Sand.$(br)$(o)Blocks: Sand, Red Sand.$()$(br)$(li)Gravel Bee: Produces Flint.$(br)$(o)Block: Gravel.$()$(br)$(li)Water Bee: Produces Prismarine Shards.$(br)$(o)Blocks: Water, Kelp.$()"
     },
     {
       "type": "patchouli:text",
       "title": "Tier 1: Simple Hybrids",
-      "text": "$(li)Mossy Bee: Produces Moss Blocks.$(br)$(li)Lumber Bee: A worker bee that produces Tree Sap.$(br)$(li)Honey Bee: Produces Honey Blocks."
+      "text": "$(li)Mossy Bee: Produces Moss Blocks.$(br)$(o)Blocks: Moss Block, Mossy Cobblestone.$()$(br)$(li)Lumber Bee: A worker bee that collects Tree Sap from any log.$(br)$(li)Honey Bee: Produces Honey Blocks from any flower."
     },
     {
       "type": "patchouli:text",
       "title": "Tier 2: First Resources",
-      "text": "$(li)Coal Bee: Produces Coal.$(br)$(li)Resin Bee: Produces Sweet Honey fuel."
+      "text": "$(li)Coal Bee: Produces Coal.$(br)$(o)Blocks: Coal Ore, Deepslate Coal Ore, Coal Block.$()$(br)$(li)Resin Bee: Produces Sweet Honey fuel.$(br)$(o)Blocks: Any type of log.$()"
     },
     {
       "type": "patchouli:text",
       "title": "Tier 3: Metals",
-      "text": "$(li)Copper Bee: Produces Raw Copper.$(br)$(li)Iron Bee: Produces Raw Iron.$(br)$(li)Gold Bee: Produces Raw Gold."
+      "text": "$(li)Copper Bee: Produces Raw Copper.$(br)$(o)Blocks: Copper Ore, Deepslate Copper Ore, Copper Block.$()$(br)$(li)Iron Bee: Produces Raw Iron.$(br)$(o)Blocks: Iron Ore, Deepslate Iron Ore, Iron Block.$()$(br)$(li)Gold Bee: Produces Raw Gold.$(br)$(o)Blocks: Gold Ore, Deepslate Gold Ore, Gold Block.$()"
     },
     {
       "type": "patchouli:text",
       "title": "Tier 4: Gems & Magic",
-      "text": "$(li)Lapis Bee: Produces Lapis Lazuli.$(br)$(li)Redstone Bee: Produces Redstone Dust.$(br)$(li)Slime Bee: A rare find, produces Slime Balls."
+      "text": "$(li)Lapis Bee: Produces Lapis Lazuli.$(br)$(o)Blocks: Lapis Ore, Deepslate Lapis Ore, Lapis Block.$()$(br)$(li)Redstone Bee: Produces Redstone Dust.$(br)$(o)Blocks: Redstone Ore, Deepslate Redstone Ore, Redstone Block.$()$(br)$(li)Slime Bee: Produces Slime Balls.$(br)$(o)Block: Slime Block.$()"
     }
   ]
 }
