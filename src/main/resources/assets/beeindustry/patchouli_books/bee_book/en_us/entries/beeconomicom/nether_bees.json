@@ -13,4 +13,4 @@
       "text": "$(li)Netherrack Bee: Produces Netherrack.$(br)$(o)Block: Netherrack.$()$(br)$(li)Quartz Bee: Produces Quartz.$(br)$(o)Block: Nether Quartz Ore.$()$(br)$(li)Bone Bee: Produces Bone Meal.$(br)$(o)Block: Bone Block.$()$(br)$(li)Soul Sand Bee: Produces Soul Sand.$(br)$(o)Blocks: Soul Sand, Soul Soil.$()$(br)$(li)Glowstone Bee: Produces Glowstone Dust.$(br)$(o)Block: Glowstone.$()$(br)$(li)Lava Bee: Produces Magma Cream.$(br)$(o)Block: Magma Block.$()$(br)$(li)Blaze Bee: Produces Blaze Powder.$(br)$(o)Blocks: Magma Block, Nether Bricks.$()"
     }
   ]
-}}
+}
