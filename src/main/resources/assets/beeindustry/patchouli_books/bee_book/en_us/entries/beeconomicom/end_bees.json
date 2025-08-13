@@ -6,11 +6,11 @@
     {
       "type": "patchouli:text",
       "title": "The End Species",
-      "text": "Bees from The End are elusive and powerful, often requiring high-tier parent species to breed."
+      "text": "Bees from The End are elusive and powerful, often requiring high-tier parent species to breed or being found through a Lure."
     },
     {
       "type": "patchouli:text",
-      "text": "$(li)Endstone Bee: Produces End Stone.$(br)$(li)Ender Bee: Produces Ender Pearls and can teleport when attacked."
+      "text": "$(li)Endstone Bee: Produces End Stone.$(br)$(o)Blocks: End Stone, End Stone Bricks.$()$(br)$(li)Ender Bee: Produces Ender Pearls.$(br)$(o)Block: Dragon Egg.$()"
     }
   ]
 }
