@@ -10,12 +10,12 @@
     },
     {
       "type": "patchouli:text",
-      "text": "$(li)Emerald Bee: Produces Emeralds.$(br)$(li)Diamond Bee: Produces Diamonds.$(br)$(li)Obsidian Bee: A very slow but tough bee that produces Obsidian.$(br)$(li)Amethyst Bee: Produces Amethyst Shards.$(br)$(li)Ancient Debris Bee: The ultimate bee, produces Netherite Scrap and is invulnerable."
+      "text": "$(li)Emerald Bee: Produces Emeralds.$(br)$(o)Blocks: Emerald Ore, Deepslate Emerald Ore, Emerald Block.$()$(br)$(li)Diamond Bee: Produces Diamonds.$(br)$(o)Blocks: Diamond Ore, Deepslate Diamond Ore, Diamond Block.$()$(br)$(li)Obsidian Bee: Produces Obsidian.$(br)$(o)Blocks: Obsidian, Crying Obsidian.$()$(br)$(li)Amethyst Bee: Produces Amethyst Shards.$(br)$(o)Block: Amethyst Block.$()$(br)$(li)Ancient Debris Bee: Produces Netherite Scrap.$(br)$(o)Blocks: Ancient Debris, Netherite Block.$()"
     },
     {
       "type": "patchouli:text",
-      "title": "Worker & Utility Bees",
-      "text": "$(li)Farming Bee: Harvests crops.$(br)$(li)Mining Bee: Mines stone-type blocks.$(br)$(li)Fighting Bee: Attacks monsters.$(br)$(li)Breeze Bee: Produces Breeze Rods.$(br)$(li)Light Bee: Illuminates its surroundings.$(br)$(li)Rideable Bee: Can be ridden by players."
+      "title": "Utility & Worker Bees",
+      "text": "$(li)Farming Bee: Harvests crops.$(br)$(o)Block: Farmland.$()$(br)$(li)Ice Bee: Produces Ice.$(br)$(o)Blocks: Snow Block, Ice, Packed Ice.$()$(br)$(li)Breeze Bee: Produces Breeze Rods.$(br)$(o)Blocks: Tuff, Chiseled Tuff.$()$(br)$(li)Light Bee: Produces Torches.$(br)$(o)Blocks: Glowstone, Redstone Lamp, Froglights.$()$(br2)The other worker bees (Mining, Lumber, Fighting) do not require specific blocks to function, only a valid task in their work area."
     }
   ]
 }
