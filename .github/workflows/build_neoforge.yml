@@ -1,0 +1,44 @@
+name: Build NeoForge Mod
+
+on:
+  workflow_dispatch: {}   # manuell startbar im Actions-Tab
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      # Baut mit Java 21 UND 17 – deckt die gängigen MC/NeoForge-Versionen ab.
+      matrix:
+        java: [21, 17]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: ${{ matrix.java }}
+          cache: gradle
+
+      - name: Make gradlew executable
+        run: chmod +x gradlew
+
+      - name: Validate Gradle Wrapper
+        uses: gradle/actions/wrapper-validation@v3
+
+      - name: Build
+        run: ./gradlew --no-daemon clean build
+
+      - name: Upload mod jars
+        uses: actions/upload-artifact@v4
+        with:
+          name: mod-jars-java${{ matrix.java }}
+          path: |
+            build/libs/*.jar
+            !build/libs/*-sources.jar
+            !build/libs/*-javadoc.jar
+            !build/libs/*-dev.jar
