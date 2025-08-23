@@ -130,6 +130,8 @@ public class BeepostBlockEntity extends BlockEntity implements MenuProvider {
     private final Map<Integer, UUID> workingBees = new HashMap<>();
     private final Set<BlockPos> reservedBlocks = new HashSet<>();
 
+    private final Map<UUID, BlockPos> reservationsByBee = new HashMap<>();
+
     public BeepostBlockEntity(BlockPos pos, BlockState blockState) {
         super(BeeIndustryBlockEntities.BEEPOST_BE.get(), pos, blockState);
 
@@ -192,7 +194,7 @@ public class BeepostBlockEntity extends BlockEntity implements MenuProvider {
             Entity bee = serverLevel.getEntity(entry.getValue());
 
             if ((bee == null || !bee.isAlive()) ) {
-                System.out.println("----------------- BIENE IST TOT -----------------");
+                //System.out.println("----------------- BIENE IST TOT -----------------");
                 int slotToReset = entry.getKey();
                 itemHandler.setStackInSlot(slotToReset, new ItemStack(BeeIndustryItems.BEE_CONTAINER.get()));
 
@@ -499,6 +501,8 @@ public class BeepostBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     public void onWorkerBeeDied(UUID beeUuid) {
+        this.releaseReservationByBee(beeUuid);
+
         Integer slotToReset = null;
         for (Map.Entry<Integer, UUID> entry : this.workingBees.entrySet()) {
             if (entry.getValue().equals(beeUuid)) {
@@ -524,5 +528,18 @@ public class BeepostBlockEntity extends BlockEntity implements MenuProvider {
 
     public void releaseBlock(BlockPos pos) {
         this.reservedBlocks.remove(pos);
+        this.reservationsByBee.entrySet().removeIf(e -> pos.equals(e.getValue()));
+    }
+
+    public void reserveBlockForBee(BlockPos pos, UUID beeUuid) {
+        this.reservedBlocks.add(pos);
+        this.reservationsByBee.put(beeUuid, pos);
+    }
+
+    public void releaseReservationByBee(UUID beeUuid) {
+        BlockPos pos = this.reservationsByBee.remove(beeUuid);
+        if (pos != null) {
+            this.reservedBlocks.remove(pos);
+        }
     }
 }

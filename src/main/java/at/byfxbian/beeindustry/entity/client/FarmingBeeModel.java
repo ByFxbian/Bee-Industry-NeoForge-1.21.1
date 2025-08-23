@@ -74,7 +74,7 @@ public class FarmingBeeModel extends BeeModel<CustomBeeEntity> {
         );
 
         partdefinition2.addOrReplaceChild("bb_main", CubeListBuilder.create().texOffs(48, 1).addBox(-1.0F, -12.0F, -5.0F, 3.0F, 3.0F, 3.0F)
-                .texOffs(38, 7).addBox(-4.0F, -9.0F, -7.0F, 9.0F, 0.0F, 8.0F), PartPose.offset(0.0F, 24.0F, 0.0F));
+                .texOffs(38, 7).addBox(-4.0F, -9.0F, -7.0F, 9.0F, 0.0F, 8.0F), PartPose.offset(-0.5F, 5.0F, 0.0F));
 
         return LayerDefinition.create(meshdefinition, 64, 64);
     }
@@ -87,8 +87,8 @@ public class FarmingBeeModel extends BeeModel<CustomBeeEntity> {
         hat.xRot = this.body.xRot;
         hat.yRot = this.body.yRot;
         hat.zRot = this.body.zRot;
-        hat.x = this.body.x;
-        hat.y = this.body.y;
-        hat.z = this.body.z;
+        //hat.x = this.body.x;
+        //hat.y = this.body.y;
+        //hat.z = this.body.z;
     }
 }

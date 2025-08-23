@@ -3,11 +3,14 @@ package at.byfxbian.beeindustry.command;
 import at.byfxbian.beeindustry.block.custom.BaseNestBlock;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
+import net.minecraft.ChatFormatting;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.ClickEvent;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.HoverEvent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -48,6 +51,10 @@ public class LocateNestCommand {
                     player.sendSystemMessage(Component.literal("Nearest nest found at: " + pos.getX() + ", " + pos.getY() + ", " +pos.getZ()));
                     player.sendSystemMessage(Component.literal(
                             "/tp " + player.getName().getString() + " " + pos.getX() + " " + pos.getY() + " " + pos.getZ()
+                    ).withStyle(style ->
+                        style.withColor(ChatFormatting.GREEN)
+                        .withClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/tp @s " + pos.getX() + " " + (pos.getY() + 1) + " " + pos.getZ()))
+                        .withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Component.translatable("chat.coordinates.tooltip")))
                     ));
                 },
                 () -> player.sendSystemMessage(Component.literal("No nests found within a large distance."))

@@ -506,11 +506,11 @@ public class CustomBeeEntity extends Bee {
         this.goalSelector.addGoal(8, new BetterBeeWanderGoal()); // Dein verbessertes Herumfliegen-Goal
 
         if(this.getHivePos() != null) {
-            System.out.println("BIENE HAT ZUHAUSE ------------");
+            //System.out.println("BIENE HAT ZUHAUSE ------------");
             this.goalSelector.addGoal(1, new FleeOnLowHealthGoal(this));
             BlockEntity hive = this.level().getBlockEntity(this.getHivePos());
             if (hive instanceof BeepostBlockEntity) {
-                System.out.println("ZUHAUSE IST BEEPOST ------------");
+               // System.out.println("ZUHAUSE IST BEEPOST ------------");
                 if (this.getBeeType().getPath().contains("mining")) {
                     this.goalSelector.addGoal(1, new MiningGoal(this));
                     this.targetSelector.addGoal(1, new BeeHurtByOtherGoal(this));
@@ -525,7 +525,7 @@ public class CustomBeeEntity extends Bee {
                     //this.goalSelector.addGoal(1, new FightingGoal(this));
                     this.targetSelector.addGoal(1, new FindEnemyGoal(this));
                 } else if (this.getBeeType().getPath().contains("lumber")) {
-                    System.out.println("BIENE IST LUMBER ------------");
+                    //System.out.println("BIENE IST LUMBER ------------");
                     this.goalSelector.addGoal(1, new CollectSapGoal(this));
                     this.targetSelector.addGoal(1, new BeeHurtByOtherGoal(this));
                     this.targetSelector.addGoal(2, new BeeBecomeAngryTargetGoal(this));

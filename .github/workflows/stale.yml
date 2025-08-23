@@ -1,0 +1,20 @@
+name: Close stale issues
+on:
+  schedule:
+    - cron: "0 3 * * *"
+permissions:
+  issues: write
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v9
+        with:
+          days-before-stale: 14
+          days-before-close: 7
+          stale-issue-label: "needs-info"
+          only-labels: "needs-info"
+          stale-issue-message: |
+            This issue is missing required information and has been marked as needs-info.
+            It will be closed automatically if no update is provided within 7 days.
+          close-issue-message: "Closing due to inactivity. Feel free to open a new issue with complete information."

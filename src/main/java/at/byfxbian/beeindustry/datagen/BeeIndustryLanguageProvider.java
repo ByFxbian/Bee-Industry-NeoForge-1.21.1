@@ -60,7 +60,7 @@ public class BeeIndustryLanguageProvider extends LanguageProvider {
         add("item.beeindustry.bee_container.tooltip.empty", "Empty");
 
         add("item.beeindustry.apiarists_compass.no_nest_found", "No wild nests found nearby.");
-        add("tooltip.beeindustry.apiarists_compass.description", "Right-click to sense the direction of a nearby nest. (Look around)");
+        add("tooltip.beeindustry.apiarists_compass.description", "Right-click to sense the direction of a nearby nest. Look around to find particles that guide you. (Nodes - Looking near the nest | Sparks - Looking at the nest)");
 
         add("tooltip.beeindustry.hold_shift_for_info", "Hold [SHIFT] for more information.");
         add("tooltip.beeindustry.beekeeper_helmet", "Bees calm down 90% faster.");

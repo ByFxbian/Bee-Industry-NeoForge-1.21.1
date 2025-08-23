@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: CurseForge page
+    url: https://www.curseforge.com/minecraft/mc-mods/bee-industry
+    about: Read the description and changelog before opening an issue.

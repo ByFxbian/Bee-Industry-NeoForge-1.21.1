@@ -11,7 +11,10 @@
         },
         "target": {
           "block_state": {
-            "Name": "minecraft:dirt"
+            "Name": "minecraft:grass_block",
+            "Properties": {
+              "snowy": "false"
+            }
           },
           "predicate_type": "minecraft:blockstate_match"
         }

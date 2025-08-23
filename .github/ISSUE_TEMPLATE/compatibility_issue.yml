@@ -1,0 +1,26 @@
+name: "Compatibility issue"
+description: "Conflicts with other mods or loaders."
+title: "[Compat]: "
+labels: ["compatibility", "needs-triage"]
+body:
+  - type: input
+    id: other_mod
+    attributes:
+      label: Other mod(s) & versions
+      placeholder: "Mod A 1.2.3, Mod B 4.5.6"
+    validations:
+      required: true
+  - type: textarea
+    id: symptoms
+    attributes:
+      label: What goes wrong?
+      placeholder: "Conflicting recipes, broken GUI, crash, etc."
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: latest.log / crash report
+      render: text
+    validations:
+      required: false

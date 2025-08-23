@@ -1,0 +1,87 @@
+name: "Bug report"
+description: "Report a reproducible bug in Bee Industry."
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: checkboxes
+    attributes:
+      label: Before you start
+      options:
+        - label: I searched existing issues and did not find a duplicate.
+          required: true
+        - label: I tested on the latest Bee Industry version for my Minecraft/NeoForge.
+          required: true
+  - type: input
+    id: bi_version
+    attributes:
+      label: Bee Industry Version
+      placeholder: "e.g., 1.0.3"
+    validations:
+      required: true
+  - type: input
+    id: mc_version
+    attributes:
+      label: Minecraft version
+      placeholder: "e.g., 1.21.1"
+    validations:
+      required: true
+  - type: input
+    id: neoforge_version
+    attributes:
+      label: NeoForge version
+      placeholder: "e.g., 21.1.5"
+    validations:
+      required: true
+  - type: input
+    id: java_version
+    attributes:
+      label: Java Version
+      placeholder: "e.g., 17.0.10 (vendor?)"
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: "Windows 11 / Linux (distro) / macOS"
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction steps
+      description: "Numbered steps. Keep it minimal."
+      placeholder: |
+        1. Place Beepost
+        2. Insert 1x Farming Bee + 1x Sweet Honey
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: latest.log (and/or debug log)
+      description: "Drag & drop the file, or paste a gist link. Issues without logs may be closed as needs-info."
+      render: text
+    validations:
+      required: false
+  - type: textarea
+    id: modlist
+    attributes:
+      label: Mod list
+      description: "List mods & versions or attach a Modrinth/CurseForge profile link."
+      render: text
+    validations:
+      required: false

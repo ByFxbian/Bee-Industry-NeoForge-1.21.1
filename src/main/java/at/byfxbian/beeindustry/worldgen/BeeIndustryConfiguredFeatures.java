@@ -64,7 +64,7 @@ public class BeeIndustryConfiguredFeatures {
 
         register(context, DIRT_NEST_KEY, BeeIndustryFeatures.NEST_PLACEMENT_FEATURE.get(),
                 new ReplaceBlockConfiguration(
-                        Blocks.DIRT.defaultBlockState(),
+                        Blocks.GRASS_BLOCK.defaultBlockState(),
                         BeeIndustryBlocks.DIRT_NEST.get().defaultBlockState()
                 )
         );

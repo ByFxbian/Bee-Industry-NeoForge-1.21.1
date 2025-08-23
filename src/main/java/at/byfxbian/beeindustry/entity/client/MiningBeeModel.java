@@ -89,8 +89,8 @@ public class MiningBeeModel extends BeeModel<CustomBeeEntity> {
         helmet.xRot = this.body.xRot;
         helmet.yRot = this.body.yRot;
         helmet.zRot = this.body.zRot;
-        helmet.x = this.body.x;
-        helmet.y = this.body.y;
-        helmet.z = this.body.z;
+       // helmet.x = this.body.x;
+       // helmet.y = this.body.y;
+       // helmet.z = this.body.z;
     }
 }

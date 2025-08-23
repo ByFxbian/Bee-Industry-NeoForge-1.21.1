@@ -50,7 +50,7 @@ public class ApiaristsCompassItem extends Item {
             );
         }
 
-        player.getCooldowns().addCooldown(this, 100);
+        player.getCooldowns().addCooldown(this, 200);
         return InteractionResultHolder.success(itemStack);
     }
 

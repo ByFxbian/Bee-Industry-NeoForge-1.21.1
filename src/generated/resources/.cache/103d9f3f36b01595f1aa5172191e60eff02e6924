@@ -1,4 +1,4 @@
-// 1.21.1	2025-08-11T16:46:03.4695057	Registries
+// 1.21.1	2025-08-20T19:22:52.8589934	Registries
 18c82e38a4cee0852801c37c9666e9d595c18781 data/beeindustry/beeindustry/custom_bee/amethyst_bee.json
 b4e79311817743cd9c19bfdd111ba887215c3614 data/beeindustry/beeindustry/custom_bee/ancient_debris_bee.json
 43880f839134c10f4a2ca42ffcdbe373388a96a8 data/beeindustry/beeindustry/custom_bee/blaze_bee.json
@@ -37,11 +37,11 @@ ac245f265fca22a4b580b6aea875175fb3097082 data/beeindustry/beeindustry/custom_bee
 49e65988e7b4a502c35de3721714a0bbbd200e8f data/beeindustry/beeindustry/custom_bee/soul_sand_bee.json
 40ac3cf19e6d844b9e0fc0bb636f9e0bdc985dd1 data/beeindustry/beeindustry/custom_bee/stone_bee.json
 386b9be2a31133a2c09329445b7d5ad94246f30b data/beeindustry/beeindustry/custom_bee/water_bee.json
-d4f8eb63abf77a1c5374597d6dbfdf043cbb50c1 data/beeindustry/neoforge/biome_modifier/add_dirt_nest.json
+f9acb1c2249c32457e0657f12e33292196cc494d data/beeindustry/neoforge/biome_modifier/add_dirt_nest.json
 03ca668a8829d55d0e9e35132f0178ddd6a3d046 data/beeindustry/neoforge/biome_modifier/add_gravel_nest.json
 d67fbc25ae473643b9fbad19781771f617920c36 data/beeindustry/neoforge/biome_modifier/add_sand_nest.json
 aead78a0610dd753c26fd58be5b33625d884bb2b data/beeindustry/neoforge/biome_modifier/add_stone_nest.json
-c9273ba82111e3e9f73fe3934bd4e62d4c18d652 data/beeindustry/worldgen/configured_feature/dirt_nest.json
+349fe5ed6bf48a2ef974a49d007a0434112cafe4 data/beeindustry/worldgen/configured_feature/dirt_nest.json
 ca973edd8241c27602eda39f348b03b784c814b3 data/beeindustry/worldgen/configured_feature/gravel_nest.json
 93498d3ef68340d38565424ec83e2dd71919bc7a data/beeindustry/worldgen/configured_feature/sand_nest.json
 4ffe1dfc9b64720d5af31fc370705385433f03cc data/beeindustry/worldgen/configured_feature/stone_nest.json

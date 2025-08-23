@@ -87,12 +87,20 @@ public class FarmingGoal extends Goal {
                     return;
                 }
 
-                if(!bee.level().getBlockState(targetCropPos).is(BlockTags.CROPS)) {
+                BlockState st = bee.level().getBlockState(targetCropPos);
+                if(!(st.getBlock() instanceof CropBlock crop) || !crop.isMaxAge(st)) {
                     if (this.targetCropPos != null) {
                         this.beepost.releaseBlock(this.targetCropPos);
                         this.targetCropPos = null;
                     }
-                    this.currentState = State.FIND_CROP;
+
+                    if(this.cropsCollected > 0 || !bee.getInventory().isEmpty()) {
+                        this.currentState = State.RETURN_TO_POST;
+                        returnToPost();
+                    } else {
+                        this.currentState = State.FIND_CROP;
+                    }
+
                     return;
                 }
 
@@ -163,7 +171,8 @@ public class FarmingGoal extends Goal {
 
         nearestCrop.ifPresentOrElse(pos -> {
             this.targetCropPos = pos;
-            this.beepost.reserveBlock(pos);
+            //this.beepost.reserveBlock(pos);
+            this.beepost.reserveBlockForBee(pos, bee.getUUID());
             bee.getNavigation().moveTo(pos.getX(), pos.getY(), pos.getZ(), 1.0);
             this.currentState = State.GO_TO_CROP;
         }, () -> {

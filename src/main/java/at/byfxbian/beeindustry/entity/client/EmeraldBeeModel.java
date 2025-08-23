@@ -70,7 +70,7 @@ public class EmeraldBeeModel extends BeeModel<CustomBeeEntity> {
                 "back_legs", CubeListBuilder.create().addBox("back_legs", -5.0F, 0.0F, 0.0F, 7, 2, 0, 26, 5), PartPose.offset(1.5F, 3.0F, 2.0F)
         );
 
-        partdefinition2.addOrReplaceChild("bb_main", CubeListBuilder.create().texOffs(39, 0).addBox(-1.0F, -5.0F, -7.0F, 3.0F, 4.0F, 2.0F), PartPose.offset(0.0F, 24.0F, 0.0F));
+        partdefinition2.addOrReplaceChild("bb_main", CubeListBuilder.create().texOffs(41, 0).addBox(-1.0F, -4.0F, -1.0F, 3.0F, 4.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(-0.5F, 4.0F, -6.0F));
 
         return LayerDefinition.create(meshdefinition, 64, 64);
     }
@@ -84,8 +84,8 @@ public class EmeraldBeeModel extends BeeModel<CustomBeeEntity> {
         nose.xRot = this.body.xRot;
         nose.yRot = this.body.yRot;
         nose.zRot = this.body.zRot;
-        nose.x = this.body.x;
-        nose.y = this.body.y;
-        nose.z = this.body.z;
+        //nose.x = this.body.x;
+        //nose.y = this.body.y;
+        //nose.z = this.body.z;
     }
 }

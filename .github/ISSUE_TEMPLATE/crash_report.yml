@@ -1,0 +1,54 @@
+name: "Crash report"
+description: "Game crashes or fails to load."
+title: "[Crash]: "
+labels: ["crash", "needs-triage"]
+body:
+  - type: checkboxes
+    attributes:
+      label: Before you start
+      options:
+        - label: I searched existing issues and did not find a duplicate.
+          required: true
+        - label: I tested on the latest Bee Industry version for my Minecraft/NeoForge.
+          required: true
+  - type: input
+    id: bi_version
+    attributes:
+      label: Bee Industry version
+    validations:
+      required: true
+  - type: input
+    id: mc_version
+    attributes:
+      label: Minecraft version
+    validations:
+      required: true
+  - type: input
+    id: neoforge_version
+    attributes:
+      label: NeoForge version
+    validations:
+      required: true
+  - type: textarea
+    id: crashlog
+    attributes:
+      label: Crash report
+      description: "Drag & drop the crash report file from the crash-reports folder, or paste a gist link."
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: latestlog
+    attributes:
+      label: latest.log
+      description: "Often essential to diagnose root cause. Drag & drop or gist."
+      render: text
+    validations:
+      required: false
+  - type: textarea
+    id: modlist
+    attributes:
+      label: Mod list
+      render: text
+    validations:
+      required: false

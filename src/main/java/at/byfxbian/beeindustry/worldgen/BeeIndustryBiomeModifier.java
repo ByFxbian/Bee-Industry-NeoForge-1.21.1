@@ -24,7 +24,7 @@ public class BeeIndustryBiomeModifier {
         var biomes = context.lookup(Registries.BIOME);
 
         context.register(ADD_DIRT_NEST, new BiomeModifiers.AddFeaturesBiomeModifier(
-                HolderSet.direct(biomes.getOrThrow(Biomes.PLAINS), biomes.getOrThrow(Biomes.FOREST)),
+                HolderSet.direct(biomes.getOrThrow(Biomes.PLAINS), biomes.getOrThrow(Biomes.FOREST), biomes.getOrThrow(Biomes.SAVANNA), biomes.getOrThrow(Biomes.MEADOW), biomes.getOrThrow(Biomes.FLOWER_FOREST), biomes.getOrThrow(Biomes.BIRCH_FOREST), biomes.getOrThrow(Biomes.DARK_FOREST), biomes.getOrThrow(Biomes.OLD_GROWTH_BIRCH_FOREST), biomes.getOrThrow(Biomes.WINDSWEPT_FOREST), biomes.getOrThrow(Biomes.OLD_GROWTH_PINE_TAIGA), biomes.getOrThrow(Biomes.TAIGA), biomes.getOrThrow(Biomes.OLD_GROWTH_SPRUCE_TAIGA), biomes.getOrThrow(Biomes.BAMBOO_JUNGLE), biomes.getOrThrow(Biomes.JUNGLE), biomes.getOrThrow(Biomes.SPARSE_JUNGLE), biomes.getOrThrow(Biomes.SUNFLOWER_PLAINS)),
                 HolderSet.direct(placedFeatures.getOrThrow(BeeIndustryPlacedFeatures.DIRT_NEST_PLACED_KEY)),
                 GenerationStep.Decoration.TOP_LAYER_MODIFICATION
         ));

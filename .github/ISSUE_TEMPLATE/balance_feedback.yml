@@ -1,0 +1,29 @@
+name: "Balance feedback"
+description: "Rates, costs, power level of bees/machines/upgrades."
+title: "[Balance]: "
+labels: ["balance", "needs-triage"]
+body:
+  - type: input
+    id: subject
+    attributes:
+      label: What is this about?
+      placeholder: "e.g., Diamond Bee output / Beepost fuel / Efficiency upgrade"
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: Current behavior / numbers
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Suggested change
+    validations:
+      required: true
+  - type: textarea
+    id: reasoning
+    attributes:
+      label: Reasoning
+      placeholder: "Early game pace, late game economy, parity with vanilla, etc."

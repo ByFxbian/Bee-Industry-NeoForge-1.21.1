@@ -1,0 +1,31 @@
+name: "Feature request"
+description: "Propose a new bee, machine, upgrade, or QoL improvement."
+title: "[Feature]: "
+labels: ["feature", "needs-triage"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: What do you want?
+      placeholder: "Short summary of the feature."
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Why is this useful?
+      placeholder: "Player value / balance impact / progression fit."
+    validations:
+      required: true
+  - type: checkboxes
+    id: datapackable
+    attributes:
+      label: Could this be datapack-driven?
+      options:
+        - label: Yes, a datapack could cover most of this.
+        - label: No, needs code/API changes.
+  - type: textarea
+    id: details
+    attributes:
+      label: Details / examples
+      placeholder: "Optional: mockups, numbers, recipes."
